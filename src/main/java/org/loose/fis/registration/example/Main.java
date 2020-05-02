@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.loose.fis.registration.example.services.UserService;
 
 public class Main extends Application {
@@ -18,9 +19,12 @@ public class Main extends Application {
 
         UserService.loadUsersFromFile();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
+        primaryStage.initStyle(StageStyle.DECORATED); // Dezactivare Title Bar
         primaryStage.setTitle("Mediline");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        //root.getStylesheets().add("style.css");
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root, 400, 600));
         primaryStage.show();
     }
 }

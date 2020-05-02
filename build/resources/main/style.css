@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "Source Sans Pro Black";
+    src: url("fonts/SourceSansPro/SourceSansPro-Black.otf");
+}
+
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url("fonts/SourceSansPro/SourceSansPro-Regular.otf");
+}
+
+@font-face {
+    font-family: "Avenir Next LT Pro Bold";
+    src: url("fonts/Avenir/AvenirNextLTPro-Bold.otf");
+}
+
+@font-face {
+    font-family: "Avenir Next LT Pro";
+    src: url("fonts/Avenir/AvenirNextLTPro-Regular.otf");
+}
+
+.body {
+    -fx-background-color: white;
+}
+
+.button {
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-font-size: 16;
+    -fx-font-family: "Source Sans Pro";
+    -fx-padding: 2 2 2 2;
+    -fx-pref-width: 150;
+}
+
+.inputTitle {
+    -fx-font-family: "Avenir Next LT Pro";
+    -fx-font-size: 18;
+    -fx-text-fill: black;
+}
+
+.mainButton {
+    -fx-background-color: #8963ba;
+    -fx-font-family: "Source Sans Pro Black";
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+
+.medilineLogo {
+    -fx-text-fill: #FFA400;
+    -fx-font-family: "Source Sans Pro Black";
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.mLogo {
+    -fx-text-fill: #54428E;
+    -fx-font-family: "Source Sans Pro Black";
+    -fx-font-size: 90;
+}
+
+.sublink {
+    -fx-font-family: "Avenir Next LT Pro";
+    -fx-font-size: 16;
+    -fx-text-fill: darkgray;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-pref-height: 40;
+    -fx-pref-width: 300;
+    -fx-font-size: 16;
+    -fx-padding: 5 5 5 5;
+}
+
+.title {
+    -fx-font-family: "Avenir Next LT Pro";
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 0;
+}
