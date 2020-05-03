@@ -1,11 +1,11 @@
-package org.loose.fis.registration.example.services;
+package onix.mediline.registration.example.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import onix.mediline.registration.example.exceptions.CouldNotWriteUsersException;
+import onix.mediline.registration.example.exceptions.UsernameAlreadyExistsException;
+import onix.mediline.registration.example.model.User;
 import org.apache.commons.io.FileUtils;
-import org.loose.fis.registration.example.exceptions.CouldNotWriteUsersException;
-import org.loose.fis.registration.example.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.registration.example.model.User;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

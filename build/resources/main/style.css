@@ -27,16 +27,32 @@
     -fx-background-radius: 0;
     -fx-border-color: black;
     -fx-border-width: 1;
+    -fx-cursor: hand;
     -fx-font-size: 16;
     -fx-font-family: "Source Sans Pro";
     -fx-padding: 2 2 2 2;
     -fx-pref-width: 150;
 }
 
-.inputTitle {
+.button:hover {
+    -fx-background-color: #f1f1f1;
+}
+
+.detailButton {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-border-color: rgba(0, 0, 0, 0);
     -fx-font-family: "Avenir Next LT Pro";
-    -fx-font-size: 18;
-    -fx-text-fill: black;
+    -fx-font-size: 16;
+    -fx-pref-width: 400;
+    -fx-text-fill: darkgray;
+    -fx-alignment: center;
+    -fx-padding: 10;
+    -fx-text-alignment: center;
+}
+
+.detailButton:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #8963ba;
 }
 
 .mainButton {
@@ -44,6 +60,17 @@
     -fx-font-family: "Source Sans Pro Black";
     -fx-text-fill: white;
     -fx-font-size: 16;
+}
+
+.mainButton:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #8963ba;
+}
+
+.inputTitle {
+    -fx-font-family: "Avenir Next LT Pro";
+    -fx-font-size: 18;
+    -fx-text-fill: black;
 }
 
 .medilineLogo {
@@ -65,6 +92,10 @@
     -fx-text-fill: darkgray;
 }
 
+.sublink:hover {
+
+}
+
 .text-field {
     -fx-background-color: white;
     -fx-background-radius: 0;
@@ -74,6 +105,10 @@
     -fx-pref-width: 300;
     -fx-font-size: 16;
     -fx-padding: 5 5 5 5;
+}
+
+.text-field:hover {
+    -fx-background-color: #f1f1f1;
 }
 
 .title {

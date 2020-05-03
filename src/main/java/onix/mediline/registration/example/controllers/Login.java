@@ -1,4 +1,4 @@
-package org.loose.fis.registration.example.controllers;
+package onix.mediline.registration.example.controllers;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;

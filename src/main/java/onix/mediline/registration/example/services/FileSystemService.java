@@ -1,4 +1,4 @@
-package org.loose.fis.registration.example.services;
+package onix.mediline.registration.example.services;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

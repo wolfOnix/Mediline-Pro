@@ -1,4 +1,4 @@
-package org.loose.fis.registration.example.model;
+package onix.mediline.registration.example.model;
 
 public class User {
 

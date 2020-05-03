@@ -1,12 +1,12 @@
-package org.loose.fis.registration.example.controllers;
+package onix.mediline.registration.example.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import org.loose.fis.registration.example.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.registration.example.services.UserService;
+import onix.mediline.registration.example.exceptions.UsernameAlreadyExistsException;
+import onix.mediline.registration.example.services.UserService;
 
 public class RegistrationController {
 
