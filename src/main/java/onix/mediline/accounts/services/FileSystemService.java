@@ -1,4 +1,4 @@
-package onix.mediline.registration.example.services;
+package onix.mediline.accounts.services;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

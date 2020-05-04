@@ -1,12 +1,12 @@
-package onix.mediline.registration.example.controllers;
+package onix.mediline.accounts.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import onix.mediline.registration.example.exceptions.UsernameAlreadyExistsException;
-import onix.mediline.registration.example.services.UserService;
+import onix.mediline.accounts.exceptions.UsernameAlreadyExistsException;
+import onix.mediline.accounts.services.UserService;
 
 public class RegistrationController {
 

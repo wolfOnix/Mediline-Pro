@@ -1,4 +1,4 @@
-package onix.mediline.registration.example.model;
+package onix.mediline.accounts.model;
 
 public class User {
 

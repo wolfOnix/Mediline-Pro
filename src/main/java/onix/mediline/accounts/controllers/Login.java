@@ -1,4 +1,4 @@
-package onix.mediline.registration.example.controllers;
+package onix.mediline.accounts.controllers;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;

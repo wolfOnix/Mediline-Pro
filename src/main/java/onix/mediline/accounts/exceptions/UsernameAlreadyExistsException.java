@@ -1,4 +1,4 @@
-package onix.mediline.registration.example.exceptions;
+package onix.mediline.accounts.exceptions;
 
 public class UsernameAlreadyExistsException extends Exception {
 

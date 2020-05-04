@@ -1,10 +1,10 @@
-package onix.mediline.registration.example.services;
+package onix.mediline.accounts.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import onix.mediline.registration.example.exceptions.CouldNotWriteUsersException;
-import onix.mediline.registration.example.exceptions.UsernameAlreadyExistsException;
-import onix.mediline.registration.example.model.User;
+import onix.mediline.accounts.exceptions.CouldNotWriteUsersException;
+import onix.mediline.accounts.exceptions.UsernameAlreadyExistsException;
+import onix.mediline.accounts.model.User;
 import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
