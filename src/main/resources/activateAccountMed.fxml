@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.ActivateAccountMed">
+<AnchorPane maxWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.ActivateAccountMed">
     <children>
         <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
             <fill>
@@ -14,12 +21,12 @@
                     <stops>
                         <Stop>
                             <color>
-                                <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
+                                <Color blue="0.729411780834198" green="0.38823530077934265" red="0.5372549295425415" />
                             </color>
                         </Stop>
                         <Stop offset="1.0">
                             <color>
-                                <Color red="1.0" green="0.6431372761726379" />
+                                <Color green="0.6431372761726379" red="1.0" />
                             </color>
                         </Stop>
                     </stops>
@@ -60,7 +67,7 @@
                 </AnchorPane>
             </content>
         </ScrollPane>
-        <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" text="ANULARE" />
+        <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
         <Button fx:id="btActivateAccount" layoutX="219.0" layoutY="521.0" mnemonicParsing="false" styleClass="mainButton" text="ACTIVARE CONT" />
     </children>
 </AnchorPane>

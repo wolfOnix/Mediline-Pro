@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountMed">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountMed">
     <children>
         <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
             <fill>
@@ -14,12 +18,12 @@
                     <stops>
                         <Stop>
                             <color>
-                                <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
+                                <Color blue="0.729411780834198" green="0.38823530077934265" red="0.5372549295425415" />
                             </color>
                         </Stop>
                         <Stop offset="1.0">
                             <color>
-                                <Color red="1.0" green="0.6431372761726379" />
+                                <Color green="0.6431372761726379" red="1.0" />
                             </color>
                         </Stop>
                     </stops>
@@ -31,7 +35,7 @@
             </font></Label>
         <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="68.0" styleClass="title" text="CREARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" text="ANULARE" />
+        <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" onAction="#handelButtonCancel" text="ANULARE" />
         <Button fx:id="btCreateAccount" layoutX="219.0" layoutY="521.0" mnemonicParsing="false" styleClass="mainButton" text="CREARE CONT" />
         <Label layoutX="50.0" layoutY="148.0" styleClass="inputTitle" text="Numele de familie al medicului" />
         <TextField fx:id="flNume" layoutX="50.0" layoutY="176.0" />
