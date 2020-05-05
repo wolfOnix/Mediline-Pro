@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.HomeAdmin">
+    <children>
+        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="0.6431372761726379" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill></Rectangle>
+        <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE">
+            <font>
+                <Font name="Source Sans Pro Black" size="30.0" />
+            </font></Label>
+        <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="90.0" styleClass="greeting" text="Bună ziua," AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" text="DECONECTARE" />
+      <Label fx:id="lbGreetingName" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="Johnny" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Pane fx:id="optNewAccountMed" layoutY="210.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ImageView layoutX="170.0" layoutY="16.0">
+               <image>
+                  <Image url="images/new_account.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btNewAccountMed" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="Creare cont medical" />
+         </children>
+      </Pane>
+      <Pane fx:id="optConfDelete" layoutX="0.0" layoutY="342.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+             <ImageView layoutX="170.0" layoutY="16.0">
+                 <image>
+                     <Image url="images/confirm_delete.png" />
+                 </image>
+             </ImageView>
+            <Button fx:id="btConfDelete" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="225.0" styleClass="optionButton" text="Confirmare ștergere conturi" />
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

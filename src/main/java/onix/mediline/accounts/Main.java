@@ -18,13 +18,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         UserService.loadUsersFromFile();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountMed.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdmin.fxml"));
         primaryStage.initStyle(StageStyle.DECORATED); // Dezactivare Title Bar
         primaryStage.setTitle("Mediline");
         root.getStylesheets().add("style.css");
         primaryStage.getIcons().add(new Image("images/logo.png"));
-        primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 400, 600));
+        primaryStage.setResizable(false); // false pentru blocare dimensionare ferestre landscape, true in rest?
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 }
