@@ -34,8 +34,9 @@ public class NewAccountMed extends NewAccount {
     private Label lbNume;
 
     @FXML
-    void handelButtonCancel(ActionEvent event) throws IOException {
-        try  { Stage CancelStage = (Stage) btCancel.getScene().getWindow();
+    void handleButtonCancel(ActionEvent event) throws IOException {
+        try  {
+            Stage CancelStage = (Stage) btCancel.getScene().getWindow();
             Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdmin.fxml"));
             Scene CancelScene = new Scene(Cancel);
             CancelStage.setScene(CancelScene);

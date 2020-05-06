@@ -98,13 +98,13 @@
 
 .greeting {
     -fx-font-family: "Source Sans Pro";
-    -fx-font-size: 18;
+    -fx-font-size: 20;
     -fx-padding: 0 0 0 0;
 }
 
 .greetingName {
     -fx-font-family: "Source Sans Pro Semibold";
-    -fx-font-size: 20;
+    -fx-font-size: 22;
     -fx-padding: 0 0 0 0;
 }
 
@@ -168,6 +168,11 @@
 
 .optionContainer:hover {
     -fx-background-color: rgba(255, 164, 0, 0.22);
+}
+
+.optionImage {
+    -fx-pref-height: 60;
+    -fx-pref-width: 60;
 }
 
 .panel {
