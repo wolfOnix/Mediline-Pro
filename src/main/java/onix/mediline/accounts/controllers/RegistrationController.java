@@ -6,7 +6,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import onix.mediline.accounts.exceptions.UsernameAlreadyExistsException;
-import onix.mediline.accounts.services.UserService;
+import onix.mediline.accounts.management.UsersManagement;
 
 public class RegistrationController {
 
@@ -27,7 +27,7 @@ public class RegistrationController {
     @FXML
     public void handleRegisterAction() {
         try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            UsersManagement.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Cont creat cu succes!");
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());

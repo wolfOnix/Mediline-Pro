@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import onix.mediline.accounts.services.UserService;
+import onix.mediline.accounts.management.UsersManagement;
 
 public class Main extends Application {
 
@@ -17,8 +17,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        UserService.loadUsersFromFile();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdmin.fxml"));
+        UsersManagement.loadUsersFromFile();
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         primaryStage.initStyle(StageStyle.DECORATED); // Dezactivare Title Bar
         primaryStage.setTitle("Mediline");
         root.getStylesheets().add("style.css");
