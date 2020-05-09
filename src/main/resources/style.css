@@ -110,6 +110,7 @@
 
 .mainButton {
     -fx-background-color: #8963ba;
+    -fx-border-color: #8963ba;
     -fx-font-family: "Source Sans Pro Black";
     -fx-text-fill: white;
     -fx-font-size: 16;

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.Login">
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.Login">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" styleClass="title" stylesheets="@style.css" text="CONECTARE CONT" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" styleClass="mLogo" stylesheets="@style.css" text="M" textAlignment="CENTER" textFill="#1b9665" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
@@ -15,11 +12,11 @@
       <TextField fx:id="flEmail" layoutX="51.0" layoutY="252.0" promptText="E-mail" stylesheets="@style.css" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0" />
       <PasswordField fx:id="flPassword" layoutX="51.0" layoutY="337.0" promptText="Parolă" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0" />
       <Button fx:id="btLogin" layoutX="200.0" layoutY="401.0" mnemonicParsing="false" styleClass="mainButton" stylesheets="@style.css" text="CONECTARE" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" />
-      <Button fx:id="btNewAccount" layoutX="126.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleButtonNewAccount" stylesheets="@style.css" text="CREARE CONT" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" />
+      <Button fx:id="btNewAccount" layoutX="125.0" layoutY="478.0" mnemonicParsing="false" onAction="#handleButtonNewAccount" stylesheets="@style.css" text="CREARE CONT" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="223.0" styleClass="inputTitle" stylesheets="@style.css" text="E-mail" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="309.0" styleClass="inputTitle" stylesheets="@style.css" text="Parolă" />
       <Button fx:id="btNewAdmin" layoutY="538.0" mnemonicParsing="false" onAction="#handleActionButtonNewAdmin" prefHeight="31.0" prefWidth="226.0" styleClass="detailButton" stylesheets="@style.css" text="Creare cont de administrator" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Button fx:id="btActivateAccount" layoutX="126.0" layoutY="525.0" mnemonicParsing="false" onAction="#handleButtonActivateAccount" stylesheets="@style.css" text="ACTIVARE CONT" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" />
+      <Button fx:id="btActivateAccount" layoutX="125.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleButtonActivateAccount" stylesheets="@style.css" text="ACTIVARE CONT" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" />
       <!--<Button fx:id="closeButton" layoutX="81.0" layoutY="321.0" mnemonicParsing="false" onAction="#closeButtonAction" text="X" /> Buton de inchidere-->
    </children>
    <cursor>
