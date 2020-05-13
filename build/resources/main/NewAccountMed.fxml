@@ -45,5 +45,6 @@
         <TextField fx:id="flEmail" layoutX="50.0" layoutY="332.0" />
         <Label layoutX="50.0" layoutY="382.0" styleClass="inputTitle" text="Cheia de activare a contului" />
         <Label fx:id="lbNume" layoutX="50.0" layoutY="410.0" styleClass="text-field" text="Cheia va fi generată la crearea contului" />
+        <Label fx:id="errCompleteAllFields" layoutX="100.0" layoutY="470.0" styleClass="errorLabel" text="Toate câmpurile trebuie completate" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
     </children>
 </AnchorPane>

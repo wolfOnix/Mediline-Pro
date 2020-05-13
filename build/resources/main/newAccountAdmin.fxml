@@ -48,5 +48,7 @@
             <PasswordField fx:id="flPassword" layoutX="50.0" layoutY="372.0" />
             <Label layoutX="50.0" layoutY="422.0" styleClass="inputTitle" text="Cheie de verificare administrator" />
             <PasswordField fx:id="flAdminKey" layoutX="50.0" layoutY="450.0" />
+        <Label fx:id="errPassMinEight" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" text="Parola trebuie să conțină minim opt caractere" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
+        <Label fx:id="errCompleteAllFields" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" text="Toate câmpurile trebuie completate" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
     </children>
 </AnchorPane>
