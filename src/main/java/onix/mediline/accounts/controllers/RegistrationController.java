@@ -5,7 +5,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import onix.mediline.accounts.exceptions.UsernameAlreadyExistsException;
+import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
 import onix.mediline.accounts.management.UsersManagement;
 
 public class RegistrationController {
@@ -24,13 +24,13 @@ public class RegistrationController {
         role.getItems().addAll("Pacient", "Administrator");
     }
 
-    @FXML
+   /* @FXML
     public void handleRegisterAction() {
         try {
             UsersManagement.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Cont creat cu succes!");
-        } catch (UsernameAlreadyExistsException e) {
+        } catch (EmailAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
         }
-    }
+    }*/
 }

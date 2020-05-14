@@ -12,14 +12,17 @@ import javafx.scene.control.ComboBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
+
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.management.UsersManagement;
+
 
 public class NewAccountPac extends NewAccount implements Initializable {
 
@@ -65,6 +68,16 @@ public class NewAccountPac extends NewAccount implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    void handleButtonRegistration(ActionEvent event) {
+        try {
+            UsersManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()));
+            System.out.println("Cont creat cu succes!");
+        } catch (EmailAlreadyExistsException e) {
+          System.out.println(e.getMessage());
+       }
+
     }
     @FXML
     private ComboBox<String> comboMF = new ComboBox<String>();

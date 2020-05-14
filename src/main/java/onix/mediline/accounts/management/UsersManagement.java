@@ -3,7 +3,9 @@ package onix.mediline.accounts.management;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import onix.mediline.accounts.exceptions.CouldNotWriteUsersException;
-import onix.mediline.accounts.exceptions.UsernameAlreadyExistsException;
+import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.model.Admin;
+import onix.mediline.accounts.model.Pacient;
 import onix.mediline.accounts.model.User;
 import org.apache.commons.io.FileUtils;
 
@@ -19,6 +21,7 @@ import java.util.Objects;
 public class UsersManagement {
 
     private static List<User> users;
+
     private static final Path USERS_PATH = FileManagement.getPathToFile("storage", "users.json");
 
     public static void loadUsersFromFile() throws IOException {
@@ -29,21 +32,32 @@ public class UsersManagement {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {
-        });
+        users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {});
     }
-
-    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
-        checkUserDoesNotAlreadyExist(username);
-        users.add(new User(username, encodePassword(username, password), role));
+    private static void checkUserDoesNotAlreadyExist(String FlEmail,String role) throws EmailAlreadyExistsException {
+        for (User user : users) {
+            if (Objects.equals(role, user.getRole()) && Objects.equals(FlEmail, user.getFlEmail()))
+                throw new EmailAlreadyExistsException(FlEmail);
+        }
+    }
+    /* not for the momment
+      private static void checkUserAdminKey(String flAdminKey) throws CheckAdminKeyException {
+          for (User user : users) {
+              Admin pers = (Admin) user ;
+              if (Objects.equals("Admin", user.getRole()) && !Objects.equals(flAdminKey, pers.getFlAdminKey()))
+                  throw new CheckAdminKeyException(flAdminKey);
+          }
+      }*/
+    public static void addPacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) throws EmailAlreadyExistsException {
+        checkUserDoesNotAlreadyExist(flEmail,"Pacient");
+        users.add(new Pacient(flNume,flPrenume, flEmail, encodePassword(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon,flData));
         persistUsers();
     }
-
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
-        for (User user : users) {
-            if (Objects.equals(username, user.getUsername()))
-                throw new UsernameAlreadyExistsException(username);
-        }
+    public static void addAdmin(String flNume, String flPrenume, String flEmail, String flPassword, String flAdminKey) throws EmailAlreadyExistsException {
+        checkUserDoesNotAlreadyExist(flEmail,"Admin");
+        //checkUserAdminKey(flAdminKey);
+        users.add(new Admin(flNume, flPrenume, flEmail,  encodePassword(flEmail, flPassword),  flAdminKey));
+        persistUsers();
     }
 
     private static void persistUsers() {

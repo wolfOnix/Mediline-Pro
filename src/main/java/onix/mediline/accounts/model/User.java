@@ -1,34 +1,35 @@
 package onix.mediline.accounts.model;
 
-public class User {
+import java.util.List;
+import java.util.Objects;
 
-    private String username;
-    private String password;
+public abstract class User {
     private String role;
+    private String flNume;
+    private String flPrenume;
+    private String flEmail;
+    private String flPassword;
 
-    public User() {
+    @Override
+    public String toString() {
+        return "role='" + role + '\'' +
+                ",{ flNume='" + flNume + '\'' +
+                ", flPrenume='" + flPrenume + '\'' +
+                ", flEmail='" + flEmail + '\'' +
+                ", flPassword='" + flPassword + '\'';
     }
 
-    public User(String username, String password, String role) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(flEmail, user.flEmail);
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public int hashCode() {
+        return Objects.hash(flPassword);
     }
 
     public String getRole() {
@@ -39,32 +40,44 @@ public class User {
         this.role = role;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (!username.equals(user.username)) return false;
-        if (!password.equals(user.password)) return false;
-        return role.equals(user.role);
+    public String getFlNume() {
+        return flNume;
     }
 
-    @Override
-    public int hashCode() {
-        int result = username.hashCode();
-        result = 31 * result + password.hashCode();
-        result = 31 * result + role.hashCode();
-        return result;
+    public void setFlNume(String flNume) {
+        this.flNume = flNume;
     }
 
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+    public String getFlPrenume() {
+        return flPrenume;
     }
+
+    public void setFlPrenume(String flPrenume) {
+        this.flPrenume = flPrenume;
+    }
+
+    public String getFlEmail() {
+        return flEmail;
+    }
+
+    public void setFlEmail(String flEmail) {
+        this.flEmail = flEmail;
+    }
+
+    public String getFlPassword() {
+        return flPassword;
+    }
+
+    public void setFlPassword(String flPassword) {
+        this.flPassword = flPassword;
+    }
+
+    public User(String role, String flNume, String flPrenume, String flEmail, String flPassword) {
+        this.role = role;
+        this.flNume = flNume;
+        this.flPrenume = flPrenume;
+        this.flEmail = flEmail;
+        this.flPassword = flPassword;
+    }
+
 }
