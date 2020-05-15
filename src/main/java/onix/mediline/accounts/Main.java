@@ -12,6 +12,7 @@ import onix.mediline.accounts.management.UsersManagement;
 public class Main extends Application {
 
     public static void main(String[] args) {
+        //System.out.println("" + UsersManagement.encryptString("adminKey", ":G332Xr8es"));
         launch(args);
     }
 

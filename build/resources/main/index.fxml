@@ -7,8 +7,8 @@
 <AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.Login">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" styleClass="title" stylesheets="@style.css" text="CONECTARE CONT" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" styleClass="mLogo" stylesheets="@style.css" text="M" textAlignment="CENTER" textFill="#1b9665" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" styleClass="medilineLogo" stylesheets="@style.css" text="MEDILINE" textAlignment="CENTER" textFill="#0015ff" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" styleClass="mLogo" stylesheets="@style.css" text="M" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" styleClass="medilineLogo" stylesheets="@style.css" text="MEDILINE" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="223.0" styleClass="inputTitle" stylesheets="@style.css" text="E-mail" />
       <TextField fx:id="flEmail" layoutX="51.0" layoutY="252.0" promptText="E-mail" stylesheets="@style.css" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="309.0" styleClass="inputTitle" stylesheets="@style.css" text="Parolă" />
@@ -19,7 +19,6 @@
       <Button fx:id="btNewAdmin" layoutY="538.0" mnemonicParsing="false" onAction="#handleActionButtonNewAdmin" prefHeight="31.0" prefWidth="226.0" styleClass="detailButton" stylesheets="@style.css" text="Creare cont de administrator" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label fx:id="errIncorrectLogin" layoutX="1.0" layoutY="446.0" styleClass="errorLabel" text="Datele de conectare sunt incorecte" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
       <Label fx:id="errCompleteAllFields" layoutX="100.0" layoutY="446.0" styleClass="errorLabel" text="Toate câmpurile trebuie completate" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
-      <!--<Button fx:id="closeButton" layoutX="81.0" layoutY="321.0" mnemonicParsing="false" onAction="#closeButtonAction" text="X" /> Buton de inchidere-->
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

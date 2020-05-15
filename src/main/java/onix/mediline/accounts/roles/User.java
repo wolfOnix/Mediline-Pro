@@ -1,6 +1,5 @@
-package onix.mediline.accounts.model;
+package onix.mediline.accounts.roles;
 
-import java.util.List;
 import java.util.Objects;
 
 public abstract class User {
@@ -12,8 +11,8 @@ public abstract class User {
 
     @Override
     public String toString() {
-        return "role='" + role + '\'' +
-                ",{ flNume='" + flNume + '\'' +
+        return ",{ role='" + role + '\'' +
+                "flNume='" + flNume + '\'' +
                 ", flPrenume='" + flPrenume + '\'' +
                 ", flEmail='" + flEmail + '\'' +
                 ", flPassword='" + flPassword + '\'';

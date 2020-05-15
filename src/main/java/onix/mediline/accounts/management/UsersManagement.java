@@ -4,9 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import onix.mediline.accounts.exceptions.CouldNotWriteUsersException;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
-import onix.mediline.accounts.model.Admin;
-import onix.mediline.accounts.model.Pacient;
-import onix.mediline.accounts.model.User;
+import onix.mediline.accounts.roles.Admin;
+import onix.mediline.accounts.roles.Pacient;
+import onix.mediline.accounts.roles.User;
 import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
@@ -29,17 +29,17 @@ public class UsersManagement {
         if (!Files.exists(USERS_PATH)) {
             FileUtils.copyURLToFile(UsersManagement.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
         }
-
         ObjectMapper objectMapper = new ObjectMapper();
-
         users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {});
     }
+
     private static void checkUserDoesNotAlreadyExist(String FlEmail,String role) throws EmailAlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(role, user.getRole()) && Objects.equals(FlEmail, user.getFlEmail()))
                 throw new EmailAlreadyExistsException(FlEmail);
         }
     }
+
     /* not for the momment
       private static void checkUserAdminKey(String flAdminKey) throws CheckAdminKeyException {
           for (User user : users) {
@@ -48,15 +48,17 @@ public class UsersManagement {
                   throw new CheckAdminKeyException(flAdminKey);
           }
       }*/
+
     public static void addPacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) throws EmailAlreadyExistsException {
         checkUserDoesNotAlreadyExist(flEmail,"Pacient");
-        users.add(new Pacient(flNume,flPrenume, flEmail, encodePassword(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon,flData));
+        users.add(new Pacient(flNume,flPrenume, flEmail, encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon,flData));
         persistUsers();
     }
+
     public static void addAdmin(String flNume, String flPrenume, String flEmail, String flPassword, String flAdminKey) throws EmailAlreadyExistsException {
         checkUserDoesNotAlreadyExist(flEmail,"Admin");
         //checkUserAdminKey(flAdminKey);
-        users.add(new Admin(flNume, flPrenume, flEmail,  encodePassword(flEmail, flPassword),  flAdminKey));
+        users.add(new Admin(flNume, flPrenume, flEmail,  encryptString(flEmail, flPassword),  flAdminKey));
         persistUsers();
     }
 
@@ -69,15 +71,12 @@ public class UsersManagement {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encryptString (String key, String password) {
         MessageDigest md = getMessageDigest();
-        md.update(salt.getBytes(StandardCharsets.UTF_8));
-
+        md.update(key.getBytes(StandardCharsets.UTF_8));
         byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
-
         // This is the way a password should be encoded when checking the credentials
-        return new String(hashedPassword, StandardCharsets.UTF_8)
-                .replace("\"", ""); //to be able to save in JSON format
+        return new String(hashedPassword, StandardCharsets.UTF_8).replace("\"", ""); //to be able to save in JSON format
     }
 
     private static MessageDigest getMessageDigest() {

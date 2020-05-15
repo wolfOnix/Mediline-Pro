@@ -1,7 +1,5 @@
-package onix.mediline.accounts.model;
+package onix.mediline.accounts.roles;
 
-
-import java.util.Objects;
 
 public class Admin extends User {
 

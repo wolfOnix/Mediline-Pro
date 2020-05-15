@@ -1,6 +1,4 @@
-package onix.mediline.accounts.model;
-
-import java.util.Objects;
+package onix.mediline.accounts.roles;
 
 public class Medic extends User  {
 
