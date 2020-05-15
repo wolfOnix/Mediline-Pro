@@ -3,12 +3,24 @@ package onix.mediline.accounts.roles;
 
 public class Pacient extends User  {
 
-
     private String flCNP;
     private String flAdresa;
     private String flOras;
     private String flTelefon;
     private String flData;
+
+    public Pacient () {
+        super();
+    }
+
+    public Pacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) {
+        super("Pacient",flNume,flPrenume,flEmail,flPassword);
+        this.flCNP = flCNP;
+        this.flAdresa = flAdresa;
+        this.flOras = flOras;
+        this.flTelefon = flTelefon;
+        this.flData = flData;
+    }
 
     @Override
     public String toString() {
@@ -61,12 +73,4 @@ public class Pacient extends User  {
         this.flData = flData;
     }
 
-    public Pacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) {
-        super("Pacient",flNume,flPrenume,flEmail,flPassword);
-        this.flCNP = flCNP;
-        this.flAdresa = flAdresa;
-        this.flOras = flOras;
-        this.flTelefon = flTelefon;
-        this.flData = flData;
-    }
 }

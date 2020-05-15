@@ -8,7 +8,6 @@ import onix.mediline.accounts.roles.Admin;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;
 import org.apache.commons.io.FileUtils;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -25,18 +24,16 @@ public class UsersManagement {
     private static final Path USERS_PATH = FileManagement.getPathToFile("storage", "users.json");
 
     public static void loadUsersFromFile() throws IOException {
-
-        if (!Files.exists(USERS_PATH)) {
-            FileUtils.copyURLToFile(UsersManagement.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
-        }
+        if (!Files.exists(USERS_PATH))
+            FileUtils.copyURLToFile(Objects.requireNonNull(UsersManagement.class.getClassLoader().getResource("json/users.json")), USERS_PATH.toFile());
         ObjectMapper objectMapper = new ObjectMapper();
         users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {});
     }
 
-    private static void checkUserDoesNotAlreadyExist(String FlEmail,String role) throws EmailAlreadyExistsException {
+    private static void checkUserDoesNotAlreadyExist(String flEmail) throws EmailAlreadyExistsException {
         for (User user : users) {
-            if (Objects.equals(role, user.getRole()) && Objects.equals(FlEmail, user.getFlEmail()))
-                throw new EmailAlreadyExistsException(FlEmail);
+            if (Objects.equals(flEmail, user.getFlEmail()))
+                throw new EmailAlreadyExistsException(flEmail);
         }
     }
 
@@ -50,19 +47,19 @@ public class UsersManagement {
       }*/
 
     public static void addPacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) throws EmailAlreadyExistsException {
-        checkUserDoesNotAlreadyExist(flEmail,"Pacient");
+        checkUserDoesNotAlreadyExist(flEmail);
         users.add(new Pacient(flNume,flPrenume, flEmail, encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon,flData));
-        persistUsers();
+        addUserIntoFile();
     }
 
     public static void addAdmin(String flNume, String flPrenume, String flEmail, String flPassword, String flAdminKey) throws EmailAlreadyExistsException {
-        checkUserDoesNotAlreadyExist(flEmail,"Admin");
+        checkUserDoesNotAlreadyExist(flEmail);
         //checkUserAdminKey(flAdminKey);
-        users.add(new Admin(flNume, flPrenume, flEmail,  encryptString(flEmail, flPassword),  flAdminKey));
-        persistUsers();
+        users.add(new Admin(flNume, flPrenume, flEmail, encryptString(flEmail, flPassword), flAdminKey));
+        addUserIntoFile();
     }
 
-    private static void persistUsers() {
+    private static void addUserIntoFile() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
@@ -88,6 +85,5 @@ public class UsersManagement {
         }
         return md;
     }
-
 
 }

@@ -6,10 +6,8 @@ public class Admin extends User {
 
     private String flAdminKey;
 
-    @Override
-    public String toString() {
-        return super.toString() + '\'' +
-                "flAdminKey='" + flAdminKey + "}";
+    public Admin () {
+        super();
     }
 
     public Admin(String flNume, String flPrenume, String flEmail, String flPassword, String flAdminKey) {
@@ -17,6 +15,11 @@ public class Admin extends User {
         this.flAdminKey = flAdminKey;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + '\'' +
+                "flAdminKey='" + flAdminKey + "}";
+    }
     public void setFlAdminKey(String flAdminKey) {
         this.flAdminKey = flAdminKey;
     }

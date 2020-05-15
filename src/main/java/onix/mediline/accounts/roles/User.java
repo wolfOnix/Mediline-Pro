@@ -1,18 +1,34 @@
 package onix.mediline.accounts.roles;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.Objects;
 
-public abstract class User {
+//@JsonDeserialize(as = Admin.class, Pacient.class)
+public class User {
+
     private String role;
     private String flNume;
     private String flPrenume;
     private String flEmail;
     private String flPassword;
 
+    public User() {
+        super();
+    }
+
+    public User (String role, String flNume, String flPrenume, String flEmail, String flPassword) {
+        this.role = role;
+        this.flNume = flNume;
+        this.flPrenume = flPrenume;
+        this.flEmail = flEmail;
+        this.flPassword = flPassword;
+    }
+
     @Override
     public String toString() {
-        return ",{ role='" + role + '\'' +
-                "flNume='" + flNume + '\'' +
+        return "UserDTO{ role='" + role + '\'' +
+                ", flNume='" + flNume + '\'' +
                 ", flPrenume='" + flPrenume + '\'' +
                 ", flEmail='" + flEmail + '\'' +
                 ", flPassword='" + flPassword + '\'';
@@ -71,12 +87,6 @@ public abstract class User {
         this.flPassword = flPassword;
     }
 
-    public User(String role, String flNume, String flPrenume, String flEmail, String flPassword) {
-        this.role = role;
-        this.flNume = flNume;
-        this.flPrenume = flPrenume;
-        this.flEmail = flEmail;
-        this.flPassword = flPassword;
-    }
+
 
 }
