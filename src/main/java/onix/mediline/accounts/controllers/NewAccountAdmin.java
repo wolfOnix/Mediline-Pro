@@ -10,7 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
-import onix.mediline.accounts.management.UsersManagement;
+import onix.mediline.accounts.management.AdminManagement;
 
 import java.io.IOException;
 
@@ -52,8 +52,8 @@ public class NewAccountAdmin extends NewAccount {
     @FXML
     void handleButtonCreateAccount(ActionEvent event) throws IOException {
         try {
-            UsersManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
-            System.out.println("Cont creat cu succes(Admin)!");
+            AdminManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
+            System.out.println("Cont creat cu succes (Admin)!");
         } catch (EmailAlreadyExistsException e) {
             System.out.println(e.getMessage());
         } //catch (CheckAdminKeyException e) {

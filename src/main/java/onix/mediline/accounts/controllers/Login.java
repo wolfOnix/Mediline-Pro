@@ -4,6 +4,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 public class Login {
+
     @FXML
     private Button btLogin;
 
@@ -25,7 +27,10 @@ public class Login {
     private Button btActivateAccount;
 
     @FXML
-    private javafx.scene.control.Button closeButton;
+    private Button closeButton;
+
+    @FXML
+    private Label lbErrMessage;
 
     @FXML
     void handleActionButtonNewAdmin(ActionEvent event) throws IOException {

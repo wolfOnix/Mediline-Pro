@@ -31,7 +31,7 @@ public class NewAccountMed extends NewAccount {
     private TextField flEmail;
 
     @FXML
-    private Label lbNume;
+    private Label lbNume, lbErrMessage;
 
     @FXML
     void handleButtonCancel(ActionEvent event) throws IOException {

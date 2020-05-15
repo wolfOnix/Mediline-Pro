@@ -40,7 +40,7 @@ public class ActivateAccountMed implements Initializable {
     private PasswordField flPassword;
 
     @FXML
-    private Label lbMedid;
+    private Label lbMedid, lbErrMessage;
 
     @FXML
     private TextField flAdresa;
@@ -72,6 +72,7 @@ public class ActivateAccountMed implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        lbErrMessage.setText("Eroare!");
         comboJudet.setItems(listaMF);
     }
 

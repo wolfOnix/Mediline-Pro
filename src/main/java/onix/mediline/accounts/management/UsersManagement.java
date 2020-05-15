@@ -44,7 +44,7 @@ public class UsersManagement {
               if (Objects.equals("Admin", user.getRole()) && !Objects.equals(flAdminKey, pers.getFlAdminKey()))
                   throw new CheckAdminKeyException(flAdminKey);
           }
-      }*/
+    }*/
 
     public static void addPacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) throws EmailAlreadyExistsException {
         checkUserDoesNotAlreadyExist(flEmail);

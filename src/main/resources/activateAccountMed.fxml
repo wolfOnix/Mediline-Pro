@@ -62,7 +62,6 @@
         </ScrollPane>
         <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
         <Button fx:id="btActivateAccount" layoutX="219.0" layoutY="521.0" mnemonicParsing="false" styleClass="mainButton" text="ACTIVARE CONT" />
-        <Label fx:id="errPassMinEight" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" text="Parola trebuie să conțină minim opt caractere" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
-        <Label fx:id="errCompleteAllFields" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" text="Toate câmpurile trebuie completate" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
+        <Label fx:id="lbErrMessage" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
     </children>
 </AnchorPane>

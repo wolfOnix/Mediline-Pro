@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountPac">
+<AnchorPane maxWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountPac">
    <children>
       <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
          <fill>
@@ -22,12 +14,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color blue="0.729411780834198" green="0.38823530077934265" red="0.5372549295425415" />
+                        <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color green="0.6431372761726379" red="1.0" />
+                        <Color red="1.0" green="0.6431372761726379" />
                      </color>
                   </Stop>
                </stops>
@@ -69,7 +61,6 @@
       </ScrollPane>
       <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" onAction="#handlebuttonCancel" text="ANULARE" />
       <Button fx:id="btCreateAccount" layoutX="219.0" layoutY="521.0" mnemonicParsing="false" onAction="#handleButtonRegistration" styleClass="mainButton" text="CREARE CONT" />
-      <Label fx:id="errPassMinEight" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" text="Parola trebuie să conțină minim opt caractere" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
-      <Label fx:id="errCompleteAllFields" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" text="Toate câmpurile trebuie completate" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
+      <Label fx:id="lbErrMessage" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
    </children>
 </AnchorPane>

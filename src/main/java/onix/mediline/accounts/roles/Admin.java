@@ -1,6 +1,5 @@
 package onix.mediline.accounts.roles;
 
-
 public class Admin extends User {
 
 

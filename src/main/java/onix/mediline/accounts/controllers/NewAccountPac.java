@@ -9,18 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-
+import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.management.PacManagement;
 import onix.mediline.accounts.management.UsersManagement;
 
 
@@ -60,6 +59,9 @@ public class NewAccountPac extends NewAccount implements Initializable {
     private Button btCreateAccount;
 
     @FXML
+    private Label lbErrMessage;
+
+    @FXML
     void handlebuttonCancel(ActionEvent event) throws IOException {
         try  { Stage CancelStage = (Stage) btCancel.getScene().getWindow();
             Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
@@ -72,7 +74,7 @@ public class NewAccountPac extends NewAccount implements Initializable {
     @FXML
     void handleButtonRegistration(ActionEvent event) {
         try {
-            UsersManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()));
+            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()));
             System.out.println("Cont creat cu succes!");
         } catch (EmailAlreadyExistsException e) {
           System.out.println(e.getMessage());

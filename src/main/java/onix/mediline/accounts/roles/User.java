@@ -87,6 +87,4 @@ public class User {
         this.flPassword = flPassword;
     }
 
-
-
 }
