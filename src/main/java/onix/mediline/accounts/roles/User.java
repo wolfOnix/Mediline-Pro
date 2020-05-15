@@ -1,4 +1,4 @@
-package onix.mediline.accounts.model;
+package onix.mediline.accounts.roles;
 
 public class User {
 
