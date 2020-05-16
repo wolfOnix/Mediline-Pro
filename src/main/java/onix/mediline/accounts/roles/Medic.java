@@ -1,82 +1,86 @@
 package onix.mediline.accounts.roles;
 
+import java.util.ArrayList;
+
 public class Medic extends User  {
 
-    private String flActivationKey;
-    private String lbMedid;
-    private String flAdresa;
-    private String flOras;
-    private String flTelefon;
-    private String flEmailServ;
+    private String cheieActivare, medID, adresa, oras, telefon, emailServiciu;
+    private boolean contActiv = false;
+    private ArrayList<Pacient> listaPac;
+
+    public Medic () {
+        super();
+    }
+
+    public Medic(String flNume, String flPrenume, String flEmail, String flActivationKey, String lbMedid, String flAdresa, String flOras, String flTelefon, String flEmailServ, String flPassword) {
+        super(flNume, flPrenume, flEmail, flPassword);
+        this.cheieActivare = flActivationKey;
+        this.medID = lbMedid;
+        this.adresa = flAdresa;
+        this.oras = flOras;
+        this.telefon = flTelefon;
+        this.emailServiciu = flEmailServ;
+    }
 
     @Override
     public String toString() {
         return super.toString() + '\'' +
-                "flActivationKey='" + flActivationKey + '\'' +
-                ", lbMedid='" + lbMedid + '\'' +
-                ", flAdresa='" + flAdresa + '\'' +
-                ", flOras='" + flOras + '\'' +
-                ", flTelefon='" + flTelefon + '\'' +
-                ", flEmailServ='" + flEmailServ + '\'' +
+                " Cheieactivare = '" + cheieActivare + '\'' +
+                ", MedID = '" + medID + '\'' +
+                ", Adresa = '" + adresa + '\'' +
+                ", Oras = '" + oras + '\'' +
+                ", Telefon = '" + telefon + '\'' +
+                ", Emailserviciu = '" + emailServiciu + '\'' +
+                ", Contactiv = '" + contActiv + '\'' +
                 '}';
     }
 
     public String getFlActivationKey() {
-        return flActivationKey;
+        return cheieActivare;
     }
 
     public void setFlActivationKey(String flActivationKey) {
-        this.flActivationKey = flActivationKey;
+        this.cheieActivare = flActivationKey;
     }
 
     public String getLbMedid() {
-        return lbMedid;
+        return medID;
     }
 
     public void setLbMedid(String lbMedid) {
-        this.lbMedid = lbMedid;
+        this.medID = lbMedid;
     }
 
     public String getFlAdresa() {
-        return flAdresa;
+        return adresa;
     }
 
     public void setFlAdresa(String flAdresa) {
-        this.flAdresa = flAdresa;
+        this.adresa = flAdresa;
     }
 
     public String getFlOras() {
-        return flOras;
+        return oras;
     }
 
     public void setFlOras(String flOras) {
-        this.flOras = flOras;
+        this.oras = flOras;
     }
 
     public String getFlTelefon() {
-        return flTelefon;
+        return telefon;
     }
 
     public void setFlTelefon(String flTelefon) {
-        this.flTelefon = flTelefon;
+        this.telefon = flTelefon;
     }
 
     public String getFlEmailServ() {
-        return flEmailServ;
+        return emailServiciu;
     }
 
     public void setFlEmailServ(String flEmailServ) {
-        this.flEmailServ = flEmailServ;
+        this.emailServiciu = flEmailServ;
     }
 
-
-    public Medic(String flNume, String flPrenume, String flEmail, String flActivationKey, String lbMedid, String flAdresa, String flOras, String flTelefon, String flEmailServ, String flPassword) {
-        super("Medic",flNume,flPrenume,flEmail,flPassword);
-        this.flActivationKey = flActivationKey;
-        this.lbMedid = lbMedid;
-        this.flAdresa = flAdresa;
-        this.flOras = flOras;
-        this.flTelefon = flTelefon;
-        this.flEmailServ = flEmailServ;
-    }
 }

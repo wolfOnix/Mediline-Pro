@@ -15,19 +15,7 @@ import java.io.IOException;
 public class Login {
 
     @FXML
-    private Button btLogin;
-
-    @FXML
-    private Button btNewAccount;
-
-    @FXML
-    private Button btNewAdmin;
-
-    @FXML
-    private Button btActivateAccount;
-
-    @FXML
-    private Button closeButton;
+    private Button btLogin, btNewAccount, btNewAdmin, btActivateAccount, closeButton;
 
     @FXML
     private Label lbErrMessage;

@@ -1,76 +1,71 @@
 package onix.mediline.accounts.roles;
 
-
 public class Pacient extends User  {
 
-    private String flCNP;
-    private String flAdresa;
-    private String flOras;
-    private String flTelefon;
-    private String flData;
+    private String cnp, adresa, oras, telefon, dataNasterii;
 
     public Pacient () {
         super();
     }
 
     public Pacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) {
-        super("Pacient",flNume,flPrenume,flEmail,flPassword);
-        this.flCNP = flCNP;
-        this.flAdresa = flAdresa;
-        this.flOras = flOras;
-        this.flTelefon = flTelefon;
-        this.flData = flData;
+        super(flNume, flPrenume, flEmail, flPassword);
+        this.cnp = flCNP;
+        this.adresa = flAdresa;
+        this.oras = flOras;
+        this.telefon = flTelefon;
+        this.dataNasterii = flData;
     }
 
     @Override
     public String toString() {
         return super.toString() + '\'' +
-                "flCNP='" + flCNP + '\'' +
-                ", flAdresa='" + flAdresa + '\'' +
-                ", flOras='" + flOras + '\'' +
-                ", flTelefon='" + flTelefon + '\'' +
-                ", flData='" + flData + '\'' +
+                ", CNP ='" + cnp + '\'' +
+                ", Adresa = '" + adresa + '\'' +
+                ", Oras = '" + oras + '\'' +
+                ", Telefon = '" + telefon + '\'' +
+                ", Datanasterii = '" + dataNasterii + '\'' +
                 '}';
     }
 
     public String getFlCNP() {
-        return flCNP;
+        return cnp;
     }
 
     public void setFlCNP(String flCNP) {
-        this.flCNP = flCNP;
+        this.cnp = flCNP;
     }
 
     public String getFlAdresa() {
-        return flAdresa;
+        return adresa;
     }
 
     public void setFlAdresa(String flAdresa) {
-        this.flAdresa = flAdresa;
+        this.adresa = flAdresa;
     }
 
     public String getFlOras() {
-        return flOras;
+        return oras;
     }
 
     public void setFlOras(String flOras) {
-        this.flOras = flOras;
+        this.oras = flOras;
     }
 
     public String getFlTelefon() {
-        return flTelefon;
+        return telefon;
     }
 
     public void setFlTelefon(String flTelefon) {
-        this.flTelefon = flTelefon;
+        this.telefon = flTelefon;
     }
 
     public String getFlData() {
-        return flData;
+        return dataNasterii;
     }
 
     public void setFlData(String flData) {
-        this.flData = flData;
+        this.dataNasterii = flData;
     }
 
 }

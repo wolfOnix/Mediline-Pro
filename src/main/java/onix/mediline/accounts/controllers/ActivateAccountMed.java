@@ -28,37 +28,16 @@ public class ActivateAccountMed implements Initializable {
     ObservableList<String> listaMF = FXCollections.observableArrayList("AB", "AG", "AR", "B", "BC", "BH", "BN", "BR", "BT", "BV", "BZ", "CJ", "CL", "CS", "CT", "CV", "DB", "DJ", "GJ", "GL", "GR", "HD", "HR", "IF", "IL", "IS", "MH", "MM", "MS", "NT", "OT", "PH", "SB", "SJ", "SM", "SV", "TL", "TM", "TR", "VL", "VN", "VS");
 
     @FXML
-    private Label lbNume;
-
-    @FXML
-    private Label lbPrenume;
-
-    @FXML
-    private Label lbEmail;
+    private Label lbEmail, lbMedid, lbErrMessage, lbInfoOverErr;
 
     @FXML
     private PasswordField flPassword;
 
     @FXML
-    private Label lbMedid, lbErrMessage;
+    private TextField flAdresa, flOras, flTelefon, flEmailServ, flPrenume, flNume;
 
     @FXML
-    private TextField flAdresa;
-
-    @FXML
-    private TextField flOras;
-
-    @FXML
-    private TextField flTelefon;
-
-    @FXML
-    private TextField flEmailServ;
-
-    @FXML
-    private Button btCancel;
-
-    @FXML
-    private Button btActivateAccount;
+    private Button btCancel, btActivateAccount;
 
     @FXML
     void handleButtonCancel(ActionEvent event) {
@@ -72,7 +51,6 @@ public class ActivateAccountMed implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lbErrMessage.setText("Eroare!");
         comboJudet.setItems(listaMF);
     }
 

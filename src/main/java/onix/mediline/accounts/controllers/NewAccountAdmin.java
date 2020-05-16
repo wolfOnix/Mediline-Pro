@@ -18,27 +18,16 @@ import java.io.IOException;
 public class NewAccountAdmin extends NewAccount {
 
     @FXML
-    private Button btCancel;
+    private Button btCancel, btCreateAccount;
 
     @FXML
-    private Button btCreateAccount;
+    private TextField flNume, flPrenume, flEmail;
 
     @FXML
-    private TextField flNume;
+    private PasswordField flPassword, flAdminKey;
 
     @FXML
-    private TextField flPrenume;
-
-    @FXML
-    private TextField flEmail;
-
-    @FXML
-    private PasswordField flPassword;
-
-    @FXML
-    private PasswordField flAdminKey;
-    @FXML
-    private Label lbErrMessage;
+    private Label lbErrMessage, lbInfoOverErr;
 
     @FXML
     void handleButtonCancel(ActionEvent event) throws IOException {
@@ -59,6 +48,7 @@ public class NewAccountAdmin extends NewAccount {
             System.out.println("Cont creat cu succes (Admin)!");
         } catch (EmailAlreadyExistsException e) {
             lbErrMessage.setText(e.getMessage());
+            lbInfoOverErr.setText("");
         } //catch (CheckAdminKeyException e) {
           //  System.out.println(e.getMessage());
         //}

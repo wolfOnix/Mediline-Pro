@@ -1,90 +1,75 @@
 package onix.mediline.accounts.roles;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import java.util.Objects;
 
-//@JsonDeserialize(as = Admin.class, Pacient.class)
 public class User {
 
-    private String role;
-    private String flNume;
-    private String flPrenume;
-    private String flEmail;
-    private String flPassword;
+    private String nume, prenume, email, password;
 
     public User() {
         super();
     }
 
-    public User (String role, String flNume, String flPrenume, String flEmail, String flPassword) {
-        this.role = role;
-        this.flNume = flNume;
-        this.flPrenume = flPrenume;
-        this.flEmail = flEmail;
-        this.flPassword = flPassword;
+    public User (String flNume, String flPrenume, String flEmail, String flPassword) {
+        nume = flNume;
+        prenume = flPrenume;
+        email = flEmail;
+        password = flPassword;
     }
 
     @Override
     public String toString() {
-        return "UserDTO{ role='" + role + '\'' +
-                ", flNume='" + flNume + '\'' +
-                ", flPrenume='" + flPrenume + '\'' +
-                ", flEmail='" + flEmail + '\'' +
-                ", flPassword='" + flPassword + '\'';
+        return "{ Nume = '" + nume + '\'' +
+                ", Prenume = '" + prenume + '\'' +
+                ", E-mail = '" + email + '\'' +
+                ", Parola = '" + password + '\'';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         User user = (User) o;
-        return Objects.equals(flEmail, user.flEmail);
+        return Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flPassword);
+        return Objects.hash(password);
     }
 
-    public String getRole() {
-        return role;
+    public String getNume() {
+        return nume;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getFlNume() {
-        return flNume;
-    }
-
-    public void setFlNume(String flNume) {
-        this.flNume = flNume;
+    public void setNume(String nume) {
+        this.nume = nume;
     }
 
     public String getFlPrenume() {
-        return flPrenume;
+        return prenume;
     }
 
     public void setFlPrenume(String flPrenume) {
-        this.flPrenume = flPrenume;
+        this.prenume = flPrenume;
     }
 
     public String getFlEmail() {
-        return flEmail;
+        return email;
     }
 
     public void setFlEmail(String flEmail) {
-        this.flEmail = flEmail;
+        this.email = flEmail;
     }
 
     public String getFlPassword() {
-        return flPassword;
+        return password;
     }
 
     public void setFlPassword(String flPassword) {
-        this.flPassword = flPassword;
+        this.password = flPassword;
     }
 
 }

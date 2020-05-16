@@ -22,13 +22,10 @@ public class ActivateAccountMedKey {
     private PasswordField flActivationKey;
 
     @FXML
-    private Button btForward;
+    private Button btForward, btCancel;
 
     @FXML
-    private Button btCancel;
-
-    @FXML
-    private Label lbErrMessage;
+    private Label lbErrMessage, lbInfoOverErr;
 
     @FXML
     void handleButtonCancel(ActionEvent event) throws IOException {

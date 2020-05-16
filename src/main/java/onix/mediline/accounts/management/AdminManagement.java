@@ -17,56 +17,31 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Objects;
 
-public class AdminManagement {
+public class AdminManagement extends UsersManagement{
 
-    private static List<Admin> users;
     private static final Path USERS_PATH = FileManagement.getPathToFile("storage", "users_admin.json");
 
     public static void loadUsersFromFile() throws IOException {
         if (!Files.exists(USERS_PATH))
             FileUtils.copyURLToFile(Objects.requireNonNull(AdminManagement.class.getClassLoader().getResource("json/users.json")), USERS_PATH.toFile());
         ObjectMapper objectMapper = new ObjectMapper();
-        users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Admin>>() {});
-    }
-
-    private static void checkUserDoesNotAlreadyExist(String flEmail) throws EmailAlreadyExistsException {
-        for (Admin i : users) {
-            if (Objects.equals(flEmail, i.getFlEmail()))
-                throw new EmailAlreadyExistsException(flEmail);
-        }
+        users_admin = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Admin>>() {});
     }
 
     public static void addAdmin (String flNume, String flPrenume, String flEmail, String flPassword, String flAdminKey) throws EmailAlreadyExistsException {
         checkUserDoesNotAlreadyExist(flEmail);
         //checkUserAdminKey(flAdminKey);
-        users.add(new Admin(flNume, flPrenume, flEmail, encryptString(flEmail, flPassword), flAdminKey));
+        users_admin.add(new Admin(flNume, flPrenume, flEmail, Encryption.encryptString(flEmail, flPassword)));
         addUserIntoFile();
     }
 
     private static void addUserIntoFile() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users_admin);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
-    }
-
-    public static String encryptString (String key, String password) {
-        MessageDigest md = getMessageDigest();
-        md.update(key.getBytes(StandardCharsets.UTF_8));
-        byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
-        return new String(hashedPassword, StandardCharsets.UTF_8).replace("\"", "");
-    }
-
-    private static MessageDigest getMessageDigest() {
-        MessageDigest md;
-        try {
-            md = MessageDigest.getInstance("SHA-512");
-        } catch (NoSuchAlgorithmException e) {
-            throw new IllegalStateException("SHA-512 does not exist!");
-        }
-        return md;
     }
 
 }

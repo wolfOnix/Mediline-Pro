@@ -16,22 +16,13 @@ import java.io.IOException;
 public class NewAccountMed extends NewAccount {
 
     @FXML
-    private Button btCancel;
+    private Button btCancel, btCreateAccount;
 
     @FXML
-    private Button btCreateAccount;
+    private TextField flNume, flPrenume, flEmail;
 
     @FXML
-    private TextField flNume;
-
-    @FXML
-    private TextField flPrenume;
-
-    @FXML
-    private TextField flEmail;
-
-    @FXML
-    private Label lbNume, lbErrMessage;
+    private Label lbNume, lbErrMessage, lbInfoOverErr;
 
     @FXML
     void handleButtonCancel(ActionEvent event) throws IOException {

@@ -30,17 +30,18 @@
                 <Font name="Source Sans Pro Black" size="30.0" />
             </font></Label>
         <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="68.0" styleClass="title" text="CREARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
-        <Button fx:id="btCreateAccount" layoutX="219.0" layoutY="521.0" mnemonicParsing="false" styleClass="mainButton" text="CREARE CONT" />
-        <Label layoutX="50.0" layoutY="148.0" styleClass="inputTitle" text="Numele de familie al medicului" />
-        <TextField fx:id="flNume" layoutX="50.0" layoutY="176.0" />
-        <Label layoutX="50.0" layoutY="226.0" styleClass="inputTitle" text="Prenumele medicului" />
-        <TextField fx:id="flPrenume" layoutX="50.0" layoutY="254.0" />
-        <Label layoutX="50.0" layoutY="304.0" styleClass="inputTitle" text="Adresa de e-mail a medicului" />
-        <TextField fx:id="flEmail" layoutX="50.0" layoutY="332.0" />
-        <Label layoutX="50.0" layoutY="382.0" styleClass="inputTitle" text="Cheia de activare a contului" />
-        <Label fx:id="lbNume" layoutX="50.0" layoutY="410.0" styleClass="text-field" text="Cheia va fi generată la crearea contului" />
-        <Label fx:id="lbErrMessage" layoutX="1.0" layoutY="107.0" styleClass="errorLabel" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="66.0" styleClass="title" text="CREARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
+        <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" styleClass="mainButton" text="CREARE CONT" />
+        <Label layoutX="50.0" layoutY="203.0" styleClass="inputTitle" text="Numele de familie al medicului" />
+        <TextField fx:id="flNume" layoutX="50.0" layoutY="231.0" />
+        <Label layoutX="50.0" layoutY="281.0" styleClass="inputTitle" text="Prenumele medicului" />
+        <TextField fx:id="flPrenume" layoutX="50.0" layoutY="309.0" />
+        <Label layoutX="50.0" layoutY="359.0" styleClass="inputTitle" text="Adresa de e-mail a medicului" />
+        <TextField fx:id="flEmail" layoutX="50.0" layoutY="387.0" />
+        <Label layoutX="50.0" layoutY="437.0" styleClass="inputTitle" text="Cheia de activare a contului" />
+        <Label fx:id="lbNume" layoutX="50.0" layoutY="465.0" styleClass="text-field" text="Cheia va fi generată la crearea contului" />
+        <Label fx:id="lbErrMessage" layoutY="100.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Label fx:id="lbInfoOverErr" layoutY="100.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a crea un cont nou medical, introduceți corect datele cerute în câmpurile de mai jos. Copiați și transmiteți cheia de activare medicului de familie!" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
     </children>
 </AnchorPane>

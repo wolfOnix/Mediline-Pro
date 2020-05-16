@@ -45,6 +45,7 @@
 }
 
 .button {
+    -fx-alignment: center;
     -fx-background-color: white;
     -fx-background-radius: 0;
     -fx-border-color: black;
@@ -54,6 +55,7 @@
     -fx-font-family: "Source Sans Pro";
     -fx-padding: 2 2 2 2;
     -fx-pref-width: 150;
+    -fx-text-alignment: center;
 }
 
 .button:hover {
@@ -83,19 +85,21 @@
     -fx-pref-width: 400;
     -fx-text-fill: darkgray;
     -fx-alignment: center;
-    -fx-padding: 10;
+    -fx-padding: 5 2 5 2;
     -fx-text-alignment: center;
 }
 
 .detailButton:hover {
-    -fx-background-color: white;
+    -fx-background-color: transparent;
     -fx-text-fill: #8963ba;
 }
 
 .errorLabel {
     -fx-alignment: center;
     -fx-font-size: 16;
+    -fx-text-alignment: center;
     -fx-text-fill: #ee1515;
+    -fx-padding: 5 2 5 2;
 }
 
 .gradientPad {
@@ -157,6 +161,7 @@
     -fx-font-family: "Avenir Next LT Pro Bold";
     -fx-font-weight: bold;
     -fx-font-size: 18;
+    -fx-padding: 5 2 5 2;
     -fx-text-alignment: center;
 }
 
@@ -239,10 +244,12 @@
 }
 
 .title {
+    -fx-alignment: center;
     -fx-font-family: "Avenir Next LT Pro";
     -fx-font-size: 18;
     -fx-font-weight: bold;
     -fx-padding: 0 0 0 0;
+    -fx-text-alignment: center;
 }
 
 .scroll-bar:horizontal .track,

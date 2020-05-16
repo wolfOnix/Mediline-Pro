@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountPac">
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountPac">
    <children>
       <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
          <fill>
@@ -30,8 +30,8 @@
             <Font name="Source Sans Pro Black" size="30.0" />
          </font></Label>
       <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-      <Label layoutX="99.0" layoutY="68.0" styleClass="title" text="CREARE CONT PACIENT" />
-      <ScrollPane layoutX="32.0" layoutY="113.0" prefHeight="384.0" prefWidth="400.0" styleClass="panel" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label layoutY="66.0" styleClass="title" text="CREARE CONT PACIENT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <ScrollPane layoutY="150.0" prefHeight="404.0" prefWidth="400.0" styleClass="panel" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="395.0" styleClass="panel">
                <children>
@@ -59,8 +59,10 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Button fx:id="btCancel" layoutX="219.0" layoutY="558.0" mnemonicParsing="false" onAction="#handlebuttonCancel" text="ANULARE" />
-      <Button fx:id="btCreateAccount" layoutX="219.0" layoutY="521.0" mnemonicParsing="false" onAction="#handleButtonRegistration" styleClass="mainButton" text="CREARE CONT" />
-      <Label fx:id="lbErrMessage" layoutX="85.0" layoutY="90.0" styleClass="errorLabel" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
+      <Rectangle arcHeight="0.0" arcWidth="0.0" fill="white" height="42.0" layoutX="0.0" layoutY="548.0" width="400.0" />
+      <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handlebuttonCancel" text="ANULARE" />
+      <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonRegistration" styleClass="mainButton" text="CREARE CONT" />
+      <Label fx:id="lbErrMessage" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="lbInfoOverErr" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a crea un cont nou de pacient, introduceți corect datele cerute în câmpurile de mai jos" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>
