@@ -77,7 +77,7 @@ public class NewAccountPac extends NewAccount implements Initializable {
             PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()));
             System.out.println("Cont creat cu succes!");
         } catch (EmailAlreadyExistsException e) {
-          System.out.println(e.getMessage());
+            lbErrMessage.setText(e.getMessage());
        }
 
     }
