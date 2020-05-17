@@ -7,10 +7,10 @@ public class Admin extends User {
     }
 
     public Admin (String flNume, String flPrenume, String flEmail, String flPassword) {
-        super(flNume, flPrenume, flEmail, flPassword);
+        super (flNume, flPrenume, flEmail, flPassword, true);
     }
 
     @Override
-    public String toString() { return super.toString(); }
+    public String toString() { return super.toString() + "}"; }
 
 }

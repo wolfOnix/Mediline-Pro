@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import onix.mediline.accounts.exceptions.CouldNotWriteUsersException;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.roles.Admin;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;

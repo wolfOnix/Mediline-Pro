@@ -30,19 +30,7 @@ public class NewAccountAdmin extends NewAccount {
     private Label lbErrMessage, lbInfoOverErr;
 
     @FXML
-    void handleButtonCancel(ActionEvent event) throws IOException {
-        try {
-            Stage CancelStage = (Stage) btCancel.getScene().getWindow();
-            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
-            Scene CancelScene = new Scene(Cancel);
-            CancelStage.setScene(CancelScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void handleButtonCreateAccount(ActionEvent event) throws IOException {
+    void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
             AdminManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
             System.out.println("Cont creat cu succes (Admin)!");
@@ -62,5 +50,18 @@ public class NewAccountAdmin extends NewAccount {
         }
     }  */
     }
+
+    @FXML
+    void handleButtonCancel (ActionEvent event) throws IOException {
+        try {
+            Stage CancelStage = (Stage) btCancel.getScene().getWindow();
+            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
+            Scene CancelScene = new Scene(Cancel);
+            CancelStage.setScene(CancelScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 

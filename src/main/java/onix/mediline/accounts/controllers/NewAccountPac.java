@@ -15,7 +15,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
@@ -29,6 +28,15 @@ public class NewAccountPac extends NewAccount implements Initializable {
 
     @FXML
     private DatePicker flData;
+
+    @FXML
+    private ComboBox<String> cbSexul = new ComboBox<String>();
+    ObservableList<String> listaMF = FXCollections.observableArrayList("M", "F");
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cbSexul.setItems(listaMF);
+    }
 
     @FXML
     private Button btCancel, btCreateAccount;
@@ -49,22 +57,13 @@ public class NewAccountPac extends NewAccount implements Initializable {
     @FXML
     void handleButtonRegistration (ActionEvent event) {
         try {
-            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()));
+            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()), cbSexul.getValue());
             System.out.println("Cont creat cu succes!");
         } catch (EmailAlreadyExistsException e) {
             lbErrMessage.setText(e.getMessage());
             lbInfoOverErr.setText("");
        }
 
-    }
-    @FXML
-    private ComboBox<String> comboMF = new ComboBox<String>();
-
-    ObservableList<String> listaMF = FXCollections.observableArrayList("M", "F");
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        comboMF.setItems(listaMF);
     }
 
 }

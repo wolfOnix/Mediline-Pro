@@ -28,9 +28,9 @@ public class PacManagement extends UsersManagement {
         users_pacient = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Pacient>>() {});
     }
 
-    public static void addPacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData) throws EmailAlreadyExistsException {
+    public static void addPacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul) throws EmailAlreadyExistsException {
         checkUserDoesNotAlreadyExist(flEmail);
-        users_pacient.add(new Pacient(flNume,flPrenume, flEmail, Encryption.encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon,flData));
+        users_pacient.add(new Pacient(flNume,flPrenume, flEmail, Encryption.encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon, flData, cbSexul));
         addUserIntoFile();
     }
 

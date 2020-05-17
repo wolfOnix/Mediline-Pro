@@ -14,6 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.CompleteAllFields;
+import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.MedicManagement;
+import onix.mediline.accounts.management.UsersManagement;
+import onix.mediline.accounts.roles.Medic;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +28,7 @@ public class ActivateAccountMed implements Initializable {
 
 
     @FXML
-    private ComboBox<String> comboJudet = new ComboBox<String>();
+    private ComboBox<String> cbJudet = new ComboBox<String>();
 
     ObservableList<String> listaMF = FXCollections.observableArrayList("AB", "AG", "AR", "B", "BC", "BH", "BN", "BR", "BT", "BV", "BZ", "CJ", "CL", "CS", "CT", "CV", "DB", "DJ", "GJ", "GL", "GR", "HD", "HR", "IF", "IL", "IS", "MH", "MM", "MS", "NT", "OT", "PH", "SB", "SJ", "SM", "SV", "TL", "TM", "TR", "VL", "VN", "VS");
 
@@ -39,9 +44,26 @@ public class ActivateAccountMed implements Initializable {
     @FXML
     private Button btCancel, btActivateAccount;
 
+    private Medic med;
+
     @FXML
-    void handleButtonCancel(ActionEvent event) {
-        try  { Stage CancelStage = (Stage) btCancel.getScene().getWindow();
+    void handleBtFinishActivateAccount (ActionEvent event) throws IOException {
+        try {
+            MedicManagement.updateMedic(flNume.getText(), flPrenume.getText(), med.getEmail(), flPassword.getText(), flAdresa.getText(), flOras.getText(), cbJudet.getValue(), flTelefon.getText(), flEmailServ.getText(), true);
+            System.out.println("Cont activat");
+        } catch (CompleteAllFields e) {
+            lbErrMessage.setText(e.getMessage());
+            lbInfoOverErr.setText("");
+        } catch (UserNotFound e) {
+            lbErrMessage.setText(e.getMessage());
+            lbInfoOverErr.setText("");
+        }
+    }
+
+    @FXML
+    void handleButtonCancel (ActionEvent event) {
+        try {
+            Stage CancelStage = (Stage) btCancel.getScene().getWindow();
             Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("activateAccountMedKey.fxml"));
             Scene CancelScene = new Scene(Cancel);
             CancelStage.setScene(CancelScene);
@@ -49,9 +71,25 @@ public class ActivateAccountMed implements Initializable {
             e.printStackTrace();
         }
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        comboJudet.setItems(listaMF);
+        cbJudet.setItems(listaMF);
+    }
+
+    public void setEmail (String email) {
+        lbEmail.setText(email);
+        try {
+            cbJudet.setItems(listaMF);
+            med = (Medic) UsersManagement.searchUser(lbEmail.getText(), 2);
+            System.out.println("Medic: " + med);
+            flNume.setText(med.getNume());
+            flPrenume.setText(med.getPrenume());
+            lbMedid.setText(med.getMedid());
+        }   catch (UserNotFound e) {
+            lbErrMessage.setText(e.getMessage());
+            lbInfoOverErr.setText("");
+        }
     }
 
 }

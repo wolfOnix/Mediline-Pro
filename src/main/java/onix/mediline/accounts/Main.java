@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import onix.mediline.accounts.management.AdminManagement;
+import onix.mediline.accounts.management.MedicManagement;
 import onix.mediline.accounts.management.PacManagement;
 
 public class Main extends Application {
@@ -18,9 +19,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        PacManagement.loadUsersFromFile();
         AdminManagement.loadUsersFromFile();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
+        MedicManagement.loadUsersFromFile();
+        PacManagement.loadUsersFromFile();
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountMed.fxml"));
         primaryStage.initStyle(StageStyle.DECORATED); // Dezactivare Title Bar
         primaryStage.setTitle("Mediline");
         root.getStylesheets().add("style.css");

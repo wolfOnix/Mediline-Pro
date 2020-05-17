@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountMed">
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountMed">
     <children>
         <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
             <fill>
@@ -32,7 +32,7 @@
         <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutY="66.0" styleClass="title" text="CREARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
-        <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" styleClass="mainButton" text="CREARE CONT" />
+        <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCreateAccount" styleClass="mainButton" text="CREARE CONT" />
         <Label layoutX="50.0" layoutY="203.0" styleClass="inputTitle" text="Numele de familie al medicului" />
         <TextField fx:id="flNume" layoutX="50.0" layoutY="231.0" />
         <Label layoutX="50.0" layoutY="281.0" styleClass="inputTitle" text="Prenumele medicului" />
@@ -40,7 +40,7 @@
         <Label layoutX="50.0" layoutY="359.0" styleClass="inputTitle" text="Adresa de e-mail a medicului" />
         <TextField fx:id="flEmail" layoutX="50.0" layoutY="387.0" />
         <Label layoutX="50.0" layoutY="437.0" styleClass="inputTitle" text="Cheia de activare a contului" />
-        <Label fx:id="lbNume" layoutX="50.0" layoutY="465.0" styleClass="text-field" text="Cheia va fi generată la crearea contului" />
+        <Label fx:id="lbActivationKey" layoutX="50.0" layoutY="465.0" styleClass="text-field" text="Cheia va fi generată la crearea contului" />
         <Label fx:id="lbErrMessage" layoutY="100.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         <Label fx:id="lbInfoOverErr" layoutY="100.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a crea un cont nou medical, introduceți corect datele cerute în câmpurile de mai jos. Copiați și transmiteți cheia de activare medicului de familie!" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
     </children>
