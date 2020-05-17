@@ -52,10 +52,14 @@ public class ActivateAccountMed implements Initializable {
             MedicManagement.updateMedic(flNume.getText(), flPrenume.getText(), med.getEmail(), flPassword.getText(), flAdresa.getText(), flOras.getText(), cbJudet.getValue(), flTelefon.getText(), flEmailServ.getText(), true);
             System.out.println("Cont activat");
         } catch (CompleteAllFields e) {
-            lbErrMessage.setText(e.getMessage());
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
             lbInfoOverErr.setText("");
         } catch (UserNotFound e) {
-            lbErrMessage.setText(e.getMessage());
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
             lbInfoOverErr.setText("");
         }
     }

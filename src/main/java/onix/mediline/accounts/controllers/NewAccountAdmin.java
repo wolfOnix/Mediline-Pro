@@ -34,21 +34,21 @@ public class NewAccountAdmin extends NewAccount {
         try {
             AdminManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
             System.out.println("Cont creat cu succes (Admin)!");
+            Stage AdminHomeStage = (Stage) btCreateAccount.getScene().getWindow();
+            Parent AdminHome = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdmin.fxml"));
+            Scene AdminHomeScene = new Scene(AdminHome);
+            AdminHomeStage.setScene(AdminHomeScene);
         } catch (EmailAlreadyExistsException e) {
-            lbErrMessage.setText(e.getMessage());
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
             lbInfoOverErr.setText("");
         } //catch (CheckAdminKeyException e) {
           //  System.out.println(e.getMessage());
         //}
-        //Open AdminHopePage
-        /*try  { Stage AdminHomeStage = (Stage) btCreateAccount.getScene().getWindow();
-            Parent AdminHome = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdmin.fxml"));
-            Scene AdminHomeScene = new Scene(AdminHome);
-            AdminHomeStage.setScene(AdminHomeScene);
-        } catch (IOException e) {
+        catch (IOException e) {
             e.printStackTrace();
         }
-    }  */
     }
 
     @FXML

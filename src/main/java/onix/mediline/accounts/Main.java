@@ -22,7 +22,7 @@ public class Main extends Application {
         AdminManagement.loadUsersFromFile();
         MedicManagement.loadUsersFromFile();
         PacManagement.loadUsersFromFile();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountMed.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
         primaryStage.initStyle(StageStyle.DECORATED); // Dezactivare Title Bar
         primaryStage.setTitle("Mediline");
         root.getStylesheets().add("style.css");

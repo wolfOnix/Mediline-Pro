@@ -55,12 +55,14 @@ public class NewAccountPac extends NewAccount implements Initializable {
         }
     }
     @FXML
-    void handleButtonRegistration (ActionEvent event) {
+    void handleButtonRegistration (ActionEvent event) throws IOException{
         try {
             PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()), cbSexul.getValue());
             System.out.println("Cont creat cu succes!");
         } catch (EmailAlreadyExistsException e) {
-            lbErrMessage.setText(e.getMessage());
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
             lbInfoOverErr.setText("");
        }
 

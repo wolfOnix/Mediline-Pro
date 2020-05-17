@@ -43,7 +43,7 @@ public class ActivateAccountMedKey {
     }
 
     @FXML
-    void handleButtonForward (ActionEvent event) {
+    void handleButtonForward (ActionEvent event) throws IOException{
         try  {
             Medic med = (Medic) UsersManagement.searchUser(flEmail.getText(), 2);
             Stage FowardStage = (Stage) btForward.getScene().getWindow();
@@ -57,7 +57,9 @@ public class ActivateAccountMedKey {
             e.printStackTrace();
         }
         catch (UserNotFound e) {
-            lbErrMessage.setText(e.getMessage());
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
             lbInfoOverErr.setText("");
         }
     }
