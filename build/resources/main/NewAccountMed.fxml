@@ -31,8 +31,8 @@
             </font></Label>
         <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutY="66.0" styleClass="title" text="CREARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
-        <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCreateAccount" styleClass="mainButton" text="CREARE CONT" />
+        <handleBtLogout fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
+        <handleBtLogout fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCreateAccount" styleClass="mainButton" text="CREARE CONT" />
         <Label layoutX="50.0" layoutY="203.0" styleClass="inputTitle" text="Numele de familie al medicului" />
         <TextField fx:id="flNume" layoutX="50.0" layoutY="231.0" />
         <Label layoutX="50.0" layoutY="281.0" styleClass="inputTitle" text="Prenumele medicului" />

@@ -1,15 +1,20 @@
 package onix.mediline.accounts.controllers;
 
-import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.UsersManagement;
+import onix.mediline.accounts.roles.Admin;
+import onix.mediline.accounts.roles.Medic;
+import onix.mediline.accounts.roles.User;
+
 import java.io.IOException;
 
 public class Login {
@@ -21,35 +26,74 @@ public class Login {
     private Label lbErrMessage;
 
     @FXML
-    void handleActionButtonNewAdmin(ActionEvent event) throws IOException {
-        try  { Stage NewAdminStage = (Stage) btNewAdmin.getScene().getWindow();
-            Parent NewAdmin = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountAdmin.fxml"));
+    private TextField flEmail;
+
+    @FXML
+    void handleBtLogin (ActionEvent event) throws IOException {
+        try {
+            User user = UsersManagement.searchUser(flEmail.getText(), 0);
+            String homeName;
+            boolean resizable = true;
+            if (user instanceof Admin) {
+                homeName = "homeAdm.fxml";
+                System.out.println("Admin detectat");
+                resizable = false;
+            }
+            else
+                if (user instanceof Medic) {
+                    homeName = "homeMed.fxml";
+                    System.out.println("Medic detectat");
+                }
+                else {
+                    homeName = "homePac.fxml";
+                    System.out.println("Pacient detectat");
+                }
+            Stage HomeStage = (Stage) btLogin.getScene().getWindow();
+            HomeStage.setResizable(resizable);
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));
+            Parent Home = loader.load();
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (UserNotFound e) {
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
+        }
+    }
+
+    @FXML
+    void handleActionButtonNewAdmin (ActionEvent event) throws IOException {
+        try {
+            Stage NewAdminStage = (Stage) btNewAdmin.getScene().getWindow();
+            Parent NewAdmin = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountAdm.fxml"));
             Scene NewAdminScene = new Scene(NewAdmin);
             NewAdminStage.setScene(NewAdminScene);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    void handleButtonNewAccount(ActionEvent event) throws IOException {
-        try  { Stage NewAccountStage = (Stage) btNewAccount.getScene().getWindow();
+    void handleButtonNewAccount (ActionEvent event) throws IOException {
+        try {
+            Stage NewAccountStage = (Stage) btNewAccount.getScene().getWindow();
             Parent NewAccount = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountPac.fxml"));
             Scene NewAccountScene = new Scene(NewAccount);
             NewAccountStage.setScene(NewAccountScene);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    void handleButtonActivateAccount(ActionEvent event) throws IOException {
-        try  { Stage ActiveAccountStage = (Stage) btNewAccount.getScene().getWindow();
+    void handleButtonActivateAccount (ActionEvent event) throws IOException {
+        try {
+            Stage ActiveAccountStage = (Stage) btNewAccount.getScene().getWindow();
             Parent ActiveAccount = FXMLLoader.load(getClass().getClassLoader().getResource("activateAccountMedKey.fxml"));
             Scene ActiveAccountScene = new Scene(ActiveAccount);
             ActiveAccountStage.setScene(ActiveAccountScene);
-
         } catch (IOException e) {
             e.printStackTrace();
         }

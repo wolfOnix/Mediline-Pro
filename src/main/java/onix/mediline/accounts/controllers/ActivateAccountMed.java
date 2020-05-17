@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.exceptions.UserNotFound;
-import onix.mediline.accounts.management.MedicManagement;
+import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Medic;
 
@@ -49,7 +49,7 @@ public class ActivateAccountMed implements Initializable {
     @FXML
     void handleBtFinishActivateAccount (ActionEvent event) throws IOException {
         try {
-            MedicManagement.updateMedic(flNume.getText(), flPrenume.getText(), med.getEmail(), flPassword.getText(), flAdresa.getText(), flOras.getText(), cbJudet.getValue(), flTelefon.getText(), flEmailServ.getText(), true);
+            MedManagement.updateMedic(flNume.getText(), flPrenume.getText(), med.getEmail(), flPassword.getText(), flAdresa.getText(), flOras.getText(), cbJudet.getValue(), flTelefon.getText(), flEmailServ.getText(), true);
             System.out.println("Cont activat");
         } catch (CompleteAllFields e) {
             byte ptext[] = e.getMessage().getBytes();

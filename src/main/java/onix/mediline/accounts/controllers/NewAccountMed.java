@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
-import onix.mediline.accounts.management.MedicManagement;
+import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Medic;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class NewAccountMed extends NewAccount {
     @FXML
     void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
-            Medic m = MedicManagement.addMedic(flNume.getText(), flPrenume.getText(), flEmail.getText());
+            Medic m = MedManagement.addMedic(flNume.getText(), flPrenume.getText(), flEmail.getText());
             lbActivationKey.setText(m.getActivationKey());
             System.out.println("Cont creat cu succes!");
         } catch (EmailAlreadyExistsException e) {
@@ -43,7 +43,7 @@ public class NewAccountMed extends NewAccount {
     void handleButtonCancel (ActionEvent event) throws IOException {
         try  {
             Stage CancelStage = (Stage) btCancel.getScene().getWindow();
-            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdmin.fxml"));
+            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdm.fxml"));
             Scene CancelScene = new Scene(Cancel);
             CancelStage.setScene(CancelScene);
         } catch (IOException e) {

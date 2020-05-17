@@ -13,10 +13,10 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 
-public class HomeAdmin {
+public class HomeAdm extends Home {
 
     @FXML
-    private Button btNewAccountMed, btCancel;
+    private Button btNewAccountMed;
 
     @FXML
     public ImageView imgNewAccountMed, imgConfDelete;
@@ -25,7 +25,7 @@ public class HomeAdmin {
     public Pane panNewAccountMed, panConfDelete;
 
     @FXML
-    void handleButtonNewMedic(ActionEvent event) throws IOException {
+    void handleBtNewMedic(ActionEvent event) throws IOException {
         try  {
             Stage NewMedic = (Stage) btNewAccountMed.getScene().getWindow();
             Parent Medic = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountMed.fxml"));
@@ -37,15 +37,8 @@ public class HomeAdmin {
     }
 
     @FXML
-    void handleButtonCancel(ActionEvent event) throws IOException {
-        try  {
-            Stage CancelStage = (Stage) btCancel.getScene().getWindow();
-            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
-            Scene CancelScene = new Scene(Cancel);
-            CancelStage.setScene(CancelScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    void handleBtLogout (ActionEvent event) throws IOException {
+        super.handleBtLogout(event);
     }
 
 }

@@ -10,12 +10,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
-import onix.mediline.accounts.management.AdminManagement;
+import onix.mediline.accounts.management.AdmManagement;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class NewAccountAdmin extends NewAccount {
+public class NewAccountAdm extends NewAccount {
 
     @FXML
     private Button btCancel, btCreateAccount;
@@ -32,10 +32,10 @@ public class NewAccountAdmin extends NewAccount {
     @FXML
     void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
-            AdminManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
+            AdmManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
             System.out.println("Cont creat cu succes (Admin)!");
             Stage AdminHomeStage = (Stage) btCreateAccount.getScene().getWindow();
-            Parent AdminHome = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdmin.fxml"));
+            Parent AdminHome = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdm.fxml"));
             Scene AdminHomeScene = new Scene(AdminHome);
             AdminHomeStage.setScene(AdminHomeScene);
         } catch (EmailAlreadyExistsException e) {
@@ -43,10 +43,7 @@ public class NewAccountAdmin extends NewAccount {
             String value = new String(ptext, "UTF-8");
             lbErrMessage.setText(value);
             lbInfoOverErr.setText("");
-        } //catch (CheckAdminKeyException e) {
-          //  System.out.println(e.getMessage());
-        //}
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

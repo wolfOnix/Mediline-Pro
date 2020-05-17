@@ -12,8 +12,8 @@
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="299.0" styleClass="inputTitle" text="E-mail" />
         <PasswordField fx:id="flActivationKey" layoutX="52.0" layoutY="413.0" promptText="Cheie de activare" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="48.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="385.0" styleClass="inputTitle" text="Cheie de activare" />
-        <Button fx:id="btForward" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonForward" styleClass="mainButton" text="ÎNAINTE" />
-        <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
+        <handleBtLogout fx:id="btForward" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonForward" styleClass="mainButton" text="ÎNAINTE" />
+        <handleBtLogout fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ANULARE" />
         <Label fx:id="lbErrMessage" layoutX="0.0" layoutY="200.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         <Label fx:id="lbInfoOverErr" layoutX="0.0" layoutY="200.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a activa contul medical folosiți adresa dvs. de e-mail și cheia de activare primită de la administrator" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
     </children>

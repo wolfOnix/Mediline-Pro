@@ -26,18 +26,6 @@ public abstract class UsersManagement {
     protected static List<Pacient> users_pacient;
     protected static List<Medic> users_medic;
 
-    public static void checkUserDoesNotAlreadyExist (String flEmail) throws EmailAlreadyExistsException {
-        for (Admin i : users_admin)
-            if (Objects.equals(flEmail, i.getEmail()))
-                throw new EmailAlreadyExistsException (flEmail);
-        for (Medic i : users_medic)
-            if (Objects.equals(flEmail, i.getEmail()))
-                throw new EmailAlreadyExistsException (flEmail);
-        for (Pacient i : users_pacient)
-            if (Objects.equals(flEmail, i.getEmail()))
-                throw new EmailAlreadyExistsException (flEmail);
-    }
-
     public static User searchUser (String flEmail, int roleConstraint) throws UserNotFound {
         if (roleConstraint != 2 && roleConstraint != 3)
             for (Admin i : users_admin)
@@ -52,6 +40,13 @@ public abstract class UsersManagement {
                 if (Objects.equals(flEmail, i.getEmail()))
                     return i;
         throw new UserNotFound();
+    }
+
+    public static void searchUserAlready (String flEmail) throws EmailAlreadyExistsException {
+        try {
+            searchUser(flEmail, 0);
+            throw new EmailAlreadyExistsException(flEmail);
+        } catch (UserNotFound e) { }
     }
 
 }

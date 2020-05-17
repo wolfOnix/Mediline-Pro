@@ -7,8 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import onix.mediline.accounts.management.AdminManagement;
-import onix.mediline.accounts.management.MedicManagement;
+import onix.mediline.accounts.management.AdmManagement;
+import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.management.PacManagement;
 
 public class Main extends Application {
@@ -19,8 +19,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        AdminManagement.loadUsersFromFile();
-        MedicManagement.loadUsersFromFile();
+        AdmManagement.loadUsersFromFile();
+        MedManagement.loadUsersFromFile();
         PacManagement.loadUsersFromFile();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
         primaryStage.initStyle(StageStyle.DECORATED); // Dezactivare Title Bar
