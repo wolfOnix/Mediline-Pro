@@ -4,46 +4,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0"
-            styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.Login"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://javafx.com/javafx/10.0.2-internal ">
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.Login">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" styleClass="title" stylesheets="@style.css"
-             text="CONECTARE CONT" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" styleClass="mLogo" stylesheets="@style.css"
-             text="M" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" styleClass="medilineLogo"
-             stylesheets="@style.css" text="MEDILINE" textAlignment="CENTER" AnchorPane.leftAnchor="0.0"
-             AnchorPane.rightAnchor="0.0"/>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="223.0" styleClass="inputTitle"
-             stylesheets="@style.css" text="E-mail"/>
-      <TextField fx:id="flEmail" layoutX="51.0" layoutY="252.0" promptText="E-mail" stylesheets="@style.css"
-                 AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0"/>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="309.0" styleClass="inputTitle"
-             stylesheets="@style.css" text="Parolă"/>
-      <PasswordField fx:id="flPassword" layoutX="51.0" layoutY="337.0" promptText="Parolă" AnchorPane.leftAnchor="51.0"
-                     AnchorPane.rightAnchor="49.0"/>
-      <handleBtLogout fx:id="btLogin" layoutX="190.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleBtLogin"
-                      styleClass="mainButton" stylesheets="@style.css" text="CONECTARE" AnchorPane.leftAnchor="200.0"
-                      AnchorPane.rightAnchor="50.0"/>
-      <handleBtLogout fx:id="btNewAccount" layoutX="210.0" layoutY="510.0" mnemonicParsing="false"
-                      onAction="#handleButtonNewAccount" prefHeight="54.0" stylesheets="@style.css"
-                      text="CREARE CONT PACIENT" wrapText="true" AnchorPane.leftAnchor="208.0"
-                      AnchorPane.rightAnchor="42.0"/>
-      <handleBtLogout fx:id="btActivateAccount" layoutX="40.0" layoutY="510.0" mnemonicParsing="false"
-                      onAction="#handleButtonActivateAccount" prefHeight="54.0" stylesheets="@style.css"
-                      text="ACTIVARE CONT MEDICAL" wrapText="true" AnchorPane.leftAnchor="42.0"
-                      AnchorPane.rightAnchor="208.0"/>
-      <handleBtLogout fx:id="btNewAdmin" layoutY="538.0" mnemonicParsing="false" onAction="#handleActionButtonNewAdmin"
-                      prefHeight="20.0" prefWidth="226.0" styleClass="detailButton" stylesheets="@style.css"
-                      text="Creare cont de administrator" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                      AnchorPane.rightAnchor="0.0"/>
-      <Label fx:id="lbErrMessage" layoutY="432.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel"
-             wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" styleClass="title" stylesheets="@style.css" text="CONECTARE CONT" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" styleClass="mLogo" stylesheets="@style.css" text="M" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" styleClass="medilineLogo" stylesheets="@style.css" text="MEDILINE" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="223.0" styleClass="inputTitle" stylesheets="@style.css" text="E-mail" />
+      <TextField fx:id="flEmail" layoutX="51.0" layoutY="252.0" promptText="E-mail" stylesheets="@style.css" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="309.0" styleClass="inputTitle" stylesheets="@style.css" text="Parolă" />
+      <PasswordField fx:id="flPassword" layoutX="51.0" layoutY="337.0" promptText="Parolă" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0" />
+      <Button fx:id="btLogin" layoutX="190.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleBtLogin" styleClass="mainButton" stylesheets="@style.css" text="CONECTARE" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" />
+      <Button fx:id="btNewAccount" layoutX="210.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleButtonNewAccount" prefHeight="54.0" stylesheets="@style.css" text="CREARE CONT PACIENT" wrapText="true" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="42.0" />
+      <Button fx:id="btActivateAccount" layoutX="40.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleButtonActivateAccount" prefHeight="54.0" stylesheets="@style.css" text="ACTIVARE CONT MEDICAL" wrapText="true" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="208.0" />
+      <Button fx:id="btNewAdmin" layoutY="538.0" mnemonicParsing="false" onAction="#handleActionButtonNewAdmin" prefHeight="20.0" prefWidth="226.0" styleClass="detailButton" stylesheets="@style.css" text="Creare cont de administrator" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="lbErrMessage" layoutY="432.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
    <cursor>
-      <Cursor fx:constant="DEFAULT"/>
+      <Cursor fx:constant="DEFAULT" />
    </cursor>
 </AnchorPane>

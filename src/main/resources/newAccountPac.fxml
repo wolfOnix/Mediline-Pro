@@ -60,8 +60,8 @@
         </content>
       </ScrollPane>
       <Rectangle arcHeight="0.0" arcWidth="0.0" fill="white" height="42.0" layoutX="0.0" layoutY="548.0" width="400.0" />
-      <handleBtLogout fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handlebuttonCancel" text="ANULARE" />
-      <handleBtLogout fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonRegistration" styleClass="mainButton" text="CREARE CONT" />
+      <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handlebuttonCancel" text="ANULARE" />
+      <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonRegistration" styleClass="mainButton" text="CREARE CONT" />
       <Label fx:id="lbErrMessage" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label fx:id="lbInfoOverErr" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a crea un cont nou de pacient, introduceți corect datele cerute în câmpurile de mai jos" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>

@@ -61,8 +61,8 @@
             </content>
         </ScrollPane>
         <Rectangle arcHeight="0.0" arcWidth="0.0" fill="white" height="42.0" layoutX="0.0" layoutY="548.0" width="400.0" />
-        <handleBtLogout fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ÎNAPOI" />
-        <handleBtLogout fx:id="btActivateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleBtFinishActivateAccount" styleClass="mainButton" text="ACTIVARE CONT" />
+        <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" text="ÎNAPOI" />
+        <Button fx:id="btActivateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleBtFinishActivateAccount" styleClass="mainButton" text="ACTIVARE CONT" />
         <Label fx:id="lbErrMessage" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="4.0" />
         <Label fx:id="lbInfoOverErr" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a finaliza activarea contului medical, introduceți corect datele în câmpurile de mai jos" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
     </children>

@@ -32,7 +32,7 @@
             </font></Label>
         <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="90.0" styleClass="greeting" text="Bună ziua," AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <handleBtLogout fx:id="btLogout" layoutX="210.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtLogout" text="DECONECTARE" />
+        <Button fx:id="btLogout" layoutX="210.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtLogout" text="DECONECTARE" />
       <Label fx:id="lbGreetingName" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="Johnny" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Pane fx:id="panNewAccountMed" layoutY="210.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -41,7 +41,7 @@
                   <Image url="@images/new_account.png" />
                </image>
             </ImageView>
-            <handleBtLogout fx:id="btNewAccountMed" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBtNewMedic" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="Creare cont medical" />
+            <Button fx:id="btNewAccountMed" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBtNewMedic" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="Creare cont medical" />
          </children>
       </Pane>
       <Pane fx:id="panConfDelete" layoutX="0.0" layoutY="342.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -51,7 +51,7 @@
                   <Image url="@images/confirm_delete.png" />
                </image>
             </ImageView>
-            <handleBtLogout fx:id="btConfDelete" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="225.0" styleClass="optionButton" text="Confirmare ștergere conturi" />
+            <Button fx:id="btConfDelete" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="225.0" styleClass="optionButton" text="Confirmare ștergere conturi" />
          </children>
       </Pane>
     </children>
