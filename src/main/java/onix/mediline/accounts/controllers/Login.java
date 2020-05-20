@@ -48,12 +48,17 @@ public class Login {
                     homeName = "homePac.fxml";
                     System.out.println("Pacient detectat");
                 }
-            Stage HomeStage = (Stage) btLogin.getScene().getWindow();
+            /*Stage HomeStage = (Stage) btLogin.getScene().getWindow();
             HomeStage.setResizable(resizable);
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));
             Parent Home = loader.load();
             Scene HomeScene = new Scene(Home);
-            HomeStage.setScene(HomeScene);
+            HomeStage.setScene(HomeScene);*/
+
+            Stage NewAdminStage = (Stage) btLogin.getScene().getWindow();
+            Parent NewAdmin = FXMLLoader.load(getClass().getClassLoader().getResource(homeName));
+            Scene NewAdminScene = new Scene(NewAdmin);
+            NewAdminStage.setScene(NewAdminScene);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (UserNotFound e) {
