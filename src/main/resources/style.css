@@ -54,7 +54,7 @@
     -fx-font-size: 16;
     -fx-font-family: "Source Sans Pro";
     -fx-padding: 2 2 2 2;
-    -fx-pref-width: 150;
+    /*-fx-pref-width: 150;*/
     -fx-text-alignment: center;
 }
 
@@ -73,13 +73,20 @@
     -fx-padding: 5 0 0 5;
 }
 
+.categoryTitle {
+    -fx-font-family: "Avenir Next LT Pro";
+    -fx-font-size: 30;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
 .date-picker {
     -fx-pref-width: 150;
 }
 
 .detailButton {
-    -fx-background-color: rgba(0, 0, 0, 0);
-    -fx-border-color: rgba(0, 0, 0, 0);
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
     -fx-font-family: "Avenir Next LT Pro";
     -fx-font-size: 16;
     -fx-pref-width: 400;
@@ -104,18 +111,21 @@
 
 .gradientPad {
     -fx-fill: linear-gradient(to right, #54428e, #ffa400);
+    -fx-pref-width: 100%;
 }
 
 .greeting {
     -fx-font-family: "Source Sans Pro";
     -fx-font-size: 20;
     -fx-padding: 0 0 0 0;
+    -fx-text-fill: #54428e;
 }
 
 .greetingName {
     -fx-font-family: "Source Sans Pro Semibold";
     -fx-font-size: 22;
     -fx-padding: 0 0 0 0;
+    -fx-text-fill: #54428e;
 }
 
 .inputTitle {
@@ -156,6 +166,79 @@
     -fx-font-size: 30;
 }
 
+.menuButton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-family: "Source Sans Pro Black";
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+    /*-fx-pref-width: 300;*/
+    -fx-pref-height: 20;
+    -fx-alignment: center-left;
+    -fx-padding: 0;
+    -fx-text-alignment: left;
+    -fx-text-fill: #ffa400;
+}
+
+.menuButton:hover {
+    -fx-background-color: transparent;
+    /*-fx-text-fill: #8963ba;*/
+}
+
+.menuContainer {
+    -fx-pref-height: 50;
+    -fx-cursor: hand;
+    -fx-padding: 10;
+}
+
+.menuContainer:hover {
+    -fx-background-color: rgba(255, 164, 0, 0.22);
+}
+
+.menuImageButton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-size: 30;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 100%;
+    -fx-pref-height: 30;
+    -fx-pref-width: 30;
+    -fx-cursor: hand;
+}
+
+.menuImageButton:hover {
+    -fx-background-color: transparent;
+    /*-fx-text-fill: #8963ba;*/
+}
+
+.appo {
+    -fx-background-image: url('images/appointments_30.png');
+}
+
+.napo {
+    -fx-background-image: url('images/newappointment_30.png');
+}
+
+.file {
+    -fx-background-image: url('images/documents_30.png');
+}
+
+.doct {
+    -fx-background-image: url('images/mydoc_30.png');
+}
+
+.overlayButton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-pref-height: 20;
+    -fx-pref-width: 20;
+    -fx-cursor: hand;
+}
+
+.overlayButton:hover {
+    -fx-background-color: transparent;
+}
+
 .neutralLabel {
     -fx-alignment: center;
     -fx-font-family: "Avenir Next LT Pro Bold";
@@ -179,8 +262,8 @@
 }
 
 .optionButton {
-    -fx-background-color: rgba(0, 0, 0, 0);
-    -fx-border-color: rgba(0, 0, 0, 0);
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
     -fx-font-family: "Source Sans Pro Semibold";
     -fx-font-size: 20;
     -fx-font-weight: bold;
@@ -191,7 +274,7 @@
 }
 
 .optionButton:hover {
-    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-color: transparent;
     /*-fx-text-fill: #8963ba;*/
 }
 
@@ -212,6 +295,11 @@
     -fx-background-color: white;
     -fx-fill: white;
 }
+
+/*.smallImage {
+    -fx-pref-height: 20;
+    -fx-pref-width: 20;
+}*/
 
 .sublink {
     -fx-font-family: "Avenir Next LT Pro";

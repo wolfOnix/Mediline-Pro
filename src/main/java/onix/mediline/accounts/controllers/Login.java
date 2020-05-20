@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import onix.mediline.accounts.exceptions.AccountNotActivated;
 import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Admin;
@@ -48,20 +49,26 @@ public class Login {
                     homeName = "homePac.fxml";
                     System.out.println("Pacient detectat");
                 }
+            if (!user.getContActiv())
+                throw new AccountNotActivated();
             /*Stage HomeStage = (Stage) btLogin.getScene().getWindow();
             HomeStage.setResizable(resizable);
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));
             Parent Home = loader.load();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);*/
-
-            Stage NewAdminStage = (Stage) btLogin.getScene().getWindow();
-            Parent NewAdmin = FXMLLoader.load(getClass().getClassLoader().getResource(homeName));
-            Scene NewAdminScene = new Scene(NewAdmin);
-            NewAdminStage.setScene(NewAdminScene);
+            Stage HomeStage = (Stage) btLogin.getScene().getWindow();
+            // HomeStage.setResizable(resizable);
+            Parent Home = FXMLLoader.load(getClass().getClassLoader().getResource(homeName));
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (UserNotFound e) {
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
+        } catch (AccountNotActivated e) {
             byte ptext[] = e.getMessage().getBytes();
             String value = new String(ptext, "UTF-8");
             lbErrMessage.setText(value);

@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.AccountAlreadyActivated;
 import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Medic;
@@ -43,20 +44,26 @@ public class ActivateAccountMedKey {
     }
 
     @FXML
-    void handleButtonForward (ActionEvent event) throws IOException{
+    void handleButtonForward (ActionEvent event) throws IOException {
         try  {
             Medic med = (Medic) UsersManagement.searchUser(flEmail.getText(), 2);
-            Stage FowardStage = (Stage) btForward.getScene().getWindow();
+            if (med.getContActiv())
+                throw new AccountAlreadyActivated();
+            Stage ForwardStage = (Stage) btForward.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("activateAccountMed.fxml"));
-            Parent Foward = loader.load();
+            Parent Forward = loader.load();
             ActivateAccountMed ActAccMed = loader.getController();
             ActAccMed.setEmail(flEmail.getText());
-            Scene FowardScene = new Scene(Foward);
-            FowardStage.setScene(FowardScene);
+            Scene ForwardScene = new Scene(Forward);
+            ForwardStage.setScene(ForwardScene);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch (UserNotFound e) {
+        } catch (UserNotFound e) {
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
+            lbInfoOverErr.setText("");
+        } catch (AccountAlreadyActivated e) {
             byte ptext[] = e.getMessage().getBytes();
             String value = new String(ptext, "UTF-8");
             lbErrMessage.setText(value);
