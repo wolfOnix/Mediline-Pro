@@ -1,5 +1,8 @@
 package onix.mediline.accounts.roles;
 
+import onix.mediline.accounts.management.KeyGenerator;
+import onix.mediline.accounts.management.UsersManagement;
+
 import java.util.ArrayList;
 
 public class Medic extends User  {
@@ -14,12 +17,12 @@ public class Medic extends User  {
 
     public Medic (String flNume, String flPrenume, String flEmail) {
         super (flNume, flPrenume, flEmail, "", false);
-        // medID = generate (MedID);
-        // activationKey = generate (activationKey);
-        // Temporar ->
-        medID = "AAA";
-        activationKey = "22443";
-        // <- Temporar
+        medID = KeyGenerator.generateKey(6);
+        while (!UsersManagement.checkKeyUnicity(medID, 0))
+            medID = KeyGenerator.generateKey(6);
+        activationKey = KeyGenerator.generateKey(10);
+        while (!UsersManagement.checkKeyUnicity(activationKey, 1))
+            activationKey = KeyGenerator.generateKey(10);
         adresa = "";
         oras = "";
         judet = "";

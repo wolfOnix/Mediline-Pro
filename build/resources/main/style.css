@@ -227,6 +227,18 @@
     -fx-background-image: url('images/mydoc_30.png');
 }
 
+.delacc {
+    -fx-background-image: url('images/confirm_delete_30.png');
+}
+
+.admn {
+    -fx-background-image: url('images/lock_30.png');
+}
+
+.chei {
+    -fx-background-image: url('images/key_30.png');
+}
+
 .overlayButton {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -265,11 +277,11 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-font-family: "Source Sans Pro Semibold";
-    -fx-font-size: 20;
+    -fx-font-size: 18;
     -fx-font-weight: bold;
     -fx-pref-width: 375;
     -fx-alignment: center;
-    -fx-padding: 10;
+    -fx-padding: 10 0 10 0;
     -fx-text-alignment: center;
 }
 

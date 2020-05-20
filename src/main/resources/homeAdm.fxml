@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -9,7 +10,7 @@
 
 <AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.HomeAdm">
     <children>
-        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
+        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <fill>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>
@@ -31,28 +32,48 @@
                 <Font name="Source Sans Pro Black" size="30.0" />
             </font></Label>
         <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
+        <Button fx:id="btLogout" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" styleClass="overlayButton" AnchorPane.rightAnchor="30.0" />
+
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="90.0" styleClass="greeting" text="Bună ziua," AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <Button fx:id="btLogout" layoutX="210.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtLogout" prefWidth="150.0" text="DECONECTARE" />
-      <Label fx:id="lbGreetingName" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="Johnny" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Pane fx:id="panNewAccountMed" layoutY="210.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <!--<Button fx:id="btLogout" layoutX="210.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleBtLogout" prefWidth="150.0" text="DECONECTARE" />-->
+      <Label fx:id="lbGreetingName" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Pane fx:id="panNewAccountMed" layoutY="208.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <ImageView fx:id="imgNewAccountMed" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="optionImage">
                <image>
                   <Image url="@images/new_account.png" />
                </image>
             </ImageView>
-            <Button fx:id="btNewAccountMed" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBtNewMedic" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="Creare cont medical" />
+            <Button fx:id="btNewAccountMed" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBtNewMedic" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="CREARE CONT MEDICAL" />
          </children>
       </Pane>
-      <Pane fx:id="panConfDelete" layoutX="0.0" layoutY="342.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+        <Pane fx:id="pnNewAppointment2" layoutX="37.0" layoutY="400.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <Button fx:id="btNewAppointmentImg2" layoutX="20.0" layoutY="10.0" mnemonicParsing="false">
+                    <styleClass>
+                        <String fx:value="menuImageButton" />
+                        <String fx:value="delacc" />
+                    </styleClass></Button>
+                <Button fx:id="btNewAppointmentTxt2" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-font-family: Source Sans Pro Light;" styleClass="menuButton" text="CONFIRMARE ȘTERGERE CONTURI" />
+            </children>
+        </Pane>
+
+        <Pane fx:id="pnNewAppointment" layoutX="67.0" layoutY="450.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <Button fx:id="btNewAppointmentImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, admn" />
+                <Button fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-font-family: Source Sans Pro Light;" styleClass="menuButton" text="ADMINISTRARE CONTURI" />
+            </children>
+        </Pane>
+
+      <Pane fx:id="pnNewAppointment1" layoutX="50.0" layoutY="500.0" prefHeight="50.0" styleClass="menuContainer">
          <children>
-            <ImageView fx:id="imgConfDelete" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="optionImage">
-               <image>
-                  <Image url="@images/confirm_delete.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btConfDelete" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="225.0" styleClass="optionButton" text="Confirmare ștergere conturi" />
+            <Button fx:id="btNewAppointmentImg1" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, chei" />
+            <Button fx:id="btNewAppointmentTxt1" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-font-family: Source Sans Pro;" styleClass="menuButton, adm" text="VIZUALIZARE CHEI DE ACTIVARE" />
          </children>
       </Pane>
+
     </children>
 </AnchorPane>

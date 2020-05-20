@@ -42,9 +42,7 @@ public class User {
     public String getNume() {
         return nume;
     }
-    public void setNume(String nume) {
-        nume = nume;
-    }
+    public void setNume(String flNume) { nume = flNume; }
 
     public String getPrenume() {
         return prenume;

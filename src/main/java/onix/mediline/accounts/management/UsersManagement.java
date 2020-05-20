@@ -49,4 +49,19 @@ public abstract class UsersManagement {
         } catch (UserNotFound e) { }
     }
 
+    public static boolean checkKeyUnicity (String key, int keyConstraint) {
+            for (Medic i : users_medic)
+                if (keyConstraint == 0)
+                {
+                    if (Objects.equals(key, i.getMedid()))
+                        return false;
+                }
+                else
+                {
+                    if (Objects.equals(key, i.getActivationKey()))
+                        return false;
+                }
+            return  true;
+    }
+
 }
