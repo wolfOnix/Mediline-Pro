@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import java.io.IOException;
+import javafx.scene.input.MouseEvent;
 
 
 public class HomeAdm extends Home {
@@ -25,7 +26,7 @@ public class HomeAdm extends Home {
     public Pane panNewAccountMed, panConfDelete;
 
     @FXML
-    void handleBtNewMedic(ActionEvent event) throws IOException {
+    void handleBtNewMedic(MouseEvent event)throws IOException {
         try  {
             Stage NewMedic = (Stage) btNewAccountMed.getScene().getWindow();
             Parent Medic = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountMed.fxml"));

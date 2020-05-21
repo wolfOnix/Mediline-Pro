@@ -5,12 +5,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import onix.mediline.accounts.exceptions.AccountNotActivated;
+import onix.mediline.accounts.exceptions.IncorrectPassword;
 import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Admin;
 import onix.mediline.accounts.roles.Medic;
@@ -30,9 +33,16 @@ public class Login {
     private TextField flEmail;
 
     @FXML
+    private PasswordField flPassword;
+
+    @FXML
     void handleBtLogin (ActionEvent event) throws IOException {
         try {
             User user = UsersManagement.searchUser(flEmail.getText(), 0);
+            System.out.println(flPassword.getText());
+            System.out.println(user.getParola());
+            if(!user.getParola().equals(Encryption.encryptString(user.getEmail(),flPassword.getText())))
+                throw new IncorrectPassword();
             String homeName;
             boolean resizable = true;
             if (user instanceof Admin) {
@@ -72,7 +82,12 @@ public class Login {
             byte ptext[] = e.getMessage().getBytes();
             String value = new String(ptext, "UTF-8");
             lbErrMessage.setText(value);
+        } catch (IncorrectPassword e) {
+            byte ptext[] = e.getMessage().getBytes();
+            String value = new String(ptext, "UTF-8");
+            lbErrMessage.setText(value);
         }
+
     }
 
     @FXML
