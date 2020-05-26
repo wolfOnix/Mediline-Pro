@@ -17,14 +17,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.exceptions.EmailNotValid;
+import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
+import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.PacManagement;
 
 
 public class NewAccountPac extends NewAccount implements Initializable {
 
     @FXML
-    private TextField flNume, flPrenume, flEmail, flPassword, flCNP, flAdresa, flOras, flTelefon;
+    private TextField flPassword, flCNP, flAdresa, flOras, flTelefon;
 
     @FXML
     private DatePicker flData;
@@ -42,9 +46,6 @@ public class NewAccountPac extends NewAccount implements Initializable {
     private Button btCancel, btCreateAccount;
 
     @FXML
-    private Label lbErrMessage, lbInfoOverErr;
-
-    @FXML
     void handlebuttonCancel(ActionEvent event) throws IOException {
         try  { Stage CancelStage = (Stage) btCancel.getScene().getWindow();
             Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
@@ -54,17 +55,28 @@ public class NewAccountPac extends NewAccount implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     void handleButtonRegistration (ActionEvent event) throws IOException{
         try {
-            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), String.valueOf(flData.getValue()), cbSexul.getValue());
+            String dataN = String.valueOf(flData.getValue());
+            if (dataN == null || dataN == "" || dataN == "null")
+                throw new CompleteAllFields();
+            if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2 || flCNP.getText().length() != 13 || flAdresa.getText().length() < 2 || flOras.getText().length() < 2 || flTelefon.getText().length() < 10 || flTelefon.getText().length() > 17 || (cbSexul.getValue() != "M" && cbSexul.getValue() != "F"))
+                throw new CompleteAllFields();
+            Encryption.checkEmailStructure(flEmail.getText());
+            Encryption.checkPasswordStrength(flPassword.getText());
+            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue());
             System.out.println("Cont creat cu succes!");
         } catch (EmailAlreadyExistsException e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-            lbInfoOverErr.setText("");
-       }
+            super.setErrorText(e);
+        } catch (NotStrongEnoughPassword e) {
+            super.setErrorText(e);
+        } catch (CompleteAllFields e) {
+            super.setErrorText(e);
+        } catch (EmailNotValid e) {
+            super.setErrorText(e);
+        }
 
     }
 

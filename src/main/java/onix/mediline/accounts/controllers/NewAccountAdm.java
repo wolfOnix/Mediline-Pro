@@ -9,9 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.exceptions.EmailNotValid;
+import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
 import onix.mediline.accounts.management.AdmManagement;
-import javafx.scene.control.Label;
+import onix.mediline.accounts.management.Encryption;
 
 import java.io.IOException;
 
@@ -21,17 +24,16 @@ public class NewAccountAdm extends NewAccount {
     private Button btCancel, btCreateAccount;
 
     @FXML
-    private TextField flNume, flPrenume, flEmail;
-
-    @FXML
     private PasswordField flPassword, flAdminKey;
-
-    @FXML
-    private Label lbErrMessage, lbInfoOverErr;
 
     @FXML
     void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
+            //super.checkFields();
+            if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2)
+                throw new CompleteAllFields();
+            Encryption.checkEmailStructure(flEmail.getText());
+            Encryption.checkPasswordStrength(flPassword.getText());
             AdmManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
             System.out.println("Cont creat cu succes (Admin)!");
             Stage AdminHomeStage = (Stage) btCreateAccount.getScene().getWindow();
@@ -39,12 +41,15 @@ public class NewAccountAdm extends NewAccount {
             Scene AdminHomeScene = new Scene(AdminHome);
             AdminHomeStage.setScene(AdminHomeScene);
         } catch (EmailAlreadyExistsException e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-            lbInfoOverErr.setText("");
+            super.setErrorText(e);
+        } catch (NotStrongEnoughPassword e) {
+            super.setErrorText(e);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (CompleteAllFields e) {
+            super.setErrorText(e);
+        } catch (EmailNotValid e) {
+            super.setErrorText(e);
         }
     }
 

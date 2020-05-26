@@ -9,7 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.exceptions.EmailNotValid;
+import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Medic;
 
@@ -22,20 +25,23 @@ public class NewAccountMed extends NewAccount {
     private Button btCancel, btCreateAccount;
 
     @FXML
-    private TextField flNume, flPrenume, flEmail;
-
-    @FXML
-    private Label lbErrMessage, lbInfoOverErr, lbActivationKey;
+    private Label lbActivationKey;
 
     @FXML
     void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
+            if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2)
+                throw new CompleteAllFields();
+            Encryption.checkEmailStructure(flEmail.getText());
             Medic m = MedManagement.addMedic(flNume.getText(), flPrenume.getText(), flEmail.getText());
             lbActivationKey.setText(m.getActivationKey());
             System.out.println("Cont creat cu succes!");
         } catch (EmailAlreadyExistsException e) {
-            lbErrMessage.setText(e.getMessage());
-            lbInfoOverErr.setText("");
+            super.setErrorText(e);
+        } catch (CompleteAllFields e) {
+            super.setErrorText(e);
+        } catch (EmailNotValid e) {
+            super.setErrorText(e);
         }
     }
 
