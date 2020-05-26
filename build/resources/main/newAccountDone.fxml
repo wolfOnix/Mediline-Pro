@@ -9,7 +9,7 @@
 
 <AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountDone">
     <children>
-        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
+        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <fill>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>
