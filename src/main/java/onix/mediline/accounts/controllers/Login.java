@@ -39,10 +39,6 @@ public class Login {
     void handleBtLogin (ActionEvent event) throws IOException {
         try {
             User user = UsersManagement.searchUser(flEmail.getText(), 0);
-            System.out.println(flPassword.getText());
-            System.out.println(user.getParola());
-            if(!user.getParola().equals(Encryption.encryptString(user.getEmail(),flPassword.getText())))
-                throw new IncorrectPassword();
             String homeName;
             boolean resizable = true;
             if (user instanceof Admin) {
@@ -51,16 +47,20 @@ public class Login {
                 resizable = false;
             }
             else
-                if (user instanceof Medic) {
-                    homeName = "homeMed.fxml";
-                    System.out.println("Medic detectat");
-                }
-                else {
-                    homeName = "homePac.fxml";
-                    System.out.println("Pacient detectat");
-                }
+            if (user instanceof Medic) {
+                homeName = "homeMed.fxml";
+                System.out.println("Medic detectat");
+            }
+            else {
+                homeName = "homePac.fxml";
+                System.out.println("Pacient detectat");
+            }
             if (!user.getContActiv())
                 throw new AccountNotActivated();
+            System.out.println(flPassword.getText());
+            System.out.println(user.getParola());
+            if(!user.getParola().equals(Encryption.encryptString(user.getEmail(),flPassword.getText())))
+                throw new IncorrectPassword();
             /*Stage HomeStage = (Stage) btLogin.getScene().getWindow();
             HomeStage.setResizable(resizable);
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));

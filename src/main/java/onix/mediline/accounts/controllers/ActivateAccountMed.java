@@ -15,7 +15,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
+import onix.mediline.accounts.exceptions.EmailNotValid;
+import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
 import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Medic;
@@ -24,7 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ActivateAccountMed implements Initializable {
+public class ActivateAccountMed extends NewAccount implements Initializable {
 
 
     @FXML
@@ -33,13 +36,13 @@ public class ActivateAccountMed implements Initializable {
     ObservableList<String> listaMF = FXCollections.observableArrayList("AB", "AG", "AR", "B", "BC", "BH", "BN", "BR", "BT", "BV", "BZ", "CJ", "CL", "CS", "CT", "CV", "DB", "DJ", "GJ", "GL", "GR", "HD", "HR", "IF", "IL", "IS", "MH", "MM", "MS", "NT", "OT", "PH", "SB", "SJ", "SM", "SV", "TL", "TM", "TR", "VL", "VN", "VS");
 
     @FXML
-    private Label lbEmail, lbMedid, lbErrMessage, lbInfoOverErr;
+    private Label lbEmail, lbMedid;
 
     @FXML
     private PasswordField flPassword;
 
     @FXML
-    private TextField flAdresa, flOras, flTelefon, flEmailServ, flPrenume, flNume;
+    private TextField flAdresa, flOras, flTelefon, flEmailServ/*, flPrenume, flNume*/;
 
     @FXML
     private Button btCancel, btActivateAccount;
@@ -49,18 +52,14 @@ public class ActivateAccountMed implements Initializable {
     @FXML
     void handleBtFinishActivateAccount (ActionEvent event) throws IOException {
         try {
+            if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flAdresa.getText().length() < 2 || cbJudet.getValue().length() != 2 || flOras.getText().length() < 2 || flTelefon.getText().length() < 10 || flTelefon.getText().length() > 17)
+                throw new CompleteAllFields();
+            Encryption.checkPasswordStrength(flPassword.getText());
+            Encryption.checkEmailStructure(flEmailServ.getText());
             MedManagement.updateMedic(flNume.getText(), flPrenume.getText(), med.getEmail(), flPassword.getText(), flAdresa.getText(), flOras.getText(), cbJudet.getValue(), flTelefon.getText(), flEmailServ.getText(), true);
             System.out.println("Cont activat");
-        } catch (CompleteAllFields e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-            lbInfoOverErr.setText("");
-        } catch (UserNotFound e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-            lbInfoOverErr.setText("");
+        } catch (CompleteAllFields | UserNotFound | NotStrongEnoughPassword | EmailNotValid e) {
+            super.setErrorText(e);
         }
     }
 
@@ -90,9 +89,8 @@ public class ActivateAccountMed implements Initializable {
             flNume.setText(med.getNume());
             flPrenume.setText(med.getPrenume());
             lbMedid.setText(med.getMedid());
-        }   catch (UserNotFound e) {
-            lbErrMessage.setText(e.getMessage());
-            lbInfoOverErr.setText("");
+        } catch (UserNotFound e) {
+            super.setErrorText(e);
         }
     }
 

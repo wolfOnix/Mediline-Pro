@@ -28,6 +28,8 @@ public class Encryption {
 
     public static void checkEmailStructure (String flEmail) throws EmailNotValid {
         String emailRegularExpr = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        if (flEmail.length() < 5)
+            throw new EmailNotValid();
         Pattern patt = Pattern.compile(emailRegularExpr);
         if (!patt.matcher(flEmail).matches() || flEmail == null)
             throw new EmailNotValid();

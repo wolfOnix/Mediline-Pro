@@ -9,10 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import onix.mediline.accounts.exceptions.CompleteAllFields;
-import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
-import onix.mediline.accounts.exceptions.EmailNotValid;
-import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
+import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.management.AdmManagement;
 import onix.mediline.accounts.management.Encryption;
 
@@ -40,16 +37,10 @@ public class NewAccountAdm extends NewAccount {
             Parent AdminHome = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdm.fxml"));
             Scene AdminHomeScene = new Scene(AdminHome);
             AdminHomeStage.setScene(AdminHomeScene);
-        } catch (EmailAlreadyExistsException e) {
-            super.setErrorText(e);
-        } catch (NotStrongEnoughPassword e) {
+        } catch (CompleteAllFields | EmailAlreadyExistsException | NotStrongEnoughPassword | EmailNotValid e) {
             super.setErrorText(e);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (CompleteAllFields e) {
-            super.setErrorText(e);
-        } catch (EmailNotValid e) {
-            super.setErrorText(e);
         }
     }
 

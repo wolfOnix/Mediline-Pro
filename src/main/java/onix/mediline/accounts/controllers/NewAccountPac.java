@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -68,13 +67,7 @@ public class NewAccountPac extends NewAccount implements Initializable {
             Encryption.checkPasswordStrength(flPassword.getText());
             PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue());
             System.out.println("Cont creat cu succes!");
-        } catch (EmailAlreadyExistsException e) {
-            super.setErrorText(e);
-        } catch (NotStrongEnoughPassword e) {
-            super.setErrorText(e);
-        } catch (CompleteAllFields e) {
-            super.setErrorText(e);
-        } catch (EmailNotValid e) {
+        } catch (CompleteAllFields | EmailAlreadyExistsException | NotStrongEnoughPassword | EmailNotValid e) {
             super.setErrorText(e);
         }
 

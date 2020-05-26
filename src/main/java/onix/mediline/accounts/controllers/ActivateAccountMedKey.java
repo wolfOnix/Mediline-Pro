@@ -10,14 +10,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import onix.mediline.accounts.exceptions.AccountAlreadyActivated;
-import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Medic;
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 
 import java.io.IOException;
 
-public class ActivateAccountMedKey {
+public class ActivateAccountMedKey extends NewAccount {
 
     @FXML
     private TextField flEmail;
@@ -27,9 +27,6 @@ public class ActivateAccountMedKey {
 
     @FXML
     private Button btForward, btCancel;
-
-    @FXML
-    private Label lbErrMessage, lbInfoOverErr;
 
     @FXML
     void handleButtonCancel(ActionEvent event) throws IOException {
@@ -56,18 +53,10 @@ public class ActivateAccountMedKey {
             ActAccMed.setEmail(flEmail.getText());
             Scene ForwardScene = new Scene(Forward);
             ForwardStage.setScene(ForwardScene);
+        } catch (AccountAlreadyActivated | UserNotFound e) {
+            super.setErrorText(e);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (UserNotFound e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-            lbInfoOverErr.setText("");
-        } catch (AccountAlreadyActivated e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-            lbInfoOverErr.setText("");
         }
     }
 

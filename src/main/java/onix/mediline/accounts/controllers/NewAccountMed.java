@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
 import onix.mediline.accounts.exceptions.EmailNotValid;
+import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
 import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Medic;
@@ -36,11 +37,7 @@ public class NewAccountMed extends NewAccount {
             Medic m = MedManagement.addMedic(flNume.getText(), flPrenume.getText(), flEmail.getText());
             lbActivationKey.setText(m.getActivationKey());
             System.out.println("Cont creat cu succes!");
-        } catch (EmailAlreadyExistsException e) {
-            super.setErrorText(e);
-        } catch (CompleteAllFields e) {
-            super.setErrorText(e);
-        } catch (EmailNotValid e) {
+        } catch (CompleteAllFields | EmailAlreadyExistsException | EmailNotValid e) {
             super.setErrorText(e);
         }
     }
