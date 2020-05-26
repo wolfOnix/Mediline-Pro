@@ -46,7 +46,7 @@ public class NewAccountPac extends NewAccount implements Initializable {
 
     @FXML
     void handlebuttonCancel(ActionEvent event) throws IOException {
-        try  { Stage CancelStage = (Stage) btCancel.getScene().getWindow();
+        try { Stage CancelStage = (Stage) btCancel.getScene().getWindow();
             Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
             Scene CancelScene = new Scene(Cancel);
             CancelStage.setScene(CancelScene);

@@ -35,8 +35,28 @@
 
         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
         <Button fx:id="btLogout" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" styleClass="overlayButton" AnchorPane.rightAnchor="30.0" />
-        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="75.0"><image><Image url="@images/settings_30_wh.png" /></image></ImageView>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="75.0"><image><Image url="@images/account_30.png" /></image></ImageView>
         <Button fx:id="btAccountSettings" layoutY="11.0" mnemonicParsing="false" styleClass="overlayButton" AnchorPane.rightAnchor="75.0" />
+
+        <Pane fx:id="panNoMedID" layoutY="267.0" prefHeight="236.0" prefWidth="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="752.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/nomedic_90.png" /></image></ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="624.0" layoutY="100.0" styleClass="neutralLabel" text="Nu aveți niciun medic de familie atribuit" textAlignment="CENTER" AnchorPane.leftAnchor="624.0" AnchorPane.rightAnchor="134.14921875000005" />
+            <Label layoutX="504.0" layoutY="132.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Pentru a adăuga un medic de familie și pentru a beneficia de funcționalitățile aplicației, utilizați MedID-ul medicului dvs., introducându-l la fila MEDICUL MEU DE FAMILIE. MedID-ul îl puteți obține de la medicul dvs. de familie." wrapText="true" AnchorPane.leftAnchor="504.0" AnchorPane.rightAnchor="503.0" />
+        </Pane>
+
+       <Pane layoutX="150.0" layoutY="245.0" prefHeight="332.0" prefWidth="600.0">
+           <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/stetoscop_90.png" /></image></ImageView>
+           <Label alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="104.0" styleClass="neutralLabel" text="Următoarea programare" textAlignment="CENTER" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="195.001953125" />
+           <Label layoutX="4.0" layoutY="137.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Data următoarei programări" wrapText="true" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
+           <Label alignment="CENTER" contentDisplay="CENTER" layoutX="226.0" layoutY="255.0" styleClass="bigNumber" text="Nu există" textAlignment="CENTER" />
+       </Pane>
+
+        <Pane layoutX="700.0" layoutY="245.0" prefHeight="332.0" prefWidth="600.0">
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0"><image><Image url="@images/documents_90.png" /></image></ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="111.0" styleClass="neutralLabel" text="Documente medicale personale" textAlignment="CENTER" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="165.32421875" />
+            <Label layoutX="4.0" layoutY="137.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Numărul de documente primite de la medicul dvs.:" wrapText="true" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="258.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
+        </Pane>
 
         <Pane fx:id="pnMyAppointments" layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
             <children>
