@@ -67,6 +67,10 @@ public class NewAccountPac extends NewAccount implements Initializable {
             Encryption.checkPasswordStrength(flPassword.getText());
             PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue());
             System.out.println("Cont creat cu succes!");
+            Stage PacFinishedStage = (Stage) btCreateAccount.getScene().getWindow();
+            Parent PacFinished = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));
+            Scene PacFinishedScene = new Scene(PacFinished);
+            PacFinishedStage.setScene(PacFinishedScene);
         } catch (CompleteAllFields | EmailAlreadyExistsException | NotStrongEnoughPassword | EmailNotValid e) {
             super.setErrorText(e);
         }

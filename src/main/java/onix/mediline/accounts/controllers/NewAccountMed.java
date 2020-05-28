@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
 import onix.mediline.accounts.exceptions.EmailNotValid;
-import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
 import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Medic;
@@ -36,8 +35,19 @@ public class NewAccountMed extends NewAccount {
             Encryption.checkEmailStructure(flEmail.getText());
             Medic m = MedManagement.addMedic(flNume.getText(), flPrenume.getText(), flEmail.getText());
             lbActivationKey.setText(m.getActivationKey());
+            Stage MedicInitialisedStage = (Stage) btCreateAccount.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("newAccountMedInitialised.fxml"));
+            Parent MedicInitialised = loader.load();
+            NewAccountMedInitialised MedInit = loader.getController();
+            MedInit.Medkey(lbActivationKey.getText());
+            Scene MedicInitialisedScene = new Scene(MedicInitialised);
+            MedicInitialisedStage.setScene(MedicInitialisedScene);
             System.out.println("Cont creat cu succes!");
-        } catch (CompleteAllFields | EmailAlreadyExistsException | EmailNotValid e) {
+        } catch (EmailAlreadyExistsException e) {
+            super.setErrorText(e);
+        } catch (CompleteAllFields e) {
+            super.setErrorText(e);
+        } catch (EmailNotValid e) {
             super.setErrorText(e);
         }
     }

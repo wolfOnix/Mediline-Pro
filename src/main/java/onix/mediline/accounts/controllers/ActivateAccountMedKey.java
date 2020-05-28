@@ -10,10 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import onix.mediline.accounts.exceptions.*;
+import onix.mediline.accounts.exceptions.AccountAlreadyActivated;
+import onix.mediline.accounts.exceptions.CheckMedicKeyExeception;
+import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Medic;
-import org.omg.CosNaming.NamingContextPackage.NotFound;
 
 import java.io.IOException;
 
@@ -27,6 +29,9 @@ public class ActivateAccountMedKey extends NewAccount {
 
     @FXML
     private Button btForward, btCancel;
+
+    @FXML
+    private Label lbErrMessage, lbInfoOverErr;
 
     @FXML
     void handleButtonCancel(ActionEvent event) throws IOException {
@@ -46,6 +51,8 @@ public class ActivateAccountMedKey extends NewAccount {
             Medic med = (Medic) UsersManagement.searchUser(flEmail.getText(), 2);
             if (med.getContActiv())
                 throw new AccountAlreadyActivated();
+            if(!flActivationKey.getText().equals(med.getActivationKey()))
+                throw new CheckMedicKeyExeception(flActivationKey.getText());
             Stage ForwardStage = (Stage) btForward.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("activateAccountMed.fxml"));
             Parent Forward = loader.load();
@@ -53,10 +60,14 @@ public class ActivateAccountMedKey extends NewAccount {
             ActAccMed.setEmail(flEmail.getText());
             Scene ForwardScene = new Scene(Forward);
             ForwardStage.setScene(ForwardScene);
-        } catch (AccountAlreadyActivated | UserNotFound e) {
-            super.setErrorText(e);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (UserNotFound e) {
+            super.setErrorText(e);
+        } catch (AccountAlreadyActivated e) {
+            super.setErrorText(e);
+        } catch (CheckMedicKeyExeception e) {
+            super.setErrorText(e);
         }
     }
 

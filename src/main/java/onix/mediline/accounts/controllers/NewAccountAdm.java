@@ -7,13 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.management.AdmManagement;
 import onix.mediline.accounts.management.Encryption;
 
-import java.io.IOException;
+import java.io.*;
 
 public class NewAccountAdm extends NewAccount {
 
@@ -27,20 +26,40 @@ public class NewAccountAdm extends NewAccount {
     void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
             //super.checkFields();
+            BufferedReader br = new BufferedReader(new FileReader(new File("F:\\Facultate\\FIS\\Mediline-Pro\\src\\main\\resources\\text\\AdminKey.txt")));
+            String data = br.readLine();
+            String AdminKey = Encryption.encryptString("adminKey",flAdminKey.getText());
+            AdminKey = AdminKey.replace("\n","");
+            byte ptext[] = AdminKey.getBytes();
+            String valueAdminKey = new String(ptext, "UTF-8");
+            if(!data.equals(valueAdminKey))
+                throw new CheckAdminKeyException(flAdminKey.getText());
             if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2)
                 throw new CompleteAllFields();
             Encryption.checkEmailStructure(flEmail.getText());
             Encryption.checkPasswordStrength(flPassword.getText());
+
             AdmManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
             System.out.println("Cont creat cu succes (Admin)!");
-            Stage AdminHomeStage = (Stage) btCreateAccount.getScene().getWindow();
-            Parent AdminHome = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdm.fxml"));
-            Scene AdminHomeScene = new Scene(AdminHome);
-            AdminHomeStage.setScene(AdminHomeScene);
-        } catch (CompleteAllFields | EmailAlreadyExistsException | NotStrongEnoughPassword | EmailNotValid e) {
+            Stage AdminFinishedStage = (Stage) btCreateAccount.getScene().getWindow();
+            Parent AdminFinished = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));
+            Scene AdminFinishedScene = new Scene(AdminFinished);
+            AdminFinishedStage.setScene(AdminFinishedScene);
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();}
+        catch (EmailAlreadyExistsException e) {
+            super.setErrorText(e);
+        } catch (NotStrongEnoughPassword e) {
             super.setErrorText(e);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (CompleteAllFields e) {
+            super.setErrorText(e);
+        } catch (EmailNotValid e) {
+            super.setErrorText(e);
+        } catch (CheckAdminKeyException e) {
+            super.setErrorText(e);
         }
     }
 
