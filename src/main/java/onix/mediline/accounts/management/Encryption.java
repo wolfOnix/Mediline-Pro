@@ -12,7 +12,7 @@ public class Encryption {
 
     public static void checkPasswordStrength (String flPassword) throws NotStrongEnoughPassword {
         boolean cp1 = false, cp2 = false;
-        if (flPassword.length() < 8)
+        if (flPassword.length() < 7)
             throw new NotStrongEnoughPassword();
         char[] splitPassword = flPassword.toCharArray();
         for (char c : splitPassword)

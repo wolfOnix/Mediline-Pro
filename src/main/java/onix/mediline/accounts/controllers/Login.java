@@ -24,7 +24,7 @@ import java.io.IOException;
 public class Login {
 
     @FXML
-    private Button btLogin, btNewAccount, btNewAdmin, btActivateAccount, closeButton;
+    private Button btLogin, btNewAccount, btNewAdmin, btActivateAccount;
 
     @FXML
     private Label lbErrMessage;
@@ -126,11 +126,4 @@ public class Login {
         }
     }
 
-    @FXML
-    public void closeButtonAction(ActionEvent actionEvent) {
-        // get a handle to the stage
-        Stage stage = (Stage) closeButton.getScene().getWindow();
-        // do what you have to do
-        stage.close();
-    }
 }

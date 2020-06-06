@@ -26,14 +26,14 @@ public class NewAccountAdm extends NewAccount {
     void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
             //super.checkFields();
-            BufferedReader br = new BufferedReader(new FileReader(new File("F:\\Facultate\\FIS\\Mediline-Pro\\src\\main\\resources\\text\\AdminKey.txt")));
+            /*BufferedReader br = new BufferedReader(new FileReader(new File("resources/text/AdminKey.txt"))); <- ???
             String data = br.readLine();
             String AdminKey = Encryption.encryptString("adminKey",flAdminKey.getText());
             AdminKey = AdminKey.replace("\n","");
             byte ptext[] = AdminKey.getBytes();
             String valueAdminKey = new String(ptext, "UTF-8");
             if(!data.equals(valueAdminKey))
-                throw new CheckAdminKeyException(flAdminKey.getText());
+                throw new CheckAdminKeyException(flAdminKey.getText());*/
             if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2)
                 throw new CompleteAllFields();
             Encryption.checkEmailStructure(flEmail.getText());
@@ -58,9 +58,9 @@ public class NewAccountAdm extends NewAccount {
             super.setErrorText(e);
         } catch (EmailNotValid e) {
             super.setErrorText(e);
-        } catch (CheckAdminKeyException e) {
+        } /*catch (CheckAdminKeyException e) {
             super.setErrorText(e);
-        }
+        }*/
     }
 
     @FXML

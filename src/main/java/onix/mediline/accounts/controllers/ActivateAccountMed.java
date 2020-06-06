@@ -29,7 +29,6 @@ import java.util.ResourceBundle;
 
 public class ActivateAccountMed extends NewAccount implements Initializable {
 
-
     @FXML
     private ComboBox<String> cbJudet = new ComboBox<String>();
 
@@ -48,6 +47,11 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
     private Button btCancel, btActivateAccount;
 
     private Medic med;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cbJudet.setItems(listaMF);
+    }
 
     @FXML
     void handleBtFinishActivateAccount (ActionEvent event) throws IOException {
@@ -73,11 +77,6 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        cbJudet.setItems(listaMF);
     }
 
     public void setEmail (String email) {

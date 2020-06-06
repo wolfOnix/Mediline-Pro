@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane styleClass="body-large" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.PacPage2">
+    <children>
+        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="0.6431372761726379" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill></Rectangle>
+
+        <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
+        <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Programare nouă" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
+        <Button fx:id="btLogout" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" styleClass="overlayButton" AnchorPane.rightAnchor="30.0" />
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="75.0"><image><Image url="@images/account_30.png" /></image></ImageView>
+        <Button fx:id="btAccountSettings" layoutY="11.0" mnemonicParsing="false" styleClass="overlayButton" AnchorPane.rightAnchor="75.0" />
+
+        <Pane layoutX="134.0" layoutY="274.0" prefHeight="251.0" prefWidth="600.0">
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/stetoscop_90.png" /></image></ImageView>
+            <Label layoutX="4.0" layoutY="120.0" prefHeight="118.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Pentru a cere o consultație, introduceți data și ora la care preferați să aibă loc programarea. Medicul dvs. de familie va confirma sau va modifica ora programării, după caz. Urmăriți secțiunea „Programările mele” pentru a verifica starea programărilor." wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
+        </Pane>
+
+        <Pane fx:id="pnMyAppointments" layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <Button fx:id="btMyAppointmentsImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, appo" />
+                <Button fx:id="btMyAppointmentsTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="PROGRAMĂRILE MELE" />
+            </children>
+        </Pane>
+
+        <Pane fx:id="pnNewAppointment" layoutX="514.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <Button fx:id="btNewAppointmentImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, napo" />
+                <Button fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="PROGRAMARE NOUĂ" />
+            </children>
+        </Pane>
+
+        <Pane fx:id="pnMyFiles" layoutX="804.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <Button fx:id="btMyFilesImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, file" />
+                <Button fx:id="btMyFilesTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="DOCUMENTELE MEDICALE" />
+            </children>
+        </Pane>
+
+        <Pane fx:id="pnMyMed" layoutX="1130.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <Button fx:id="btMyMedImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, doct" />
+                <Button fx:id="btMyMedTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE" />
+            </children>
+        </Pane>
+
+        <Label layoutX="978.0" layoutY="234.0" prefHeight="40.0" prefWidth="478.0" styleClass="neutralLabelSmall" text="Introduceți mai jos datele pentru programarea dorită" wrapText="true" />
+
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1006.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/date_30.png" /></image></ImageView>
+        <Label layoutX="1070.0" layoutY="310.0" styleClass="inputTitle" text="Data programării" />
+        <DatePicker fx:id="flData" layoutX="1069.0" layoutY="348.0" styleClass="datePicker" />
+
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1006.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/clock_30.png" /></image></ImageView>
+        <Label layoutX="1069.0" layoutY="419.0" styleClass="inputTitle" text="Ora programării" />
+        <ComboBox fx:id="cbOra" layoutX="1069.0" layoutY="464.0" />
+        <ComboBox fx:id="cbMinut" layoutX="1201.0" layoutY="464.0" />
+
+        <Button fx:id="btLogin" layoutX="1283.0" layoutY="546.0" mnemonicParsing="false" prefWidth="150.0" styleClass="mainButton" stylesheets="@style.css" text="TRIMITERE CERERE" />
+
+        <Label fx:id="lbErrMessage" layoutX="963.0" layoutY="621.0" prefHeight="75.0" prefWidth="507.0" styleClass="errorLabel" wrapText="true" />
+
+    </children>
+</AnchorPane>
