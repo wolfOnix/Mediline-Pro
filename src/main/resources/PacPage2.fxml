@@ -32,7 +32,7 @@
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Programare nouă" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 
         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
-        <Button fx:id="btLogout" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" styleClass="overlayButton" AnchorPane.rightAnchor="30.0" />
+        <Button fx:id="btLogout" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="20.0" styleClass="overlayButton" AnchorPane.rightAnchor="30.0" />
         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="75.0"><image><Image url="@images/account_30.png" /></image></ImageView>
         <Button fx:id="btAccountSettings" layoutY="11.0" mnemonicParsing="false" styleClass="overlayButton" AnchorPane.rightAnchor="75.0" />
 

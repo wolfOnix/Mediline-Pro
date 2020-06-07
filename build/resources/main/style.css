@@ -307,20 +307,15 @@
     -fx-background-color: transparent;
 }
 
-.w220h {
-    -fx-pref-width: 200;
-    -fx-pref-height: 30;
-}
-
 .panel {
     -fx-background-color: white;
     -fx-fill: white;
 }
 
-/*.smallImage {
-    -fx-pref-height: 20;
-    -fx-pref-width: 20;
-}*/
+.scroll-pane {
+    -fx-background-color: white;
+    -fx-fill: white;
+}
 
 .sublink {
     -fx-font-family: "Avenir Next LT Pro";
@@ -330,11 +325,6 @@
 
 .sublink:hover {
 
-}
-
-.scroll-pane {
-    -fx-background-color: white;
-    -fx-fill: white;
 }
 
 .text-field {
@@ -350,6 +340,17 @@
 
 .text-field:hover {
     -fx-background-color: #f1f1f1;
+}
+
+.staticLabel {
+    -fx-background-color: #8963ba;
+    -fx-border-color: #8963ba;
+    -fx-text-fill: white;
+}
+
+.staticLabel:hover {
+    -fx-background-color: #8963ba;
+    -fx-border-color: #8963ba;
 }
 
 .title {
@@ -375,7 +376,6 @@
     -fx-background-color: white;
     -fx-background-radius: 0em;
     -fx-padding: 0 10 0 0;
-
 }
 
 .scroll-bar:vertical .increment-button ,
@@ -383,7 +383,6 @@
     -fx-background-color: white;
     -fx-background-radius: 0em;
     -fx-padding: 0 10 0 0;
-
 }
 
 .scroll-bar .increment-arrow,

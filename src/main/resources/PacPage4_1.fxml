@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -32,9 +33,32 @@
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Medicul meu de familie" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 
         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
-        <Button fx:id="btLogout" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" styleClass="overlayButton" AnchorPane.rightAnchor="30.0" />
+        <Button fx:id="btLogout" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="20.0" styleClass="overlayButton" AnchorPane.rightAnchor="30.0" />
         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="75.0"><image><Image url="@images/account_30.png" /></image></ImageView>
         <Button fx:id="btAccountSettings" layoutY="11.0" mnemonicParsing="false" styleClass="overlayButton" AnchorPane.rightAnchor="75.0" />
+
+        <Pane layoutX="134.0" layoutY="300.0" prefHeight="251.0" prefWidth="600.0">
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/finddoc_90.png" /></image></ImageView>
+            <Label layoutX="4.0" layoutY="120.0" prefHeight="118.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Aici găsiți datele de contact ale medicului dvs. de familie, în concordanță cu MedID-ul introdus" wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
+        </Pane>
+
+        <Label layoutX="833.0" layoutY="305.0" styleClass="inputTitle" text="Nume" />
+        <Label fx:id="flNume" layoutX="833.0" layoutY="333.0" text="(Nume)"> <styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+        <Label layoutX="833.0" layoutY="392.0" styleClass="inputTitle" text="Cabinetul la adresa" />
+        <Label fx:id="flPrenume" layoutX="833.0" layoutY="420.0" styleClass="staticLabel" text="(Adresă)"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+        <Label layoutX="833.0" layoutY="477.0" styleClass="inputTitle" text="E-mail de serviciu" />
+        <Label fx:id="flPrenume1" layoutX="833.0" layoutY="505.0" styleClass="staticLabel" text="(E-mail)"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+        <Label layoutX="1173.0" layoutY="305.0" styleClass="inputTitle" text="Prenume" />
+        <Label fx:id="flNume1" layoutX="1173.0" layoutY="333.0" styleClass="staticLabel" text="(Prenume)"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+        <Label layoutX="1173.0" layoutY="392.0" styleClass="inputTitle" text="Telefon" />
+        <Label fx:id="flPrenume2" layoutX="1173.0" layoutY="420.0" styleClass="staticLabel" text="(Telefon)"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+        <Label layoutX="1173.0" layoutY="477.0" styleClass="inputTitle" text="MedID" />
+        <Label fx:id="flPrenume11" layoutX="1173.0" layoutY="505.0" styleClass="staticLabel" text="(MedID)"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
 
         <Button fx:id="btPacPg1" layoutX="214.6" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="229.6" styleClass="overlayButton" />
         <Pane fx:id="pnMyAppointments" layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
