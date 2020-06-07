@@ -43,31 +43,35 @@
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="233.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
         </Pane>
 
+        <Button fx:id="btPacPg1" layoutX="214.6" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="229.6" styleClass="overlayButton" />
         <Pane fx:id="pnMyAppointments" layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
             <children>
-                <Button fx:id="btMyAppointmentsImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, appo" />
-                <Button fx:id="btMyAppointmentsTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="PROGRAMĂRILE MELE" />
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/appointments_30.png" /></image></ImageView>
+                <Label fx:id="btMyAppointmentsTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRILE MELE" />
             </children>
         </Pane>
 
+        <Button fx:id="btPacPg2" layoutX="514.2" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="220.0" styleClass="overlayButton" />
         <Pane fx:id="pnNewAppointment" layoutX="514.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
             <children>
-                <Button fx:id="btNewAppointmentImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, napo" />
-                <Button fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="PROGRAMARE NOUĂ" />
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/newappointment_30.png" /></image></ImageView>
+                <Label fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMARE NOUĂ" />
             </children>
         </Pane>
 
+        <Button fx:id="btPacPg3" layoutX="804.2" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="256.0" styleClass="overlayButton" />
         <Pane fx:id="pnMyFiles" layoutX="804.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
             <children>
-                <Button fx:id="btMyFilesImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, file" />
-                <Button fx:id="btMyFilesTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="DOCUMENTELE MEDICALE" />
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/documents_30.png" /></image></ImageView>
+                <Label fx:id="btMyFilesTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="DOCUMENTELE MEDICALE" />
             </children>
         </Pane>
 
+        <Button fx:id="btPacPg4" layoutX="1130.2" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="255.2" styleClass="overlayButton" />
         <Pane fx:id="pnMyMed" layoutX="1130.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
             <children>
-                <Button fx:id="btMyMedImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, doct" />
-                <Button fx:id="btMyMedTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE" />
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/mydoc_30.png" /></image></ImageView>
+                <Label fx:id="btMyMedTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE" />
             </children>
         </Pane>
 

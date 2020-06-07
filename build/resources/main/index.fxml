@@ -10,9 +10,9 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" styleClass="mLogo" stylesheets="@style.css" text="M" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" styleClass="medilineLogo" stylesheets="@style.css" text="MEDILINE" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="223.0" styleClass="inputTitle" stylesheets="@style.css" text="E-mail" />
-      <TextField fx:id="flEmail" layoutX="51.0" layoutY="252.0" promptText="E-mail" stylesheets="@style.css" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0" />
+      <TextField fx:id="flEmail" layoutX="51.0" layoutY="252.0" promptText="E-mail" stylesheets="@style.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="309.0" styleClass="inputTitle" stylesheets="@style.css" text="Parolă" />
-      <PasswordField fx:id="flPassword" layoutX="51.0" layoutY="337.0" promptText="Parolă" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="49.0" />
+      <PasswordField fx:id="flPassword" layoutX="51.0" layoutY="337.0" promptText="Parolă" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
       <Button fx:id="btLogin" layoutX="190.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleBtLogin" prefWidth="150.0" styleClass="mainButton" stylesheets="@style.css" text="CONECTARE" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" />
       <Button fx:id="btNewAccount" layoutX="210.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleButtonNewAccount" prefHeight="54.0" prefWidth="150.0" stylesheets="@style.css" text="CREARE CONT PACIENT" wrapText="true" AnchorPane.leftAnchor="208.0" AnchorPane.rightAnchor="42.0" />
       <Button fx:id="btActivateAccount" layoutX="40.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleButtonActivateAccount" prefHeight="54.0" prefWidth="150.0" stylesheets="@style.css" text="ACTIVARE CONT MEDICAL" wrapText="true" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="208.0" />

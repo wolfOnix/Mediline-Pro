@@ -61,7 +61,6 @@
     -fx-font-size: 16;
     -fx-font-family: "Source Sans Pro";
     -fx-padding: 2 2 2 2;
-    /*-fx-pref-width: 150;*/
     -fx-text-alignment: center;
 }
 
@@ -246,18 +245,6 @@
     -fx-background-image: url('images/key_30.png');
 }
 
-.overlayButton {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-pref-height: 20;
-    -fx-pref-width: 20;
-    -fx-cursor: hand;
-}
-
-.overlayButton:hover {
-    -fx-background-color: transparent;
-}
-
 .neutralLabel {
     -fx-alignment: center;
     -fx-font-family: "Avenir Next LT Pro Bold";
@@ -308,6 +295,21 @@
 .optionImage {
     -fx-pref-height: 60;
     -fx-pref-width: 60;
+}
+
+.overlayButton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.overlayButton:hover {
+    -fx-background-color: transparent;
+}
+
+.w220h {
+    -fx-pref-width: 200;
+    -fx-pref-height: 30;
 }
 
 .panel {
