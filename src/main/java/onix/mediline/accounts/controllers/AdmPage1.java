@@ -14,7 +14,7 @@ import java.io.IOException;
 import javafx.scene.input.MouseEvent;
 
 
-public class HomeAdm extends Home {
+public class AdmPage1 extends Home {
 
     @FXML
     private Button btNewAccountMed;

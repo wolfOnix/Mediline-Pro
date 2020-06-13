@@ -24,9 +24,4 @@ public class PacPage2 extends Home implements Initializable {
         cbMinut.setItems(lMN);
     }
 
-    @FXML
-    void handleBtLogout (ActionEvent event) throws IOException {
-        super.handleBtLogout(event);
-    }
-
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane styleClass="body-large" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.MedPage3">
+    <children>
+        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="1.0" green="0.6431372761726379" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill></Rectangle>
+
+        <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
+        <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Trimitere documente medicale" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1443.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
+        <Button fx:id="btLogout" layoutX="1425.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="160.0" styleClass="overlayButton" />
+
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
+        <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="196.0"><image><Image url="@images/account_30.png" /></image></ImageView>
+        <Button fx:id="btAccountSettings" layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+
+        <Pane layoutX="30.0" layoutY="151.0" prefHeight="248.0" prefWidth="500.0">
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="205.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/documents_90.png" /></image></ImageView>
+            <Label layoutY="107.0" prefHeight="134.0" prefWidth="500.0" styleClass="neutralLabelSmall" text="Pentru a trimite concluziile unei investigații, rezulatele unei analize sau alte documente medicale, alegeți pacientul căruia doriți să-i trimiteți documentul. Ulterior completați câmpurile necesare și apăsați tasta „Trimitere document”" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        </Pane>
+
+        <Pane fx:id="pnMyAppointments" layoutX="247" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/today_appointments_30.png" /></image></ImageView>
+                <Label fx:id="btMyAppointmentsTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="ASTĂZI" />
+            </children>
+        </Pane>
+        <Button fx:id="btPacPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton" />
+
+        <Button fx:id="btPacPg2" layoutX="446.6" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton" />
+        <Pane fx:id="pnNewAppointment" layoutX="446.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/add_appointment_30.png" /></image></ImageView>
+                <Label fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRI ÎN AȘTEPTARE" />
+            </children>
+        </Pane>
+
+        <Button fx:id="btPacPg3" layoutX="789.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="316" styleClass="overlayButton" />
+        <Pane fx:id="pnMyFiles" layoutX="789.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/documents_30.png" /></image></ImageView>
+                <Label fx:id="btMyFilesTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="TRIMITERE DOCUMENTE MEDICALE" />
+            </children>
+        </Pane>
+
+        <Button fx:id="btPacPg4" layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton" />
+        <Pane fx:id="pnMyMed" layoutX="1175.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <children>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/patients_30.png" /></image></ImageView>
+                <Label fx:id="btMyMedTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PACIENȚII MEI" />
+            </children>
+        </Pane>
+
+        <TableView layoutX="30.0" layoutY="421.0" prefHeight="227.0" prefWidth="500.0">
+            <columns>
+                <TableColumn prefWidth="300.0" text="Pacientul" />
+                <TableColumn prefWidth="200.0" text="CNP" />
+            </columns>
+        </TableView>
+
+        <Label layoutX="570.0" layoutY="178.0" styleClass="inputTitle" text="Titlul documentului" />
+        <TextField fx:id="flDocTitle" layoutX="569.0" layoutY="213.0" promptText="Titlul documentului" />
+
+        <Label layoutX="898.0" layoutY="176.0" styleClass="inputTitle" text="Tipul documentului" />
+        <TextField fx:id="flDocType" layoutX="898.0" layoutY="213.0" promptText="Tipul documentului" />
+        <TextArea fx:id="taDocContent" layoutX="569.0" layoutY="271.0" prefHeight="378.0" prefWidth="967.0" promptText="Conținutul documentului" />
+
+        <Label layoutX="1225.0" layoutY="175.0" styleClass="inputTitle" text="Data emiterii" />
+        <DatePicker fx:id="flData" layoutX="1225.0" layoutY="213.0" styleClass="datePicker" />
+
+        <Button fx:id="btSendDoc" layoutX="1344.0" layoutY="671.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="192.0" styleClass="mainButton" stylesheets="@style.css" text="TRIMITERE DOCUMENT" />
+
+    </children>
+</AnchorPane>
