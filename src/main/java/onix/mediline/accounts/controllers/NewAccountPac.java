@@ -62,8 +62,7 @@ public class NewAccountPac extends NewAccount implements Initializable {
     void handleButtonRegistration (ActionEvent event) throws IOException{
         try {
             String dataN = String.valueOf(flData.getValue());
-            if (dataN == null || dataN == "" || dataN == "null")
-                throw new CompleteAllFields();
+            Home.checkFieldLength(dataN);
             if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2 || flCNP.getText().length() != 13 || flAdresa.getText().length() < 2 || flOras.getText().length() < 2 || flTelefon.getText().length() < 10 || flTelefon.getText().length() > 17 || (cbSexul.getValue() != "M" && cbSexul.getValue() != "F"))
                 throw new CompleteAllFields();
             Encryption.checkEmailStructure(flEmail.getText());

@@ -25,7 +25,7 @@ public abstract class PacPages extends Home {
     protected static Pacient Pac;
 
     @FXML
-    void ActionMyAppointments(MouseEvent event) throws IOException {
+    void ActionPacPg1(MouseEvent event) throws IOException {
         try {
             Stage HomeStage = (Stage)  btPacPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homePac.fxml"));
@@ -41,7 +41,7 @@ public abstract class PacPages extends Home {
     }
 
     @FXML
-    void ActionNewAppointments(MouseEvent event) throws IOException {
+    void ActionPacPg2(MouseEvent event) throws IOException {
         try {
             FXMLLoader loader;
             Parent NewApp;
@@ -68,11 +68,15 @@ public abstract class PacPages extends Home {
     }
 
     @FXML
-    void ActionMyFilesTxt (MouseEvent event) throws IOException {
+    void ActionPacPg3(MouseEvent event) throws IOException {
         try {
             Stage MyFileStage = (Stage) btPacPg3.getScene().getWindow();
-            Parent MyFile = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("PacPage3.fxml")));
-            Scene MyFileScene = new Scene(MyFile);
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("PacPage3.fxml")));
+            Parent Next = loader.load();
+            PacPage3 controller = loader.getController();
+            controller.fillTvMyDocs();
+            controller.setLbNrDocs();
+            Scene MyFileScene = new Scene(Next);
             MyFileStage.setScene(MyFileScene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -80,7 +84,7 @@ public abstract class PacPages extends Home {
     }
 
     @FXML
-    void ActionMyMed (MouseEvent event) throws IOException {
+    void ActionPacPg4(MouseEvent event) throws IOException {
         try {
             Stage PacPage4Stage = (Stage) btPacPg4.getScene().getWindow();
             FXMLLoader loader;

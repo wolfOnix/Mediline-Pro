@@ -6,20 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import java.io.IOException;
+
 import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.input.MouseEvent;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.management.PacManagement;
-import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.appointments.exceptions.AppointmentAlreadyRequested;
 import onix.mediline.appointments.exceptions.DateTooClose;
 import onix.mediline.appointments.management.Appointment;
@@ -57,7 +51,7 @@ public class PacPage2 extends PacPages implements Initializable {
             Appointment.checkDateApproach(Appointment.toDateFormat(dataN, HM));
             Pac.checkDoubleAppointment(Appointment.fromDateFormat(Appointment.toDateFormat(dataN, HM))[2], HM);
             Appointment App = new Appointment(dataN, HM, Pac.getEmail(), Pac.getNume(), Pac.getPrenume());
-            PacManagement.AddPacientApp(App, Pac);
+            PacManagement.addPacientApp(App, Pac);
             setMessageLabel("Cererea de programare a fost trimisă. Medicul de familie urmează să gestioneze programarea");
         } catch (CompleteAllFields | ParseException | DateTooClose | AppointmentAlreadyRequested e) {
             super.setErrorText(e);

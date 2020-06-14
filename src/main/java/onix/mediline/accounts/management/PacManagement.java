@@ -6,6 +6,7 @@ import onix.mediline.accounts.exceptions.CouldNotWriteUsersException;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.appointments.management.Appointment;
+import onix.mediline.documents.Document;
 import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -24,18 +25,23 @@ public class PacManagement extends UsersManagement {
         users_pacient = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Pacient>>() {});
     }
 
-    public static void addPacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul) throws EmailAlreadyExistsException {
+    public static void addPacient(String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul) throws EmailAlreadyExistsException {
         searchUserAlready (flEmail);
         users_pacient.add (new Pacient (flNume,flPrenume, flEmail, Encryption.encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon, flData, cbSexul));
         addUserIntoFile();
     }
 
-    public static void AddPacientMedID (String flIDMedic, Pacient p) {
+    public static void attachDoc(Document doc, Pacient p) {
+        p.addDoc(doc);
+        addUserIntoFile();
+    }
+
+    public static void addPacientMedID(String flIDMedic, Pacient p) {
         p.setMedIDMedic(flIDMedic);
         addUserIntoFile();
     }
 
-    public static void AddPacientApp (Appointment n, Pacient p) {
+    public static void addPacientApp(Appointment n, Pacient p) {
         p.addApp(n);
         addUserIntoFile();
     }

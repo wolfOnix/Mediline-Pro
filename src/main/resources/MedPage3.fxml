@@ -44,10 +44,11 @@
             <Label layoutY="107.0" prefHeight="134.0" prefWidth="500.0" styleClass="neutralLabelSmall" text="Pentru a trimite concluziile unei investigații, rezulatele unei analize sau alte documente medicale, alegeți pacientul căruia doriți să-i trimiteți documentul. Ulterior completați câmpurile necesare și apăsați tasta „Trimitere document”" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         </Pane>
 
-        <TableView layoutX="30.0" layoutY="421.0" prefHeight="227.0" prefWidth="500.0">
+        <TableView fx:id="tvMyPac" layoutX="30.0" layoutY="421.0" onMouseClicked="#tvClicked" prefHeight="227.0" prefWidth="500.0">
             <columns>
-                <TableColumn prefWidth="300.0" text="Pacientul" />
-                <TableColumn prefWidth="200.0" text="CNP" />
+                <TableColumn fx:id="colNume" prefWidth="150.0" text="Nume" />
+                <TableColumn fx:id="colPrenume" prefWidth="230.0" text="Prenume" />
+                <TableColumn fx:id="colCNP" prefWidth="120.0" text="CNP" />
             </columns>
         </TableView>
 
@@ -55,42 +56,43 @@
         <TextField fx:id="flDocTitle" layoutX="569.0" layoutY="213.0" promptText="Titlul documentului" />
 
         <Label layoutX="898.0" layoutY="176.0" styleClass="inputTitle" text="Tipul documentului" />
-        <TextField fx:id="flDocType" layoutX="898.0" layoutY="213.0" promptText="Tipul documentului" />
+        <ComboBox fx:id="cbDocType" layoutX="898.0" layoutY="213.0" prefHeight="6.0" prefWidth="150.0" promptText="Selectați din listă" style="-fx-pref-width: 300; -fx-pref-height: 40;" />
+
         <TextArea fx:id="taDocContent" layoutX="569.0" layoutY="271.0" prefHeight="378.0" prefWidth="967.0" promptText="Conținutul documentului" />
 
         <Label layoutX="1225.0" layoutY="175.0" styleClass="inputTitle" text="Data emiterii" />
-        <DatePicker fx:id="flData" layoutX="1225.0" layoutY="213.0" styleClass="datePicker" />
+        <DatePicker fx:id="dpData" layoutX="1225.0" layoutY="213.0" />
 
-        <Button fx:id="btSendDoc" layoutX="1344.0" layoutY="671.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="192.0" styleClass="mainButton" stylesheets="@style.css" text="TRIMITERE DOCUMENT" />
+        <Button fx:id="btSendDoc" layoutX="1344.0" layoutY="679.0" mnemonicParsing="false" onMouseClicked="#sendDoc" prefHeight="27.0" prefWidth="192.0" styleClass="mainButton" stylesheets="@style.css" text="TRIMITERE DOCUMENT" />
 
-        <Label fx:id="lbCurrentDate" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1462.0" layoutY="85.0" styleClass="neutralLabelSmall" text="DD.MM.YYYY" textAlignment="RIGHT"/>
+        <Label fx:id="lbCurrentDate" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1462.0" layoutY="85.0" styleClass="neutralLabelSmall" text="DD.MM.YYYY" textAlignment="RIGHT" />
 
-        <Label fx:id="lbErrMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" styleClass="errorLabel" wrapText="true" />
-        <Label fx:id="lbMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
+        <Label fx:id="lbErrMessage" layoutX="569.0" layoutY="656.0" prefHeight="74.0" prefWidth="760.0" styleClass="errorLabel" wrapText="true" />
+        <Label fx:id="lbMessage" layoutX="569.0" layoutY="656.0" prefHeight="74.0" prefWidth="760.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
 
         <Pane layoutX="247" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/today_appointments_30.png"/></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="ASTĂZI"/>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/today_appointments_30.png" /></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="ASTĂZI" />
         </Pane>
-        <Button fx:id="btMedPg1" onMouseClicked="#ActionMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton"/>
+        <Button fx:id="btMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg1" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton" />
 
         <Pane layoutX="446.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/add_appointment_30.png"/></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRI ÎN AȘTEPTARE"/>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/add_appointment_30.png" /></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRI ÎN AȘTEPTARE" />
         </Pane>
-        <Button fx:id="btMedPg2" onMouseClicked="#ActionMedPg2" layoutX="446.6" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton"/>
+        <Button fx:id="btMedPg2" layoutX="446.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg2" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton" />
 
         <Pane layoutX="789.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png"/></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="TRIMITERE DOCUMENTE MEDICALE"/>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png" /></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="TRIMITERE DOCUMENTE MEDICALE" />
         </Pane>
-        <Button fx:id="btMedPg3" onMouseClicked="#ActionMedPg3" layoutX="789.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="316" styleClass="overlayButton"/>
+        <Button fx:id="btMedPg3" layoutX="789.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg3" prefHeight="50.4" prefWidth="316" styleClass="overlayButton" />
 
         <Pane layoutX="1175.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/patients_30.png"/></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PACIENȚII MEI"/>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/patients_30.png" /></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PACIENȚII MEI" />
         </Pane>
-        <Button fx:id="btMedPg4" onMouseClicked="#ActionMedPg4" layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton"/>
+        <Button fx:id="btMedPg4" layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg4" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton" />
 
     </children>
 </AnchorPane>

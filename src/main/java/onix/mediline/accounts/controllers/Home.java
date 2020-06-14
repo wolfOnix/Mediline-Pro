@@ -56,7 +56,7 @@ public abstract class Home {
         return btLogout;
     }
 
-    public void checkFieldLength (String fieldText) throws CompleteAllFields {
+    public static void checkFieldLength(String fieldText) throws CompleteAllFields {
         if (fieldText == null || fieldText.equals("") || fieldText.equals("null"))
             throw new CompleteAllFields();
     }

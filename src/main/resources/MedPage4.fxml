@@ -27,20 +27,22 @@
         </fill>
     </Rectangle>
 
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Pacienții mei" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
     <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1443.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
-    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="smallImage" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.0"><Image url="@images/logout_30_wh.png"/></ImageView>
     <Button fx:id="btLogout" layoutX="1425.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="160.0" styleClass="overlayButton" />
 
     <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
-    <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><image><Image url="@images/account_30.png" /></image></ImageView>
+    <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png"/></ImageView>
     <Button fx:id="btAccountSettings" layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
 
     <Pane layoutX="64.0" layoutY="209.0" prefHeight="290.0" prefWidth="382.0">
-        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="147.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/patients_90.png" /></image></ImageView>
+        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="147.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/patients_90.png"/></ImageView>
         <Label layoutX="4.0" layoutY="129.0" prefHeight="142.0" prefWidth="375.0" styleClass="neutralLabelSmall" text="Aceștia sunt pacienții care vă au ca medic de familie. Pentru ca și alți pacienți să vă adauge ca medic de familie în aplicație, trebuie să le oferiți MedID-ul dvs. Pentru a vedea datele unui pacient, apăsați rândul său din tabel." wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
     </Pane>
 
-    <TableView fx:id="tvMyPac" layoutX="1060.0" layoutY="207.0" prefHeight="450.0" prefWidth="500.0">
+    <TableView fx:id="tvMyPac" layoutX="1060.0" layoutY="207.0" onMouseClicked="#tvClicked" prefHeight="450.0" prefWidth="500.0">
         <columns>
             <TableColumn fx:id="colNume" prefWidth="200.0" text="Nume" />
             <TableColumn fx:id="colPrenume" prefWidth="300.0" text="Prenume" />

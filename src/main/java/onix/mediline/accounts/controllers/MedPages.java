@@ -87,6 +87,7 @@ public abstract class MedPages extends Home {
             Parent Home = loader.load();
             MedPage3 controller = loader.getController();
             controller.setLbDate();
+            controller.fillTvMyPac();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
         } catch (IOException e) {

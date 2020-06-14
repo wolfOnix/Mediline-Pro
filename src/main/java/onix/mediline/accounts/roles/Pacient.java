@@ -2,6 +2,7 @@ package onix.mediline.accounts.roles;
 
 import onix.mediline.appointments.exceptions.AppointmentAlreadyRequested;
 import onix.mediline.appointments.management.Appointment;
+import onix.mediline.documents.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ public class Pacient extends User  {
 
     private String cnp, adresa, oras, telefon, dataNasterii, medIDMedic, sexul;
     private List<Appointment> listaApp;
+    private List<Document> listaDoc;
 
     public Pacient () {
         super();
@@ -25,10 +27,15 @@ public class Pacient extends User  {
         sexul = cbSexul;
         medIDMedic = null;
         listaApp = new ArrayList<>();
+        listaDoc = new ArrayList<>();
     }
 
     public void addApp (Appointment n) {
         listaApp.add(n);
+    }
+
+    public void addDoc (Document doc) {
+        listaDoc.add(doc);
     }
 
     public String toStringApp() {
@@ -77,6 +84,13 @@ public class Pacient extends User  {
     }
     public void setListaApp (List<Appointment> listaApp) {
         this.listaApp = listaApp;
+    }
+
+    public List<Document> getListaDoc() {
+        return listaDoc;
+    }
+    public void setListaDoc (List<Document> docs) {
+        listaDoc = docs;
     }
 
 }

@@ -24,9 +24,9 @@ public class PacPage4_2 extends PacPages {
         try {
             System.out.println("Pag4_2");
             Medic med = MedManagement.searchMedID(flMedid.getText());
-            PacManagement.AddPacientMedID(med.getMedid(), Pac);
+            PacManagement.addPacientMedID(med.getMedid(), Pac);
             MedManagement.attachPacEmail(Pac.getEmail(), med);
-            ActionMyMed(null);
+            ActionPacPg4(null);
         }
         catch (MedIDNotFound | IOException e) {
             super.setErrorText(e);
