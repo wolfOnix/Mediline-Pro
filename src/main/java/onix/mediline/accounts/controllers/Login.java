@@ -41,18 +41,12 @@ public class Login {
         try {
             User user = UsersManagement.searchUser(flEmail.getText(), 0);
             String homeName;
-            if (user instanceof Admin) {
+            if (user instanceof Admin)
                 homeName = "homeAdm.fxml";
-                System.out.println("Admin detectat");
-            }
-            else if (user instanceof Medic) {
+            else if (user instanceof Medic)
                 homeName = "homeMed.fxml";
-                System.out.println("Medic detectat");
-            }
-            else {
+            else
                 homeName = "homePac.fxml";
-                System.out.println("Pacient detectat");
-            }
             if (!user.getContActiv())
                 throw new AccountNotActivated();
             System.out.println(flPassword.getText());
@@ -65,34 +59,26 @@ public class Login {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));
             Parent Home = loader.load();
             if (user instanceof Pacient) {
-                PacPage1 HoPa = loader.getController();
-                HoPa.setPacient(user);
-                HoPa.setLabelPrenume();
-                Pacient p = (Pacient) user;
-                HoPa.fillTvMyApps();
+                PacPage1 HomePac = loader.getController();
+                HomePac.setPacient(user);
+                HomePac.setLabelPrenume();
+                HomePac.fillTvMyApps();
             }
             else
             if (user instanceof Medic) {
                 MedPage1 HomeMed = loader.getController();
                 HomeMed.setMedic(user);
                 HomeMed.setLabelPrenume();
-                //HomeMed.setAppointment();
+                HomeMed.fillTvTodayApps();
+                HomeMed.setLbDate();
             }
             else {
-                AdmPage1 HoAdm = loader.getController();
-                Admin a = (Admin) user;
-                HoAdm.setAdmin(a);
-                HoAdm.setLbGreetingName();
-
+                AdmPage1 HomeAdm = loader.getController();
+                HomeAdm.setAdmin(user);
+                HomeAdm.setLbGreetingName();
             }
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
-
-            /*Stage HomeStage = (Stage) btLogin.getScene().getWindow();
-            Parent Home = FXMLLoader.load(getClass().getClassLoader().getResource(homeName));
-            Scene HomeScene = new Scene(Home);
-            HomeStage.setScene(HomeScene);*/
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (UserNotFound | AccountNotActivated | IncorrectPassword e) {

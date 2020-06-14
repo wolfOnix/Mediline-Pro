@@ -63,6 +63,8 @@
 
         <Button fx:id="btSendDoc" layoutX="1344.0" layoutY="671.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="192.0" styleClass="mainButton" stylesheets="@style.css" text="TRIMITERE DOCUMENT" />
 
+        <Label fx:id="lbCurrentDate" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1462.0" layoutY="85.0" styleClass="neutralLabelSmall" text="DD.MM.YYYY" textAlignment="RIGHT"/>
+
         <Label fx:id="lbErrMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" styleClass="errorLabel" wrapText="true" />
         <Label fx:id="lbMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
 

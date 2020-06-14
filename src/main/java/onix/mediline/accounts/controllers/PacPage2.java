@@ -56,7 +56,7 @@ public class PacPage2 extends PacPages implements Initializable {
             String HM = oraN + ":" + minutN;
             Appointment.checkDateApproach(Appointment.toDateFormat(dataN, HM));
             Pac.checkDoubleAppointment(Appointment.fromDateFormat(Appointment.toDateFormat(dataN, HM))[2], HM);
-            Appointment App = new Appointment(dataN, HM);
+            Appointment App = new Appointment(dataN, HM, Pac.getEmail(), Pac.getNume(), Pac.getPrenume());
             PacManagement.AddPacientApp(App, Pac);
             setMessageLabel("Cererea de programare a fost trimisă. Medicul de familie urmează să gestioneze programarea");
         } catch (CompleteAllFields | ParseException | DateTooClose | AppointmentAlreadyRequested e) {

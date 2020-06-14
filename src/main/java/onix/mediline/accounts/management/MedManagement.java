@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.roles.Medic;
-import onix.mediline.accounts.roles.Pacient;
-import onix.mediline.appointments.management.Appointment;
 import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -24,8 +22,8 @@ public class MedManagement extends UsersManagement {
         users_medic = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Medic>>() {});
     }
 
-    public static void attachPacEmail (String pacEmail, Medic m) {
-        m.attachPacient(pacEmail);
+    public static void attachPacEmail(String pacEmail, Medic m) {
+        m.attachPacEmail(pacEmail);
         addUserIntoFile();
     }
 

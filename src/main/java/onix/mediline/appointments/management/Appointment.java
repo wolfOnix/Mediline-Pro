@@ -10,14 +10,16 @@ import java.util.Date;
 public class Appointment {
 
     private static String[] appointmentStates = {"Neconfirmat", "Confirmat", "Confirmat și reprogramat", "Anulat"};
-    private String stareProgr, dataProgr, oraProgr;
+    private String stareProgr, dataProgr, oraProgr, emailPac, numePrenumePac;
 
     public Appointment () { super(); }
 
-    public Appointment (String appDate, String appHM) throws ParseException {
+    public Appointment (String appDate, String appHM, String email, String nume, String prenume) throws ParseException {
         stareProgr = appointmentStates[0];
         dataProgr = fromDateFormat(toDateFormat(appDate, appHM))[2];
         oraProgr = appHM;
+        emailPac = email;
+        numePrenumePac = nume + " " + prenume;
     }
 
     public static Date toDateFormat (String data, String HM) throws ParseException {
@@ -60,6 +62,20 @@ public class Appointment {
     }
     public void setOraProgr (String appHM) {
         oraProgr = appHM;
+    }
+
+    public String getEmailPac () {
+        return emailPac;
+    }
+    public void setEmailPac (String email) {
+        emailPac = email;
+    }
+
+    public String getNumePrenumePac () {
+        return numePrenumePac;
+    }
+    public void setNumePrenumePac (String nume, String prenume) {
+        numePrenumePac = nume + " " + prenume;
     }
 
     public static String[] getAppointmentStates() { return appointmentStates; }

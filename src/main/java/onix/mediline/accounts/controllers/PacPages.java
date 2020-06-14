@@ -11,7 +11,10 @@ import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Medic;
 import onix.mediline.accounts.roles.Pacient;
 import javafx.scene.input.MouseEvent;
+import onix.mediline.appointments.management.Appointment;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public abstract class PacPages extends Home {
@@ -42,6 +45,7 @@ public abstract class PacPages extends Home {
         try {
             FXMLLoader loader;
             Parent NewApp;
+            MedManagement.searchMedID(Pac.getMedIDMedic());
             if (Pac.getMedIDMedic() == null) {
                 loader = new FXMLLoader(getClass().getClassLoader().getResource("PacPage4_2.fxml"));
                 NewApp = loader.load();
@@ -54,6 +58,12 @@ public abstract class PacPages extends Home {
             NewAppStage.setScene(NewAppScene);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (MedIDNotFound e) {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("PacPage4_2.fxml"));
+            Parent NewApp = loader.load();
+            Scene NewAppScene = new Scene(NewApp);
+            Stage NewAppStage = (Stage) btPacPg2.getScene().getWindow();
+            NewAppStage.setScene(NewAppScene);
         }
     }
 

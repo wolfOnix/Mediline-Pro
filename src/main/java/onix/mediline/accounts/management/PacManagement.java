@@ -13,8 +13,6 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 
-
-
 public class PacManagement extends UsersManagement {
 
     private static final Path USERS_PATH = FileManagement.getPathToFile("storage", "users_pac.json");
@@ -24,12 +22,11 @@ public class PacManagement extends UsersManagement {
             FileUtils.copyURLToFile(Objects.requireNonNull(PacManagement.class.getClassLoader().getResource("json/users.json")), USERS_PATH.toFile());
         ObjectMapper objectMapper = new ObjectMapper();
         users_pacient = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Pacient>>() {});
-
     }
 
-    public static void addPacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul, List<Appointment> fllistaApp ) throws EmailAlreadyExistsException {
+    public static void addPacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul) throws EmailAlreadyExistsException {
         searchUserAlready (flEmail);
-        users_pacient.add (new Pacient (flNume,flPrenume, flEmail, Encryption.encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon, flData, cbSexul, fllistaApp));
+        users_pacient.add (new Pacient (flNume,flPrenume, flEmail, Encryption.encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon, flData, cbSexul));
         addUserIntoFile();
     }
 

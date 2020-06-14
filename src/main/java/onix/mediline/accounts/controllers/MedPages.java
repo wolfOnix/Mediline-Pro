@@ -5,20 +5,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.MedIDNotFound;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Medic;
 import onix.mediline.accounts.roles.Pacient;
+import onix.mediline.appointments.management.Appointment;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.Objects;
 
 public abstract class MedPages extends Home {
 
     @FXML
     private Button btMedPg1, btMedPg2, btMedPg3, btMedPg4;
+
+    @FXML
+    private Label lbCurrentDate;
 
     protected static Medic Med;
 
@@ -31,6 +38,7 @@ public abstract class MedPages extends Home {
             MedPage1 HomeMed = loader.getController();
             HomeMed.setLabelPrenume();
             HomeMed.fillTvTodayApps();
+            HomeMed.setLbDate();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
         } catch (IOException e) {
@@ -40,6 +48,18 @@ public abstract class MedPages extends Home {
 
     @FXML
     void ActionMedPg2 (MouseEvent event) throws IOException {
+        try {
+            Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage2.fxml"));
+            Parent Home = loader.load();
+            MedPage2 controller = loader.getController();
+            controller.fillTvUnconfirmedApps();
+            controller.setLbDate();
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         /*try {
             FXMLLoader loader;
             Parent NewApp;
@@ -61,6 +81,17 @@ public abstract class MedPages extends Home {
 
     @FXML
     void ActionMedPg3 (MouseEvent event) throws IOException {
+        try {
+            Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage3.fxml"));
+            Parent Home = loader.load();
+            MedPage3 controller = loader.getController();
+            controller.setLbDate();
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         /*try {
             Stage MyFileStage = (Stage) btPacPg3.getScene().getWindow();
             Parent MyFile = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("PacPage3.fxml")));
@@ -73,6 +104,19 @@ public abstract class MedPages extends Home {
 
     @FXML
     void ActionMedPg4 (MouseEvent event) throws IOException {
+        try {
+            Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage4.fxml"));
+            Parent Home = loader.load();
+            MedPage4 controller = loader.getController();
+            controller.fillMedID();
+            controller.setLbDate();
+            controller.fillTvMyPac();
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         /*try {
             Stage PacPage4Stage = (Stage) btPacPg4.getScene().getWindow();
             FXMLLoader loader;
@@ -102,6 +146,13 @@ public abstract class MedPages extends Home {
             Scene PacPage4Scene = new Scene(PacPage4);
             PacPage4Stage.setScene(PacPage4Scene);
         }*/
+    }
+
+    public void setLbDate () {
+        try {
+            System.out.println(Appointment.fromDateFormat(new Date())[2]);
+            lbCurrentDate.setText(Appointment.fromDateFormat(new Date())[2]);
+        } catch (ParseException ignored) { }
     }
 
 }

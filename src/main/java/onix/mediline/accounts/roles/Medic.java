@@ -1,15 +1,16 @@
 package onix.mediline.accounts.roles;
 
+import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.management.KeyGenerator;
 import onix.mediline.accounts.management.UsersManagement;
+import onix.mediline.appointments.management.Appointment;
 
 import java.util.ArrayList;
 
 public class Medic extends User  {
 
     private String activationKey, medID, adresa, oras, telefon, emailServiciu, judet;
-    private ArrayList<String> listaPacienti;
-    //private boolean contActiv;
+    private ArrayList<String> listaPacEmail;
 
     public Medic () {
         super();
@@ -28,7 +29,7 @@ public class Medic extends User  {
         judet = "";
         telefon = "";
         emailServiciu = "";
-        listaPacienti = new ArrayList<>();
+        listaPacEmail = new ArrayList<>();
     }
 
     @Override
@@ -36,9 +37,19 @@ public class Medic extends User  {
         return super.toString() + ',' + " Cheieactivare = '" + activationKey + '\'' + ", MedID = '" + medID + '\'' + ", Adresa = '" + adresa + '\'' + ", Oras = '" + oras + '\'' + ", Judet = '" + judet + '\'' + ", Telefon = '" + telefon + '\'' + ", Emailserviciu = '" + emailServiciu + '\'' + '}';
     }
 
-    public void attachPacient (String pacEmail) {
-        if (!listaPacienti.contains(pacEmail))
-            listaPacienti.add(pacEmail);
+    public void attachPacEmail(String email) {
+        if (!listaPacEmail.contains(email))
+            listaPacEmail.add(email);
+    }
+
+    public ArrayList<Appointment> retrieveApps() throws UserNotFound {
+        ArrayList <Appointment> aux = new ArrayList<>();
+        for (String i : listaPacEmail)
+        {
+            Pacient p = (Pacient) UsersManagement.searchUser(i, 3);
+            aux.addAll(p.getListaApp());
+        }
+        return aux;
     }
 
     public String getActivationKey() {
@@ -87,7 +98,7 @@ public class Medic extends User  {
         emailServiciu = flEmailServ;
     }
 
-    public ArrayList<String> getListaPacienti () { return listaPacienti; }
-    public void setListaPacienti (ArrayList<String> lp) { listaPacienti = lp; }
+    public ArrayList<String> getListaPacEmail() { return listaPacEmail; }
+    public void setListaPacEmail(ArrayList<String> lp) { listaPacEmail = lp; }
 
 }

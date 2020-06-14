@@ -28,16 +28,17 @@ public class AdmPage1 extends Home {
     @FXML
     public Pane panNewAccountMed, panConfDelete;
 
-
-    void setAdmin(Admin x) {
-        Adm =  x;
-    }
     @FXML
     private Label lbGreetingName;
+
+    void setAdmin (User x) {
+        Adm = (Admin) x;
+    }
 
     void setLbGreetingName() {
         lbGreetingName.setText(Adm.getNume());
     }
+
     @FXML
     void handleBtNewMedic(MouseEvent event)throws IOException {
         try  {
@@ -48,11 +49,6 @@ public class AdmPage1 extends Home {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    void handleBtLogout (ActionEvent event) throws IOException {
-        super.handleBtLogout(event);
     }
 
 }

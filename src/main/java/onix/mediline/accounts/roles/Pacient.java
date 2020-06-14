@@ -15,7 +15,7 @@ public class Pacient extends User  {
         super();
     }
 
-    public Pacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul, List<Appointment> fllistaApp) {
+    public Pacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul) {
         super(flNume, flPrenume, flEmail, flPassword, true);
         cnp = flCNP;
         adresa = flAdresa;
@@ -24,7 +24,7 @@ public class Pacient extends User  {
         dataNasterii = flData;
         sexul = cbSexul;
         medIDMedic = null;
-        listaApp = fllistaApp;
+        listaApp = new ArrayList<>();
     }
 
     public void addApp (Appointment n) {

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.roles.Medic;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;
@@ -23,12 +24,13 @@ public class MedPage1 extends MedPages {
     @FXML
     private TableColumn<Appointment, String> colHM, colPatient;
 
-    public void fillTvTodayApps () {
-        /*TableColumnData.setCellValueFactory(new PropertyValueFactory<>("dataProgr"));
-        TableColumnOra.setCellValueFactory(new PropertyValueFactory<>("oraProgr"));
-        TableColumnStare.setCellValueFactory(new PropertyValueFactory<>("stareProgr"));
-        ObservableList<Appointment> data = FXCollections.observableArrayList(Pac.getListaApp());
-        myAppointment.setItems(data);*/
+    public void fillTvTodayApps () { // filtrare confirmate si ziua curenta
+        try {
+            colHM.setCellValueFactory(new PropertyValueFactory<>("oraProgr"));
+            colPatient.setCellValueFactory(new PropertyValueFactory<>("numePrenumePac"));
+            ObservableList<Appointment> data = FXCollections.observableArrayList(Med.retrieveApps());
+            tvTodayApps.setItems(data);
+        } catch (UserNotFound e) { }
     }
 
     public void setMedic (User x) {

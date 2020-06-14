@@ -49,11 +49,11 @@
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="250.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
         </Pane>
 
-        <TableView layoutX="815.0" layoutY="214.0" prefHeight="450.0" prefWidth="720.0">
+        <TableView fx:id="tvUnconfirmedApps" layoutX="815.0" layoutY="214.0" prefHeight="450.0" prefWidth="720.0">
             <columns>
-                <TableColumn prefWidth="150.0" text="Data" />
-                <TableColumn prefWidth="150.0" text="Ora" />
-                <TableColumn prefWidth="420.0" text="Pacientul" />
+                <TableColumn fx:id="colDate" prefWidth="150.0" text="Data" />
+                <TableColumn fx:id="colHM" prefWidth="150.0" text="Ora" />
+                <TableColumn fx:id="colPatient" prefWidth="420.0" text="Pacientul" />
             </columns>
         </TableView>
 
@@ -61,7 +61,7 @@
 
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="749.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/date_30.png" /></image></ImageView>
         <Label layoutX="474.0" layoutY="356.0" styleClass="inputTitle" text="Noua dată a programării" />
-        <DatePicker fx:id="flData" layoutX="473.0" layoutY="394.0" styleClass="datePicker" />
+        <DatePicker fx:id="flData" layoutX="473.0" layoutY="394.0"/>
 
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="749.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/clock_30.png" /></image></ImageView>
         <Label layoutX="473.0" layoutY="449.0" styleClass="inputTitle" text="Noua oră a programării" />
@@ -70,11 +70,7 @@
 
         <Button fx:id="btConfApp" layoutX="488.0" layoutY="290.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="230.0" styleClass="mainButton" stylesheets="@style.css" text="CONFIRMARE DIRECTĂ" />
         <Button fx:id="btConfAndModifApp" layoutX="488.0" layoutY="556.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="230.0" styleClass="mainButton" stylesheets="@style.css" text="MODIFICARE ȘI CONFIRMARE" />
-        <Button fx:id="btDeleteApp" layoutX="488.0" layoutY="624.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="230.0" stylesheets="@style.css" text="ȘTERGERE DEFINITIVĂ">
-         <styleClass>
-            <String fx:value="mainButton" />
-            <String fx:value="redButton" />
-         </styleClass></Button>
+        <Button fx:id="btDeleteApp" layoutX="488.0" layoutY="624.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="230.0" stylesheets="@style.css" text="ȘTERGERE DEFINITIVĂ"><styleClass><String fx:value="mainButton" /><String fx:value="redButton" /></styleClass></Button>
 
         <Label fx:id="lbErrMessage" layoutX="405.0" layoutY="664.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" />
         <Label fx:id="lbMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />

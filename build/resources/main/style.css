@@ -316,6 +316,10 @@
     -fx-cursor: hand;
 }
 
+.mauveHover:hover {
+    -fx-background-color: rgba(137, 99, 186, 0.22);
+}
+
 .panel {
     -fx-background-color: white;
     -fx-fill: white;
