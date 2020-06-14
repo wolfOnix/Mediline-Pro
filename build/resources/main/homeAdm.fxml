@@ -46,12 +46,12 @@
       <Label fx:id="lbGreetingName" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Pane fx:id="panNewAccountMed" layoutY="208.0" onMouseClicked="#handleBtNewMedic" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <ImageView fx:id="imgNewAccountMed" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="optionImage">
+            <ImageView fx:id="imgNewAccountMed" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="15.0" onMouseClicked="#handleBtNewMedic" pickOnBounds="true" preserveRatio="true" styleClass="optionImage">
                <image>
                   <Image url="@images/new_account.png" />
                </image>
             </ImageView>
-            <Button fx:id="btNewAccountMed" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="CREARE CONT MEDICAL" />
+            <Button fx:id="btNewAccountMed" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#handleBtNewMedic" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="CREARE CONT MEDICAL" />
          </children>
       </Pane>
 

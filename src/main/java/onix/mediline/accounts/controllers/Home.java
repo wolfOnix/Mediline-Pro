@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import onix.mediline.accounts.roles.Admin;
 
 import java.io.IOException;
 
@@ -14,6 +15,8 @@ public abstract class Home {
 
     @FXML
     private Button btLogout;
+
+    protected static Admin Adm;
 
     @FXML
     void handleBtLogout (ActionEvent event) throws IOException {

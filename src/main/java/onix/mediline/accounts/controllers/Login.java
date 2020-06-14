@@ -17,6 +17,7 @@ import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Admin;
 import onix.mediline.accounts.roles.Medic;
+import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;
 
 import java.io.IOException;
@@ -61,17 +62,38 @@ public class Login {
             System.out.println(user.getParola());
             if(!user.getParola().equals(Encryption.encryptString(user.getEmail(),flPassword.getText())))
                 throw new IncorrectPassword();
-            /*Stage HomeStage = (Stage) btLogin.getScene().getWindow();
+
+            Stage HomeStage = (Stage) btLogin.getScene().getWindow();
             HomeStage.setResizable(resizable);
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));
             Parent Home = loader.load();
-            Scene HomeScene = new Scene(Home);
-            HomeStage.setScene(HomeScene);*/
-            Stage HomeStage = (Stage) btLogin.getScene().getWindow();
-            // HomeStage.setResizable(resizable);
-            Parent Home = FXMLLoader.load(getClass().getClassLoader().getResource(homeName));
+            if (user instanceof Pacient) {
+
+                PacPage1 HoPa = loader.getController();
+                HoPa.setPacient(user);
+                HoPa.setLabelPrenume();
+                Pacient p = (Pacient) user;
+                HoPa.setAppointment();
+            }
+            else
+            if (user instanceof Medic) {
+                //
+            }
+            else {
+                AdmPage1 HoAdm = loader.getController();
+                Admin a = (Admin) user;
+                HoAdm.setAdmin(a);
+                HoAdm.setLbGreetingName();
+
+            }
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
+
+            /*Stage HomeStage = (Stage) btLogin.getScene().getWindow();
+            Parent Home = FXMLLoader.load(getClass().getClassLoader().getResource(homeName));
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);*/
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (UserNotFound e) {

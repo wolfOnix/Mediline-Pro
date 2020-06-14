@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import java.io.IOException;
 import javafx.scene.input.MouseEvent;
+import onix.mediline.accounts.roles.Admin;
+import javafx.scene.control.Label;
+import onix.mediline.accounts.roles.User;
 
 
 public class AdmPage1 extends Home {
@@ -25,6 +28,16 @@ public class AdmPage1 extends Home {
     @FXML
     public Pane panNewAccountMed, panConfDelete;
 
+
+    void setAdmin(Admin x) {
+        Adm =  x;
+    }
+    @FXML
+    private Label lbGreetingName;
+
+    void setLbGreetingName() {
+        lbGreetingName.setText(Adm.getNume());
+    }
     @FXML
     void handleBtNewMedic(MouseEvent event)throws IOException {
         try  {

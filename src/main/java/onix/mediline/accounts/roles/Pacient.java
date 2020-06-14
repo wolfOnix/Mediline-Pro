@@ -1,14 +1,31 @@
 package onix.mediline.accounts.roles;
 
+import onix.mediline.appointments.management.Appointment;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pacient extends User  {
 
     private String cnp, adresa, oras, telefon, dataNasterii, medIDMedic, sexul;
+    private List<Appointment> listaApp ;
+
+    public List<Appointment> getListaApp() {
+        return listaApp;
+    }
+
+    public void setListaApp(List<Appointment> listaApp) {
+        this.listaApp = listaApp;
+    }
 
     public Pacient () {
         super();
     }
 
-    public Pacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul) {
+    public void addAPP(Appointment n) {
+        listaApp.add(n);
+    }
+    public Pacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul , String flmedIDMedic ,List<Appointment> fllistaApp ) {
         super(flNume, flPrenume, flEmail, flPassword, true);
         cnp = flCNP;
         adresa = flAdresa;
@@ -16,11 +33,19 @@ public class Pacient extends User  {
         telefon = flTelefon;
         dataNasterii = flData;
         sexul = cbSexul;
+        medIDMedic = flmedIDMedic;
+        listaApp = fllistaApp;
     }
-
+    public String toStringApp() {
+        String buffer = "{" ;
+        for(Appointment i:listaApp)
+            buffer = buffer + i.toString();
+        buffer += "}";
+        return buffer;
+    }
     @Override
     public String toString() {
-        return super.toString() + '\'' + ", CNP ='" + cnp + '\'' + ", Adresa = '" + adresa + '\'' + ", Oras = '" + oras + '\'' + ", Telefon = '" + telefon + '\'' + ", Datanasterii = '" + dataNasterii + '\'' + '}';
+        return super.toString() + '\'' + ", CNP ='" + cnp + '\'' + ", Adresa = '" + adresa + '\'' + ", Oras = '" + oras + '\'' + ", Telefon = '" + telefon + '\'' + ", Datanasterii = '" + dataNasterii + '\'' + ", medIDMedic = '" + medIDMedic + '\'' + ", listaApp = '" + toStringApp() + '\'' +  '}';
     }
 
     public String getCNP () { return cnp; }

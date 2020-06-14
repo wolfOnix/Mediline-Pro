@@ -56,7 +56,10 @@ public class NewAccountMed extends NewAccount {
     void handleButtonCancel (ActionEvent event) throws IOException {
         try  {
             Stage CancelStage = (Stage) btCancel.getScene().getWindow();
-            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("homeAdm.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homeAdm.fxml"));
+            Parent Cancel = loader.load();
+            AdmPage1 HoAdm = loader.getController();
+            HoAdm.setLbGreetingName();
             Scene CancelScene = new Scene(Cancel);
             CancelStage.setScene(CancelScene);
         } catch (IOException e) {

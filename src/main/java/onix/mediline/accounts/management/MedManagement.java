@@ -2,10 +2,7 @@ package onix.mediline.accounts.management;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import onix.mediline.accounts.exceptions.CompleteAllFields;
-import onix.mediline.accounts.exceptions.CouldNotWriteUsersException;
-import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
-import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.roles.Medic;
 import org.apache.commons.io.FileUtils;
 import java.io.IOException;
@@ -33,7 +30,12 @@ public class MedManagement extends UsersManagement {
         addUserIntoFile();
         return m;
     }
-
+    public static Medic searchMedID(String flMedID) throws MedIDNotFound {
+        for (Medic i : users_medic)
+            if (Objects.equals(flMedID, i.getMedid()))
+                return i;
+        throw new MedIDNotFound();
+    }
     public static void updateMedic (String flNume, String flPrenume, String flEmail, String flPassword, String flAdresa, String flOras, String cbJudet, String flTelefon, String flEmailServ, boolean activationState) throws CompleteAllFields, UserNotFound {
         Medic med = (Medic) UsersManagement.searchUser(flEmail, 2);
         med.setNume(flNume);

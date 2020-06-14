@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -22,6 +24,7 @@ import onix.mediline.accounts.exceptions.EmailNotValid;
 import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
 import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.PacManagement;
+import onix.mediline.appointments.management.Appointment;
 
 
 public class NewAccountPac extends NewAccount implements Initializable {
@@ -65,7 +68,8 @@ public class NewAccountPac extends NewAccount implements Initializable {
                 throw new CompleteAllFields();
             Encryption.checkEmailStructure(flEmail.getText());
             Encryption.checkPasswordStrength(flPassword.getText());
-            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue());
+            List<Appointment> fllistaAPP = new ArrayList<Appointment>();
+            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue(),null ,fllistaAPP );
             System.out.println("Cont creat cu succes!");
             Stage PacFinishedStage = (Stage) btCreateAccount.getScene().getWindow();
             Parent PacFinished = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));

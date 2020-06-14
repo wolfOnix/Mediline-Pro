@@ -12,16 +12,18 @@ import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
 import onix.mediline.accounts.exceptions.NotStrongEnoughPassword;
 import onix.mediline.accounts.management.AdmManagement;
 import onix.mediline.accounts.management.Encryption;
+import onix.mediline.accounts.roles.Admin;
 
 import java.io.IOException;
 
-abstract public class NewAccount {
+abstract public class NewAccount extends Home {
 
     @FXML
     protected TextField flNume, flPrenume, flEmail;
 
     @FXML
     private Label lbErrMessage, lbInfoOverErr;
+
 
     protected void setErrorText (Exception e) {
         try {
