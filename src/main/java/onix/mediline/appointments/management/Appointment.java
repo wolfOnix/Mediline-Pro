@@ -1,40 +1,66 @@
 package onix.mediline.appointments.management;
 
+import onix.mediline.appointments.exceptions.DatePassed;
+import onix.mediline.appointments.exceptions.DateTooClose;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Appointment {
 
     private static String[] appointmentStates = {"Neconfirmat", "Confirmat", "Confirmat și reprogramat", "Anulat"};
-    private String state = appointmentStates[0];
-    //private Date time;
-    private String date;
-    private String ora;
-    public Appointment() { super(); }
-    public Appointment(String state, String date, String ora) {
-        this.state = state;
-        this.date = date;
-        this.ora = ora;
-    }
-    public static String[] getAppointmentStates() {
-        return appointmentStates;
+    private String stareProgr, dataProgr, oraProgr;
+
+    public Appointment () { super(); }
+
+    public Appointment (String appDate, String appHM) throws ParseException {
+        stareProgr = appointmentStates[0];
+        dataProgr = fromDateFormat(toDateFormat(appDate, appHM))[2];
+        oraProgr = appHM;
     }
 
-    public String getState() {
-        return state;
+    public static Date toDateFormat (String data, String HM) throws ParseException {
+        String TimeString = data + " " + HM;
+        SimpleDateFormat completeDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return completeDateFormat.parse(TimeString);
     }
-    public void setState(String state) {
-        this.state = state;
+
+    public static String[] fromDateFormat (Date date) throws ParseException {
+        String[] dateAndTime = new String[3];
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateAndTime[0] = dateFormat.format(date);
+        SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm");
+        dateAndTime[1] = hourFormat.format(date);
+        SimpleDateFormat dateFormatEU = new SimpleDateFormat("dd.MM.yyyy");
+        dateAndTime[2] = dateFormatEU.format(date);
+        return dateAndTime;
     }
-    public String getDate() {
-        return date;
+
+    public static void checkDateApproach (Date date) throws DateTooClose {
+        Date now = new Date();
+        if (date.getTime() - now.getTime() < 3 * 60 * 60 * 1000)
+            throw new DateTooClose();
     }
-    public void setDate(String date) {
-        this.date = date;
+
+    public String getStareProgr() {
+        return stareProgr;
     }
-    public String getOra() {
-        return ora;
+    public void setStareProgr(String appState) { stareProgr = appState; }
+
+    public String getDataProgr () {
+        return dataProgr;
     }
-    public void setOra(String ora) {
-        this.ora = ora;
+    public void setDataProgr (String appDate) {
+        dataProgr = appDate;
     }
+
+    public String getOraProgr () {
+        return oraProgr;
+    }
+    public void setOraProgr (String appHM) {
+        oraProgr = appHM;
+    }
+
+    public static String[] getAppointmentStates() { return appointmentStates; }
 }

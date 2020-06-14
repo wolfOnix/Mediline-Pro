@@ -1,5 +1,6 @@
 package onix.mediline.accounts.roles;
 
+import onix.mediline.appointments.exceptions.AppointmentAlreadyRequested;
 import onix.mediline.appointments.management.Appointment;
 
 import java.util.ArrayList;
@@ -8,24 +9,13 @@ import java.util.List;
 public class Pacient extends User  {
 
     private String cnp, adresa, oras, telefon, dataNasterii, medIDMedic, sexul;
-    private List<Appointment> listaApp ;
-
-    public List<Appointment> getListaApp() {
-        return listaApp;
-    }
-
-    public void setListaApp(List<Appointment> listaApp) {
-        this.listaApp = listaApp;
-    }
+    private List<Appointment> listaApp;
 
     public Pacient () {
         super();
     }
 
-    public void addAPP(Appointment n) {
-        listaApp.add(n);
-    }
-    public Pacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul , String flmedIDMedic ,List<Appointment> fllistaApp ) {
+    public Pacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul, List<Appointment> fllistaApp) {
         super(flNume, flPrenume, flEmail, flPassword, true);
         cnp = flCNP;
         adresa = flAdresa;
@@ -33,16 +23,29 @@ public class Pacient extends User  {
         telefon = flTelefon;
         dataNasterii = flData;
         sexul = cbSexul;
-        medIDMedic = flmedIDMedic;
+        medIDMedic = null;
         listaApp = fllistaApp;
     }
+
+    public void addApp (Appointment n) {
+        listaApp.add(n);
+    }
+
     public String toStringApp() {
         String buffer = "{" ;
-        for(Appointment i:listaApp)
+        for (Appointment i : listaApp)
             buffer = buffer + i.toString();
         buffer += "}";
         return buffer;
     }
+
+    public void checkDoubleAppointment (String date, String HM) throws AppointmentAlreadyRequested {
+        for (Appointment i : listaApp)
+            if (i.getStareProgr().equals(Appointment.getAppointmentStates()[0])) // Caută între cererile neconfirmate
+                if (date.equals(i.getDataProgr()) && HM.equals(i.getOraProgr()))
+                    throw new AppointmentAlreadyRequested();
+    }
+
     @Override
     public String toString() {
         return super.toString() + '\'' + ", CNP ='" + cnp + '\'' + ", Adresa = '" + adresa + '\'' + ", Oras = '" + oras + '\'' + ", Telefon = '" + telefon + '\'' + ", Datanasterii = '" + dataNasterii + '\'' + ", medIDMedic = '" + medIDMedic + '\'' + ", listaApp = '" + toStringApp() + '\'' +  '}';
@@ -68,5 +71,12 @@ public class Pacient extends User  {
 
     public String getSexul() { return sexul; }
     public void setSexul (String cbSexul) { sexul = cbSexul; }
+
+    public List<Appointment> getListaApp() {
+        return listaApp;
+    }
+    public void setListaApp (List<Appointment> listaApp) {
+        this.listaApp = listaApp;
+    }
 
 }

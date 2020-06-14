@@ -27,19 +27,22 @@ public class PacManagement extends UsersManagement {
 
     }
 
-    public static void addPacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul , String flmedIDMedic , List<Appointment> fllistaApp ) throws EmailAlreadyExistsException {
+    public static void addPacient (String flNume, String flPrenume, String flEmail, String flPassword, String flCNP, String flAdresa, String flOras, String flTelefon, String flData, String cbSexul, List<Appointment> fllistaApp ) throws EmailAlreadyExistsException {
         searchUserAlready (flEmail);
-        users_pacient.add (new Pacient (flNume,flPrenume, flEmail, Encryption.encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon, flData, cbSexul,flmedIDMedic,fllistaApp ));
-        addUserIntoFile ();
+        users_pacient.add (new Pacient (flNume,flPrenume, flEmail, Encryption.encryptString(flEmail,flPassword), flCNP, flAdresa, flOras, flTelefon, flData, cbSexul, fllistaApp));
+        addUserIntoFile();
     }
-    public static void AddPacientMedID(String flIDMedic, Pacient p) {
+
+    public static void AddPacientMedID (String flIDMedic, Pacient p) {
         p.setMedIDMedic(flIDMedic);
         addUserIntoFile();
     }
-    public static void AddPacientApp(Appointment n, Pacient p) {
-        p.addAPP(n);
+
+    public static void AddPacientApp (Appointment n, Pacient p) {
+        p.addApp(n);
         addUserIntoFile();
     }
+
     private static void addUserIntoFile () {
         try {
             ObjectMapper objectMapper = new ObjectMapper();

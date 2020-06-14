@@ -53,38 +53,6 @@
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="233.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
         </Pane>
 
-        <Button fx:id="btPacPg1" layoutX="214.6" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="229.6" styleClass="overlayButton" />
-        <Pane fx:id="pnMyAppointments" layoutX="214.6" layoutY="735.0" onMouseClicked="#ActionMyAppointments" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" onMouseClicked="#ActionMyAppointments" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/appointments_30.png" /></image></ImageView>
-                <Label fx:id="btMyAppointmentsTxt" layoutX="60.0" layoutY="15.0" onMouseClicked="#ActionMyAppointments" styleClass="menuButton" text="PROGRAMĂRILE MELE" />
-            </children>
-        </Pane>
-
-        <Button fx:id="btPacPg2" layoutX="514.2" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="220.0" styleClass="overlayButton" />
-        <Pane fx:id="pnNewAppointment" layoutX="514.2" layoutY="735.0" onMouseClicked="#ActionNewAppointments" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" onMouseClicked="#ActionNewAppointments" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/newappointment_30.png" /></image></ImageView>
-                <Label fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" onMouseClicked="#ActionNewAppointments" styleClass="menuButton" text="PROGRAMARE NOUĂ" />
-            </children>
-        </Pane>
-
-        <Button fx:id="btPacPg3" layoutX="804.2" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="256.0" styleClass="overlayButton" />
-        <Pane fx:id="pnMyFiles" layoutX="804.2" layoutY="735.0" onMouseClicked="#ActionMyFilesTxt" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" onMouseClicked="#ActionMyFilesTxt" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/documents_30.png" /></image></ImageView>
-                <Label fx:id="btMyFilesTxt" layoutX="60.0" layoutY="15.0" onMouseClicked="#ActionMyFilesTxt" styleClass="menuButton" text="DOCUMENTELE MEDICALE" />
-            </children>
-        </Pane>
-
-        <Button fx:id="btPacPg4" layoutX="1130.2" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="255.2" styleClass="overlayButton" />
-        <Pane fx:id="pnMyMed" layoutX="1130.2" layoutY="735.0" onMouseClicked="#ActionMyMed" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" onMouseClicked="#ActionMyMed" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/mydoc_30.png" /></image></ImageView>
-                <Label fx:id="btMyMedTxt" layoutX="60.0" layoutY="15.0" onMouseClicked="#ActionMyMed" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE" />
-            </children>
-        </Pane>
-
         <TableView layoutX="373.0" layoutY="209.0" prefHeight="450.0" prefWidth="1170.0">
             <columns>
                 <TableColumn prefWidth="175.0" text="Titlu" />
@@ -93,6 +61,32 @@
                 <TableColumn prefWidth="120.0" text="Data" />
             </columns>
         </TableView>
+
+        <Label fx:id="lbMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
+
+        <Pane layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/appointments_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRILE MELE"/>
+        </Pane>
+        <Button fx:id="btPacPg1" layoutX="214.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMyAppointments" prefHeight="50.4" prefWidth="229.6" styleClass="overlayButton" />
+
+        <Pane layoutX="514.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/newappointment_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMARE NOUĂ"/>
+        </Pane>
+        <Button fx:id="btPacPg2" layoutX="514.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionNewAppointments" prefHeight="50.4" prefWidth="220.0" styleClass="overlayButton" />
+
+        <Pane fx:id="pnMyFiles" layoutX="804.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="DOCUMENTELE MEDICALE"/>
+        </Pane>
+        <Button fx:id="btPacPg3" layoutX="804.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMyFilesTxt" prefHeight="50.4" prefWidth="256.0" styleClass="overlayButton" />
+
+        <Pane layoutX="1130.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/mydoc_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE"/>
+        </Pane>
+        <Button fx:id="btPacPg4" layoutX="1130.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMyMed" prefHeight="50.4" prefWidth="255.2" styleClass="overlayButton" />
 
     </children>
 </AnchorPane>

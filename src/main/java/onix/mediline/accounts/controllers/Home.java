@@ -6,23 +6,44 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.roles.Admin;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 public abstract class Home {
+
+    @FXML
+    private Label lbErrMessage, lbGreeting, lbMessage;
 
     @FXML
     private Button btLogout;
 
     protected static Admin Adm;
 
+    protected void setErrorText (Exception e) {
+        byte[] ptext = e.getMessage().getBytes();
+        String value = new String(ptext, StandardCharsets.UTF_8);
+        lbErrMessage.setText(value);
+        lbMessage.setText("");
+    }
+
+    protected void setMessageLabel (String message) {
+        byte[] ptext = message.getBytes();
+        String value = new String(ptext, StandardCharsets.UTF_8);
+        lbMessage.setText(value);
+        lbErrMessage.setText("");
+    }
+
     @FXML
     void handleBtLogout (ActionEvent event) throws IOException {
         try  {
             Stage LoginStage = (Stage) btLogout.getScene().getWindow();
-            Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
+            Parent Login = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("index.fxml")));
             Scene LoginScene = new Scene(Login);
             LoginStage.setResizable(false);
             LoginStage.setScene(LoginScene);
@@ -33,6 +54,11 @@ public abstract class Home {
 
     public Button getBtLogout() {
         return btLogout;
+    }
+
+    public void checkFieldLength (String fieldText) throws CompleteAllFields {
+        if (fieldText == null || fieldText.equals("") || fieldText.equals("null"))
+            throw new CompleteAllFields();
     }
 
 }

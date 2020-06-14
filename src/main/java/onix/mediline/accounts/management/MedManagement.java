@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.roles.Medic;
+import onix.mediline.accounts.roles.Pacient;
+import onix.mediline.appointments.management.Appointment;
 import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,6 +24,11 @@ public class MedManagement extends UsersManagement {
         users_medic = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Medic>>() {});
     }
 
+    public static void attachPacEmail (String pacEmail, Medic m) {
+        m.attachPacient(pacEmail);
+        addUserIntoFile();
+    }
+
     public static Medic addMedic (String flNume, String flPrenume, String flEmail) throws EmailAlreadyExistsException {
         searchUserAlready (flEmail);
         //checkUserAdminKey(flAdminKey);
@@ -30,12 +37,14 @@ public class MedManagement extends UsersManagement {
         addUserIntoFile();
         return m;
     }
-    public static Medic searchMedID(String flMedID) throws MedIDNotFound {
+
+    public static Medic searchMedID (String flMedID) throws MedIDNotFound {
         for (Medic i : users_medic)
             if (Objects.equals(flMedID, i.getMedid()))
                 return i;
         throw new MedIDNotFound();
     }
+
     public static void updateMedic (String flNume, String flPrenume, String flEmail, String flPassword, String flAdresa, String flOras, String cbJudet, String flTelefon, String flEmailServ, boolean activationState) throws CompleteAllFields, UserNotFound {
         Medic med = (Medic) UsersManagement.searchUser(flEmail, 2);
         med.setNume(flNume);

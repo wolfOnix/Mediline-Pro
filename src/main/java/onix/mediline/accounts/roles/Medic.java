@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Medic extends User  {
 
     private String activationKey, medID, adresa, oras, telefon, emailServiciu, judet;
+    private ArrayList<String> listaPacienti;
     //private boolean contActiv;
-    private ArrayList<Pacient> listaPac;
 
     public Medic () {
         super();
@@ -28,6 +28,7 @@ public class Medic extends User  {
         judet = "";
         telefon = "";
         emailServiciu = "";
+        listaPacienti = new ArrayList<>();
     }
 
     @Override
@@ -35,8 +36,9 @@ public class Medic extends User  {
         return super.toString() + ',' + " Cheieactivare = '" + activationKey + '\'' + ", MedID = '" + medID + '\'' + ", Adresa = '" + adresa + '\'' + ", Oras = '" + oras + '\'' + ", Judet = '" + judet + '\'' + ", Telefon = '" + telefon + '\'' + ", Emailserviciu = '" + emailServiciu + '\'' + '}';
     }
 
-    public void attachPacient (Pacient p) {
-        listaPac.add(p);
+    public void attachPacient (String pacEmail) {
+        if (!listaPacienti.contains(pacEmail))
+            listaPacienti.add(pacEmail);
     }
 
     public String getActivationKey() {
@@ -85,11 +87,7 @@ public class Medic extends User  {
         emailServiciu = flEmailServ;
     }
 
-    public void setFirstPassword (String flPassword) {
-        super.setParola(flPassword);
-    }
-
-    public ArrayList<Pacient> getListaPacienti () { return listaPac; }
-    public void setListaPacienti (ArrayList<Pacient> lp) { listaPac = lp; }
+    public ArrayList<String> getListaPacienti () { return listaPacienti; }
+    public void setListaPacienti (ArrayList<String> lp) { listaPacienti = lp; }
 
 }

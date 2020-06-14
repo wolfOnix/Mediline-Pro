@@ -69,7 +69,7 @@ public class NewAccountPac extends NewAccount implements Initializable {
             Encryption.checkEmailStructure(flEmail.getText());
             Encryption.checkPasswordStrength(flPassword.getText());
             List<Appointment> fllistaAPP = new ArrayList<Appointment>();
-            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue(),null ,fllistaAPP );
+            PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue(), fllistaAPP);
             System.out.println("Cont creat cu succes!");
             Stage PacFinishedStage = (Stage) btCreateAccount.getScene().getWindow();
             Parent PacFinished = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));

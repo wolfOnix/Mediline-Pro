@@ -41,14 +41,11 @@ public class Login {
         try {
             User user = UsersManagement.searchUser(flEmail.getText(), 0);
             String homeName;
-            boolean resizable = true;
             if (user instanceof Admin) {
                 homeName = "homeAdm.fxml";
                 System.out.println("Admin detectat");
-                resizable = false;
             }
-            else
-            if (user instanceof Medic) {
+            else if (user instanceof Medic) {
                 homeName = "homeMed.fxml";
                 System.out.println("Medic detectat");
             }
@@ -64,20 +61,22 @@ public class Login {
                 throw new IncorrectPassword();
 
             Stage HomeStage = (Stage) btLogin.getScene().getWindow();
-            HomeStage.setResizable(resizable);
+            HomeStage.setResizable(false);
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));
             Parent Home = loader.load();
             if (user instanceof Pacient) {
-
                 PacPage1 HoPa = loader.getController();
                 HoPa.setPacient(user);
                 HoPa.setLabelPrenume();
                 Pacient p = (Pacient) user;
-                HoPa.setAppointment();
+                HoPa.fillTvMyApps();
             }
             else
             if (user instanceof Medic) {
-                //
+                MedPage1 HomeMed = loader.getController();
+                HomeMed.setMedic(user);
+                HomeMed.setLabelPrenume();
+                //HomeMed.setAppointment();
             }
             else {
                 AdmPage1 HoAdm = loader.getController();
@@ -96,16 +95,8 @@ public class Login {
 
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (UserNotFound e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-        } catch (AccountNotActivated e) {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-        } catch (IncorrectPassword e) {
-            byte ptext[] = e.getMessage().getBytes();
+        } catch (UserNotFound | AccountNotActivated | IncorrectPassword e) {
+            byte[] ptext = e.getMessage().getBytes();
             String value = new String(ptext, "UTF-8");
             lbErrMessage.setText(value);
         }

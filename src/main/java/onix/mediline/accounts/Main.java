@@ -11,6 +11,8 @@ import onix.mediline.accounts.management.AdmManagement;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.management.PacManagement;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -22,12 +24,12 @@ public class Main extends Application {
         AdmManagement.loadUsersFromFile();
         MedManagement.loadUsersFromFile();
         PacManagement.loadUsersFromFile();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
-        primaryStage.initStyle(StageStyle.DECORATED); // Dezactivare Title Bar
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("index.fxml")));
+        primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.setTitle("Mediline");
         root.getStylesheets().add("style.css");
         primaryStage.getIcons().add(new Image("images/logo.png"));
-        primaryStage.setResizable(false); // false pentru blocare dimensionare ferestre landscape
+        primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

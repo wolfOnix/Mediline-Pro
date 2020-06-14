@@ -61,6 +61,10 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
             Encryption.checkPasswordStrength(flPassword.getText());
             Encryption.checkEmailStructure(flEmailServ.getText());
             MedManagement.updateMedic(flNume.getText(), flPrenume.getText(), med.getEmail(), flPassword.getText(), flAdresa.getText(), flOras.getText(), cbJudet.getValue(), flTelefon.getText(), flEmailServ.getText(), true);
+            Stage thisStage = (Stage) btCancel.getScene().getWindow();
+            Parent nextResource = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));
+            Scene nextScene = new Scene(nextResource);
+            thisStage.setScene(nextScene);
             System.out.println("Cont activat");
         } catch (CompleteAllFields | UserNotFound | NotStrongEnoughPassword | EmailNotValid e) {
             super.setErrorText(e);

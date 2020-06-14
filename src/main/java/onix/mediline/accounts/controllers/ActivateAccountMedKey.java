@@ -52,7 +52,7 @@ public class ActivateAccountMedKey extends NewAccount {
             if (med.getContActiv())
                 throw new AccountAlreadyActivated();
             if(!flActivationKey.getText().equals(med.getActivationKey()))
-                throw new CheckMedicKeyExeception(flActivationKey.getText());
+                throw new CheckMedicKeyExeception();
             Stage ForwardStage = (Stage) btForward.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("activateAccountMed.fxml"));
             Parent Forward = loader.load();
@@ -62,11 +62,7 @@ public class ActivateAccountMedKey extends NewAccount {
             ForwardStage.setScene(ForwardScene);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (UserNotFound e) {
-            super.setErrorText(e);
-        } catch (AccountAlreadyActivated e) {
-            super.setErrorText(e);
-        } catch (CheckMedicKeyExeception e) {
+        } catch (UserNotFound | AccountAlreadyActivated | CheckMedicKeyExeception e) {
             super.setErrorText(e);
         }
     }

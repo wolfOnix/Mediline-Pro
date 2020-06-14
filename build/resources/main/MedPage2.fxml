@@ -49,38 +49,6 @@
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="250.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
         </Pane>
 
-        <Pane fx:id="pnMyAppointments" layoutX="247" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/today_appointments_30.png" /></image></ImageView>
-                <Label fx:id="btMyAppointmentsTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="ASTĂZI" />
-            </children>
-        </Pane>
-        <Button fx:id="btPacPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton" />
-
-        <Button fx:id="btPacPg2" layoutX="446.6" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton" />
-        <Pane fx:id="pnNewAppointment" layoutX="446.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/add_appointment_30.png" /></image></ImageView>
-                <Label fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRI ÎN AȘTEPTARE" />
-            </children>
-        </Pane>
-
-        <Button fx:id="btPacPg3" layoutX="789.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="316" styleClass="overlayButton" />
-        <Pane fx:id="pnMyFiles" layoutX="789.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/documents_30.png" /></image></ImageView>
-                <Label fx:id="btMyFilesTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="TRIMITERE DOCUMENTE MEDICALE" />
-            </children>
-        </Pane>
-
-        <Button fx:id="btPacPg4" layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton" />
-        <Pane fx:id="pnMyMed" layoutX="1175.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <children>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><image><Image url="@images/patients_30.png" /></image></ImageView>
-                <Label fx:id="btMyMedTxt" layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PACIENȚII MEI" />
-            </children>
-        </Pane>
-
         <TableView layoutX="815.0" layoutY="214.0" prefHeight="450.0" prefWidth="720.0">
             <columns>
                 <TableColumn prefWidth="150.0" text="Data" />
@@ -109,8 +77,34 @@
          </styleClass></Button>
 
         <Label fx:id="lbErrMessage" layoutX="405.0" layoutY="664.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" />
-      <Separator layoutX="442.0" layoutY="328.0" prefHeight="6.0" prefWidth="322.0" />
-      <Separator layoutX="444.0" layoutY="607.0" prefHeight="6.0" prefWidth="322.0" />
+        <Label fx:id="lbMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
+
+        <Separator layoutX="442.0" layoutY="328.0" prefHeight="6.0" prefWidth="322.0" />
+        <Separator layoutX="444.0" layoutY="607.0" prefHeight="6.0" prefWidth="322.0" />
+
+        <Pane layoutX="247" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/today_appointments_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="ASTĂZI"/>
+        </Pane>
+        <Button fx:id="btMedPg1" onMouseClicked="#ActionMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton"/>
+
+        <Pane layoutX="446.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/add_appointment_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRI ÎN AȘTEPTARE"/>
+        </Pane>
+        <Button fx:id="btMedPg2" onMouseClicked="#ActionMedPg2" layoutX="446.6" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton"/>
+
+        <Pane layoutX="789.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="TRIMITERE DOCUMENTE MEDICALE"/>
+        </Pane>
+        <Button fx:id="btMedPg3" onMouseClicked="#ActionMedPg3" layoutX="789.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="316" styleClass="overlayButton"/>
+
+        <Pane layoutX="1175.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/patients_30.png"/></ImageView>
+            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PACIENȚII MEI"/>
+        </Pane>
+        <Button fx:id="btMedPg4" onMouseClicked="#ActionMedPg4" layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton"/>
 
     </children>
 </AnchorPane>

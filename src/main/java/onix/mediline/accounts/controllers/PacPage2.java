@@ -8,6 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -16,9 +19,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.input.MouseEvent;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.management.PacManagement;
+import onix.mediline.accounts.roles.Pacient;
+import onix.mediline.appointments.exceptions.AppointmentAlreadyRequested;
+import onix.mediline.appointments.exceptions.DateTooClose;
 import onix.mediline.appointments.management.Appointment;
 
 public class PacPage2 extends PacPages implements Initializable {
+
+    @FXML
+    private Button btSendApp;
 
     @FXML
     private ComboBox<String> cbOra, cbMinut = new ComboBox<String>();
@@ -36,46 +45,21 @@ public class PacPage2 extends PacPages implements Initializable {
     }
 
     @FXML
-    void handleBtLogout (ActionEvent event) throws IOException {
-        super.handleBtLogout(event);
-    }
-
-
-    @FXML
-    void ActionMyAppointments(MouseEvent event) throws IOException {
-        super.ActionMyAppointments(event);
-    }
-
-    @FXML
-    void ActionMyFilesTxt(MouseEvent event) throws IOException {
-        super.ActionMyFilesTxt(event);
-    }
-
-    @FXML
-    void ActionMyMed(MouseEvent event) throws IOException {
-        super.ActionMyMed(event);
-    }
-
-    @FXML
-    void ActionNewAppointments(MouseEvent event) throws IOException {
-        super.ActionNewAppointments(event);
-    }
-    @FXML
     void BtActionSendNewAppointment(ActionEvent event) {
         try {
             String dataN = String.valueOf(flData.getValue());
             String oraN = String.valueOf(cbOra.getValue());
             String minutN = String.valueOf(cbMinut.getValue());
-            if (dataN == null || dataN == "" || dataN == "null")
-                throw new CompleteAllFields();
-            if (oraN == null || oraN == "" || oraN == "null")
-                throw new CompleteAllFields();
-            if (minutN == null || minutN == "" || minutN == "null")
-                throw new CompleteAllFields();
-            Appointment App = new Appointment("Neconfirmat",dataN,oraN);
-            PacManagement.AddPacientApp(App,Pac);
-
-        } catch (CompleteAllFields e) {
+            checkFieldLength(dataN);
+            checkFieldLength(oraN);
+            checkFieldLength(minutN);
+            String HM = oraN + ":" + minutN;
+            Appointment.checkDateApproach(Appointment.toDateFormat(dataN, HM));
+            Pac.checkDoubleAppointment(Appointment.fromDateFormat(Appointment.toDateFormat(dataN, HM))[2], HM);
+            Appointment App = new Appointment(dataN, HM);
+            PacManagement.AddPacientApp(App, Pac);
+            setMessageLabel("Cererea de programare a fost trimisă. Medicul de familie urmează să gestioneze programarea");
+        } catch (CompleteAllFields | ParseException | DateTooClose | AppointmentAlreadyRequested e) {
             super.setErrorText(e);
         }
     }
