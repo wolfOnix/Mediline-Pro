@@ -6,9 +6,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import onix.mediline.accounts.exceptions.NoRowSelected;
 import onix.mediline.appointments.management.Appointment;
 import onix.mediline.documents.Document;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class PacPage3 extends PacPages {
 
@@ -50,8 +57,24 @@ public class PacPage3 extends PacPages {
         try {
             if (!selected)
                 throw new NoRowSelected();
+            Stage stage = (Stage) btSaveDoc.getScene().getWindow();
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Salvare document");
+            fileChooser.setInitialFileName("mysave");
+            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("text file", "*.txt"));
+            File file = fileChooser.showSaveDialog(stage);
+                if(file != null)
+                    try {
+                        PrintWriter writer;
+                        writer = new PrintWriter(file);
+                        writer.println(selectedDoc);
+                        writer.close();
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
             /* SALVARE ÎN FIȘIER .txt */
-            setMessageLabel("Documentul a fost salvat în folderul Descărcări"); // Sau deschidem prompt și își alege pacientul unde vrea să salveze
+            setMessageLabel("Documentul a fost salvat "); // Sau deschidem prompt și își alege pacientul unde vrea să salveze
         }  catch (NoRowSelected e) {
             super.setErrorText(e);
         }
