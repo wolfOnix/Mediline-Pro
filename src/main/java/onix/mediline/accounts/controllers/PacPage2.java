@@ -17,6 +17,7 @@ import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.management.PacManagement;
 import onix.mediline.appointments.exceptions.AppointmentAlreadyRequested;
 import onix.mediline.appointments.exceptions.DateTooClose;
+import onix.mediline.appointments.exceptions.TooManyAppointmentRequests;
 import onix.mediline.appointments.management.Appointment;
 
 public class PacPage2 extends PacPages implements Initializable {
@@ -53,11 +54,12 @@ public class PacPage2 extends PacPages implements Initializable {
             String HM = oraN + ":" + minutN;
             Date fullDate = Appointment.toDateFormat(dataN, HM);
             Appointment.checkDateApproach(fullDate);
+            Appointment.checkTooManyAppRequests(Pac.getListaApp());
             Pac.checkDoubleAppointment(Appointment.fromDateFormat(Appointment.toDateFormat(dataN, HM))[2], HM);
             Appointment App = new Appointment(Pac.getNume(), Pac.getPrenume(), fullDate, Pac.getEmail());
             PacManagement.addPacientApp(App, Pac);
             setMessageLabel("Cererea de programare a fost trimisă. Medicul de familie urmează să gestioneze programarea");
-        } catch (CompleteAllFields | ParseException | DateTooClose | AppointmentAlreadyRequested e) {
+        } catch (CompleteAllFields | ParseException | DateTooClose | AppointmentAlreadyRequested | TooManyAppointmentRequests e) {
             super.setErrorText(e);
         }
     }

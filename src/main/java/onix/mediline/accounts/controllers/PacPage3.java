@@ -1,11 +1,13 @@
 package onix.mediline.accounts.controllers;
 
+import javafx.animation.Animation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -37,6 +39,32 @@ public class PacPage3 extends PacPages {
     public void setup () {
         this.setLbNrDocs();
         this.fillTvMyDocs();
+        /*colContinut.setCellFactory(tc -> {
+            TableCell<Appointment, String> cell = new TableCell<>();
+            Text text = new Text();
+            cell.setGraphic(text);
+            cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
+            text.wrappingWidthProperty().bind(colContinut.widthProperty());
+            text.textProperty().bind(cell.itemProperty());
+            return cell;
+        });*/
+        colContinut.setCellFactory(param -> {
+            return new TableCell<Appointment, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null || empty) {
+                        setText(null);
+                        setStyle("");
+                    } else {
+                        Text text = new Text(item);
+                        text.setStyle("-fx-text-alignment:justify;");
+                        text.wrappingWidthProperty().bind(getTableColumn().widthProperty().subtract(20));
+                        setGraphic(text);
+                    }
+                }
+            };
+        });
     }
 
     public void fillTvMyDocs () {

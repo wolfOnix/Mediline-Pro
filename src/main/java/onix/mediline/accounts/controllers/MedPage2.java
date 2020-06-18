@@ -64,8 +64,9 @@ public class MedPage2 extends MedPages implements Initializable {
             colPatient.setCellValueFactory(new PropertyValueFactory<>("numePrenumePac"));
             ObservableList<Appointment> data = FXCollections.observableArrayList(Med.retrieveApps());
             ObservableList<Appointment> unconfirmedApps = FXCollections.observableArrayList();
+            Date now = new Date();
             for (Appointment i : data)
-                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[0]))
+                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[0]) && i.getComplexDate().getTime() > now.getTime())
                     unconfirmedApps.add(i);
             tvUnconfirmedApps.setItems(unconfirmedApps);
         } catch (UserNotFound ignored) { }

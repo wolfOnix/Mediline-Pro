@@ -48,9 +48,9 @@
 
         <TableView fx:id="tvMyDocs" layoutX="373.0" layoutY="209.0" onMouseClicked="#tvClicked" prefHeight="450.0" prefWidth="1170.0">
             <columns>
-                <TableColumn fx:id="colTitlu" prefWidth="175.0" text="Titlu" />
+                <TableColumn fx:id="colTitlu" prefWidth="275.0" text="Titlu" />
                 <TableColumn fx:id="colTip" prefWidth="175.0" text="Tip document" />
-                <TableColumn fx:id="colContinut" prefWidth="700.0" text="Conținutul documentului" />
+                <TableColumn fx:id="colContinut" prefWidth="600.0" text="Conținutul documentului" />
                 <TableColumn fx:id="colData" prefWidth="120.0" text="Data emiterii" />
             </columns>
         </TableView>

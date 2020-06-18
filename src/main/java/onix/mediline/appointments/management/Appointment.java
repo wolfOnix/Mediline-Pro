@@ -7,14 +7,17 @@ import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.appointments.exceptions.AppointmentAlreadyOccupied;
 import onix.mediline.appointments.exceptions.DatePassed;
 import onix.mediline.appointments.exceptions.DateTooClose;
+import onix.mediline.appointments.exceptions.TooManyAppointmentRequests;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Appointment {
 
-    private static String[] appointmentStates = {"Neconfirmat", "Confirmat", "Reprogramat", "Anulat"};
+    private static final String[] appointmentStates = {"Neconfirmat", "Confirmat", "Reprogramat", "Anulat"};
     private String stareProgr, dataProgr, oraProgr, numePrenumePac, emailPac;
     private Date complexDate;
 
@@ -68,9 +71,17 @@ public class Appointment {
         }
     }
 
-    public String getStareProgr() {
-        return stareProgr;
+    public static void checkTooManyAppRequests(List<Appointment> app) throws TooManyAppointmentRequests {
+        int s = 0;
+        Date now = new Date();
+        for (Appointment i : app)
+            if (i.getStareProgr().equals(Appointment.getAppointmentStates()[0]) && i.getComplexDate().getTime() > now.getTime())
+                s++;
+        if (s >= 3)
+            throw new TooManyAppointmentRequests();
     }
+
+    public String getStareProgr() { return stareProgr; }
     public void setStareProgr(String appState) { stareProgr = appState; }
 
     public String getDataProgr() {

@@ -2,6 +2,10 @@ package onix.mediline.documents;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import onix.mediline.accounts.roles.Pacient;
+import onix.mediline.documents.exceptions.DocumentAlreadySent;
+
+import javax.print.Doc;
 
 public class Document {
 
@@ -22,6 +26,12 @@ public class Document {
         return tipuri;
     }
 
+    public static void checkDocumentAlreadySent (Document d, Pacient p) throws DocumentAlreadySent {
+        for (Document i : p.getListaDoc())
+            if (d.equals(i))
+                throw new DocumentAlreadySent();
+    }
+
     public String toString() {
         return " --- DOCUMENT MEDICAL FĂRĂ PARAFĂ ---\n\nTITLU: " + titlu + "\nTIP DOCUMENT: " + tip + "\nDATA EMITERII: " + dataEmitere + "\n\nCONȚINUTUL DOCUMENTULUI: " + continut + "\n\n\n --- Documentul a fost transmis prin cadrul aplicației Mediline ---";
     }
@@ -39,5 +49,11 @@ public class Document {
     public void setDataEmitere(String date) { dataEmitere = date; }
 
     public String getNumePrenumePac() { return numePrenumePac; }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof Document)) return false;
+        Document d = (Document) o;
+        return d.getTitlu().equals(this.titlu) && d.getDataEmitere().equals(this.dataEmitere) && d.getTip().equals(this.tip);
+    }
 
 }

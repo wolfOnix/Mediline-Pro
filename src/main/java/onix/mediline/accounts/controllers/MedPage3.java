@@ -15,6 +15,7 @@ import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.appointments.management.Appointment;
 import onix.mediline.documents.Document;
+import onix.mediline.documents.exceptions.DocumentAlreadySent;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -84,9 +85,10 @@ public class MedPage3 extends MedPages implements Initializable {
             if (flDocTitle.getText().length() < 2 || cbDocType.getValue().length() < 2 || taDocContent.getText().length() < 2)
                 throw new CompleteAllFields();
             Document doc = new Document(flDocTitle.getText(), cbDocType.getValue(), taDocContent.getText(), Appointment.fromDateFormat(Appointment.toDateFormat(date, "00:00"))[2], selectedPac.getNume() + " " + selectedPac.getPrenume());
+            Document.checkDocumentAlreadySent(doc, selectedPac);
             PacManagement.attachDoc(doc, selectedPac);
             setMessageLabel("Documentul a fost trimis pacientului");
-        }  catch (CompleteAllFields | NoRowSelected e) {
+        }  catch (CompleteAllFields | NoRowSelected | DocumentAlreadySent e) {
             super.setErrorText(e);
         } catch (ParseException ignore) { }
     }
