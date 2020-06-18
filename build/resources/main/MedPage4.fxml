@@ -109,7 +109,7 @@
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/today_appointments_30.png" />
         </ImageView>
-        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="ASTĂZI" />
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="AGENDĂ" />
     </Pane>
     <Button fx:id="btMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg1" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton" />
 

@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Appointment {
 
-    private static String[] appointmentStates = {"Neconfirmat", "Confirmat", "Confirmat și reprogramat", "Anulat"};
+    private static String[] appointmentStates = {"Neconfirmat", "Confirmat", "Reprogramat", "Anulat"};
     private String stareProgr, dataProgr, oraProgr, emailPac, numePrenumePac;
 
     public Appointment () { super(); }

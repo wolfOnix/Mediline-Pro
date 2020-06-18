@@ -29,8 +29,15 @@ public class MedPage1 extends MedPages {
             colHM.setCellValueFactory(new PropertyValueFactory<>("oraProgr"));
             colPatient.setCellValueFactory(new PropertyValueFactory<>("numePrenumePac"));
             ObservableList<Appointment> data = FXCollections.observableArrayList(Med.retrieveApps());
-            tvTodayApps.setItems(data);
-        } catch (UserNotFound e) { }
+            ObservableList<Appointment> confirmedApps = FXCollections.observableArrayList();
+            for (Appointment i : data)
+            {
+                System.out.println(i.getStareProgr() + "VS Stocat: " + Appointment.getAppointmentStates()[2]);
+                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[1]) || i.getStareProgr().equals(Appointment.getAppointmentStates()[2]))
+                    confirmedApps.add(i);
+            }
+            tvTodayApps.setItems(confirmedApps);
+        } catch (UserNotFound ignored) { }
     }
 
     public void setMedic (User x) {
