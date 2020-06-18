@@ -34,6 +34,11 @@ public class PacPage3 extends PacPages {
     @FXML
     private TableColumn<Appointment, String> colTitlu, colTip, colContinut, colData;
 
+    public void setup () {
+        this.setLbNrDocs();
+        this.fillTvMyDocs();
+    }
+
     public void fillTvMyDocs () {
         colTitlu.setCellValueFactory(new PropertyValueFactory<>("titlu"));
         colTip.setCellValueFactory(new PropertyValueFactory<>("tip"));

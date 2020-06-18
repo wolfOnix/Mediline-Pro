@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -32,6 +33,8 @@ public class PacPage2 extends PacPages implements Initializable {
     @FXML
     private DatePicker flData;
 
+    public void setup () { }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cbOra.setItems(lHR);
@@ -48,9 +51,10 @@ public class PacPage2 extends PacPages implements Initializable {
             checkFieldLength(oraN);
             checkFieldLength(minutN);
             String HM = oraN + ":" + minutN;
-            Appointment.checkDateApproach(Appointment.toDateFormat(dataN, HM));
+            Date fullDate = Appointment.toDateFormat(dataN, HM);
+            Appointment.checkDateApproach(fullDate);
             Pac.checkDoubleAppointment(Appointment.fromDateFormat(Appointment.toDateFormat(dataN, HM))[2], HM);
-            Appointment App = new Appointment(dataN, HM, Pac.getEmail(), Pac.getNume(), Pac.getPrenume());
+            Appointment App = new Appointment(Pac.getNume(), Pac.getPrenume(), fullDate, Pac.getEmail());
             PacManagement.addPacientApp(App, Pac);
             setMessageLabel("Cererea de programare a fost trimisă. Medicul de familie urmează să gestioneze programarea");
         } catch (CompleteAllFields | ParseException | DateTooClose | AppointmentAlreadyRequested e) {

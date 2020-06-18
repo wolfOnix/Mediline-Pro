@@ -44,7 +44,7 @@
             <Label layoutY="107.0" prefHeight="134.0" prefWidth="500.0" styleClass="neutralLabelSmall" text="Pentru a trimite concluziile unei investigații, rezulatele unei analize sau alte documente medicale, alegeți pacientul căruia doriți să-i trimiteți documentul. Ulterior completați câmpurile necesare și apăsați tasta „Trimitere document”" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         </Pane>
 
-        <TableView fx:id="tvMyPac" layoutX="30.0" layoutY="421.0" onMouseClicked="#tvClicked" prefHeight="227.0" prefWidth="500.0">
+        <TableView fx:id="tvMyPac" onMouseClicked="#tvClicked" layoutX="30.0" layoutY="421.0" prefHeight="227.0" prefWidth="500.0">
             <columns>
                 <TableColumn fx:id="colNume" prefWidth="150.0" text="Nume" />
                 <TableColumn fx:id="colPrenume" prefWidth="230.0" text="Prenume" />

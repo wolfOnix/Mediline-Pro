@@ -46,6 +46,11 @@ public class PacManagement extends UsersManagement {
         addUserIntoFile();
     }
 
+    public static void updateApp(Appointment oldApp, Appointment updatedApp, Pacient p) {
+        p.updateApp(oldApp, updatedApp);
+        addUserIntoFile();
+    }
+
     private static void addUserIntoFile () {
         try {
             ObjectMapper objectMapper = new ObjectMapper();

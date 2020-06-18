@@ -46,6 +46,11 @@ public class MedPage3 extends MedPages implements Initializable {
     @FXML
     private ComboBox<String> cbDocType = new ComboBox<String>();
 
+    public void setup () {
+        super.setup();
+        this.fillTvMyPac();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         taDocContent.setWrapText(true);

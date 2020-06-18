@@ -34,6 +34,12 @@ public class Pacient extends User  {
         listaApp.add(n);
     }
 
+    public void updateApp (Appointment oldApp, Appointment updatedApp) {
+        for (Appointment i : listaApp)
+            if (i.equals(oldApp))
+                i = updatedApp;
+    }
+
     public void addDoc (Document doc) {
         listaDoc.add(doc);
     }

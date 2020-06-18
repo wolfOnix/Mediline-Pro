@@ -1,5 +1,10 @@
 package onix.mediline.appointments.management;
 
+import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.UsersManagement;
+import onix.mediline.accounts.roles.Medic;
+import onix.mediline.accounts.roles.Pacient;
+import onix.mediline.appointments.exceptions.AppointmentAlreadyOccupied;
 import onix.mediline.appointments.exceptions.DatePassed;
 import onix.mediline.appointments.exceptions.DateTooClose;
 
@@ -10,16 +15,18 @@ import java.util.Date;
 public class Appointment {
 
     private static String[] appointmentStates = {"Neconfirmat", "Confirmat", "Reprogramat", "Anulat"};
-    private String stareProgr, dataProgr, oraProgr, emailPac, numePrenumePac;
+    private String stareProgr, dataProgr, oraProgr, numePrenumePac, emailPac;
+    private Date complexDate;
 
     public Appointment () { super(); }
 
-    public Appointment (String appDate, String appHM, String email, String nume, String prenume) throws ParseException {
+    public Appointment (String nume, String prenume, Date date, String email) throws ParseException {
         stareProgr = appointmentStates[0];
-        dataProgr = fromDateFormat(toDateFormat(appDate, appHM))[2];
-        oraProgr = appHM;
-        emailPac = email;
+        dataProgr = fromDateFormat(date)[2];
+        oraProgr = fromDateFormat(date)[1];
         numePrenumePac = nume + " " + prenume;
+        complexDate = date;
+        emailPac = email;
     }
 
     public static Date toDateFormat (String data, String HM) throws ParseException {
@@ -45,36 +52,48 @@ public class Appointment {
             throw new DateTooClose();
     }
 
+    public static void checkDateNotPast(Date date) throws DatePassed {
+        Date now = new Date();
+        if (date.getTime() < now.getTime())
+            throw new DatePassed();
+    }
+
+    public static void checkAppointmentNotOccupied(Medic med, Date date) throws UserNotFound, AppointmentAlreadyOccupied {
+        for (String i : med.getListaPacEmail())
+        {
+            Pacient pac = ((Pacient) UsersManagement.searchUser(i, 3));
+            for (Appointment a : pac.getListaApp())
+                if (date.equals(a.getComplexDate()))
+                    throw new AppointmentAlreadyOccupied();
+        }
+    }
+
     public String getStareProgr() {
         return stareProgr;
     }
     public void setStareProgr(String appState) { stareProgr = appState; }
 
-    public String getDataProgr () {
+    public String getDataProgr() {
         return dataProgr;
     }
-    public void setDataProgr (String appDate) {
-        dataProgr = appDate;
-    }
 
-    public String getOraProgr () {
+    public String getOraProgr() {
         return oraProgr;
     }
-    public void setOraProgr (String appHM) {
-        oraProgr = appHM;
+
+    public String getEmailPac() { return emailPac; }
+
+    public Date getComplexDate() { return complexDate; }
+    public void setComplexDate(Date date) throws ParseException {
+        complexDate = date;
+        dataProgr = fromDateFormat(date)[2];
+        oraProgr = fromDateFormat(date)[1];
     }
 
-    public String getEmailPac () {
-        return emailPac;
-    }
-    public void setEmailPac (String email) {
-        emailPac = email;
-    }
-
-    public String getNumePrenumePac () {
+    public String getNumePrenumePac() {
         return numePrenumePac;
     }
-    public void setNumePrenumePac (String nume, String prenume) {
+    public void setNumePrenumePac(String nume, String prenume) {
         numePrenumePac = nume + " " + prenume;
     }
 

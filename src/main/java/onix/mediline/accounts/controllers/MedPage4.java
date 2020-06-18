@@ -12,10 +12,7 @@ import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.appointments.management.Appointment;
-
-import java.net.URL;
 import java.text.ParseException;
-import java.util.ResourceBundle;
 
 public class MedPage4 extends MedPages {
 
@@ -31,6 +28,12 @@ public class MedPage4 extends MedPages {
 
     @FXML
     private TableColumn<Appointment, String> colNume, colPrenume;
+
+    public void setup () {
+        super.setup();
+        this.fillTvMyPac();
+        this.fillMedID();
+    }
 
     public void fillTvMyPac () {
         try {

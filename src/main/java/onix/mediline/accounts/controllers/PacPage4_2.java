@@ -19,6 +19,10 @@ public class PacPage4_2 extends PacPages {
     @FXML
     private Label lbMessage;
 
+    public void setup () {
+
+    }
+
     @FXML
     void ActionAddMedicForPac(ActionEvent event)  {
         try {

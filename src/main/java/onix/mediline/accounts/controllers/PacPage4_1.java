@@ -1,13 +1,9 @@
 package onix.mediline.accounts.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-
-import java.io.IOException;
+import onix.mediline.accounts.roles.Medic;
 
 public class PacPage4_1 extends PacPages {
 
@@ -34,6 +30,17 @@ public class PacPage4_1 extends PacPages {
 
     @FXML
     private Label flMedID;
+
+    public void setup() { }
+
+    public void setup(Medic med) {
+        setAdresa(med.getAdresa() + ", " + med.getOras() + " (" + med.getJudet() + ")");
+        setEmailServ(med.getEmailServ());
+        setMedID(med.getMedid());
+        setNume(med.getNume());
+        setPrenume(med.getPrenume());
+        setTelefon(med.getTelefon());
+    }
 
     public void setNume(String Nume) {
         flNume.setText(Nume);

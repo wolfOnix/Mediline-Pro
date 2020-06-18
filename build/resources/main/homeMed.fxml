@@ -35,10 +35,11 @@
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="233.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
     </Pane>
 
-    <TableView fx:id="tvTodayApps" layoutX="832.0" layoutY="209.0" prefHeight="450.0" prefWidth="570.0">
+    <TableView fx:id="tvTodayApps" layoutX="832.0" layoutY="209.0" prefHeight="450.0" prefWidth="600.0">
         <columns>
-            <TableColumn fx:id="colHM" prefWidth="150.0" text="Ora" />
-            <TableColumn fx:id="colPatient" prefWidth="420.0" text="Pacientul" />
+            <TableColumn fx:id="colDate" prefWidth="150.0" text="Data" />
+            <TableColumn fx:id="colHM" prefWidth="100.0" text="Ora" />
+            <TableColumn fx:id="colPatient" prefWidth="350.0" text="Pacientul" />
         </columns>
     </TableView>
 

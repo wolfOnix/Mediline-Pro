@@ -39,6 +39,5 @@ public class Document {
     public void setDataEmitere(String date) { dataEmitere = date; }
 
     public String getNumePrenumePac() { return numePrenumePac; }
-    public void setNumePrenumePac(String numePrenume) { numePrenumePac = numePrenume; }
 
 }

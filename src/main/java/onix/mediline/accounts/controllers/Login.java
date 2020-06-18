@@ -61,16 +61,13 @@ public class Login {
             if (user instanceof Pacient) {
                 PacPage1 HomePac = loader.getController();
                 HomePac.setPacient(user);
-                HomePac.setLabelPrenume();
-                HomePac.fillTvMyApps();
+                HomePac.setup();
             }
             else
             if (user instanceof Medic) {
                 MedPage1 HomeMed = loader.getController();
                 HomeMed.setMedic(user);
-                HomeMed.setLabelPrenume();
-                HomeMed.fillTvTodayApps();
-                HomeMed.setLbDate();
+                HomeMed.setup();
             }
             else {
                 AdmPage1 HomeAdm = loader.getController();

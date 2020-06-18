@@ -8,16 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import onix.mediline.accounts.exceptions.MedIDNotFound;
-import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Medic;
-import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.appointments.management.Appointment;
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.Objects;
 
 public abstract class MedPages extends Home {
 
@@ -29,16 +24,18 @@ public abstract class MedPages extends Home {
 
     protected static Medic Med;
 
+    public void setup() {
+        this.setLbDate();
+    }
+
     @FXML
-    void ActionMedPg1 (MouseEvent event) throws IOException {
+    public void ActionMedPg1 (MouseEvent event) throws IOException {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homeMed.fxml"));
             Parent Home = loader.load();
             MedPage1 HomeMed = loader.getController();
-            HomeMed.setLabelPrenume();
-            HomeMed.fillTvTodayApps();
-            HomeMed.setLbDate();
+            HomeMed.setup();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
         } catch (IOException e) {
@@ -47,14 +44,13 @@ public abstract class MedPages extends Home {
     }
 
     @FXML
-    void ActionMedPg2 (MouseEvent event) throws IOException {
+    public void ActionMedPg2 (MouseEvent event) throws IOException {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage2.fxml"));
             Parent Home = loader.load();
             MedPage2 controller = loader.getController();
-            controller.fillTvUnconfirmedApps();
-            controller.setLbDate();
+            controller.setup();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
         } catch (IOException e) {
@@ -80,14 +76,13 @@ public abstract class MedPages extends Home {
     }
 
     @FXML
-    void ActionMedPg3 (MouseEvent event) throws IOException {
+    public void ActionMedPg3 (MouseEvent event) throws IOException {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage3.fxml"));
             Parent Home = loader.load();
             MedPage3 controller = loader.getController();
-            controller.setLbDate();
-            controller.fillTvMyPac();
+            controller.setup();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
         } catch (IOException e) {
@@ -104,15 +99,13 @@ public abstract class MedPages extends Home {
     }
 
     @FXML
-    void ActionMedPg4 (MouseEvent event) throws IOException {
+    public void ActionMedPg4 (MouseEvent event) throws IOException {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage4.fxml"));
             Parent Home = loader.load();
             MedPage4 controller = loader.getController();
-            controller.fillMedID();
-            controller.setLbDate();
-            controller.fillTvMyPac();
+            controller.setup();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);
         } catch (IOException e) {

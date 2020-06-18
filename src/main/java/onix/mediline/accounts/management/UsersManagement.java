@@ -46,7 +46,7 @@ public abstract class UsersManagement {
         try {
             searchUser(flEmail, 0);
             throw new EmailAlreadyExistsException(flEmail);
-        } catch (UserNotFound e) { }
+        } catch (UserNotFound ignored) { }
     }
 
     public static boolean checkKeyUnicity (String key, int keyConstraint) {
