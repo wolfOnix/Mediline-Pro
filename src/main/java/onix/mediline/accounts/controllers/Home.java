@@ -17,7 +17,7 @@ import java.util.Objects;
 public abstract class Home {
 
     @FXML
-    private Label lbErrMessage, lbGreeting, lbMessage;
+     Label lbErrMessage, lbGreeting, lbMessage;
 
     @FXML
     protected Button btLogout;

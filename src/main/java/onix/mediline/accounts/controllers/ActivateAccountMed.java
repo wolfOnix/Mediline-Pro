@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
 public class ActivateAccountMed extends NewAccount implements Initializable {
 
     @FXML
-    private ComboBox<String> cbJudet = new ComboBox<String>();
+    ComboBox<String> cbJudet = new ComboBox<String>();
 
     ObservableList<String> listaMF = FXCollections.observableArrayList("AB", "AG", "AR", "B", "BC", "BH", "BN", "BR", "BT", "BV", "BZ", "CJ", "CL", "CS", "CT", "CV", "DB", "DJ", "GJ", "GL", "GR", "HD", "HR", "IF", "IL", "IS", "MH", "MM", "MS", "NT", "OT", "PH", "SB", "SJ", "SM", "SV", "TL", "TM", "TR", "VL", "VN", "VS");
 
@@ -38,10 +38,10 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
     private Label lbEmail, lbMedid;
 
     @FXML
-    private PasswordField flPassword;
+    PasswordField flPassword;
 
     @FXML
-    private TextField flAdresa, flOras, flTelefon, flEmailServ/*, flPrenume, flNume*/;
+     TextField flAdresa, flOras, flTelefon, flEmailServ/*, flPrenume, flNume*/;
 
     @FXML
     private Button btCancel, btActivateAccount;
@@ -54,7 +54,7 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
     }
 
     @FXML
-    void handleBtFinishActivateAccount (ActionEvent event) throws IOException {
+    void handleBtFinishActivateAccount () throws IOException {
         try {
             if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flAdresa.getText().length() < 2 || cbJudet.getValue().length() != 2 || flOras.getText().length() < 2 || flTelefon.getText().length() < 10 || flTelefon.getText().length() > 17)
                 throw new CompleteAllFields();

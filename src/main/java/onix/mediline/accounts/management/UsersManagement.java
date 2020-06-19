@@ -25,6 +25,11 @@ public abstract class UsersManagement {
 
     protected static List<Admin> users_admin;
     protected static List<Pacient> users_pacient;
+
+    public static List<Medic> getUsers_medic() {
+        return users_medic;
+    }
+
     protected static List<Medic> users_medic;
 
     public static void removeUser(User user) {

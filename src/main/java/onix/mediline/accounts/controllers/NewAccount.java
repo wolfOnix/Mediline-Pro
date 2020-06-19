@@ -22,7 +22,7 @@ abstract public class NewAccount extends Home {
     protected TextField flNume, flPrenume, flEmail;
 
     @FXML
-    private Label lbErrMessage, lbInfoOverErr;
+    Label lbInfoOverErr;
 
 
     /*protected void setErrorText (Exception e) {
