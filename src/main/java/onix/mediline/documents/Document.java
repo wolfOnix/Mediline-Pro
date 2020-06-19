@@ -5,12 +5,10 @@ import javafx.collections.ObservableList;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.documents.exceptions.DocumentAlreadySent;
 
-import javax.print.Doc;
-
 public class Document {
 
     private String titlu, tip, continut, dataEmitere, numePrenumePac;
-    private static ObservableList<String> tipuri = FXCollections.observableArrayList("Concluzii consultație", "Interpretare analize", "Rețetă medicală", "Rezultat analize", "Rezultat investigații", "Schemă de tratament", "Scrisoare medicală", "Diverse");
+    private static final ObservableList<String> tipuri = FXCollections.observableArrayList("Concluzii consultatie", "Interpretare analize", "Reteta medicala", "Rezultat analize", "Rezultat investigatii", "Schema de tratament", "Scrisoare medicala", "Diverse");
 
     public Document() { }
 

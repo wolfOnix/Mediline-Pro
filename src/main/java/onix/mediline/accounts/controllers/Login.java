@@ -28,7 +28,7 @@ public class Login {
     private Button btLogin, btNewAccount, btNewAdmin, btActivateAccount;
 
     @FXML
-     Label lbErrMessage;
+    Label lbErrMessage;
 
     @FXML
     TextField flEmail;
@@ -49,8 +49,6 @@ public class Login {
                 homeName = "homePac.fxml";
             if (!user.getContActiv())
                 throw new AccountNotActivated();
-            System.out.println(flPassword.getText());
-            System.out.println(user.getParola());
             if(!user.getParola().equals(Encryption.encryptString(user.getEmail(),flPassword.getText())))
                 throw new IncorrectPassword();
             Stage HomeStage = (Stage) btLogin.getScene().getWindow();

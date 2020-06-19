@@ -19,8 +19,6 @@ import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.appointments.exceptions.AppointmentAlreadyOccupied;
 import onix.mediline.appointments.exceptions.DatePassed;
 import onix.mediline.appointments.management.Appointment;
-import onix.mediline.documents.Document;
-
 import java.net.URL;
 import java.text.ParseException;
 import java.util.Date;
@@ -28,20 +26,20 @@ import java.util.ResourceBundle;
 
 public class MedPage2 extends MedPages implements Initializable {
 
-     Appointment selectedApp;
-     boolean selected = false;
+    private Appointment selectedApp;
+    private boolean selected = false;
 
     @FXML
-     ComboBox<String> cbOra, cbMinut = new ComboBox<String>();
+    private final ComboBox<String> cbOra = new ComboBox<String>(), cbMinut = new ComboBox<String>();
 
     @FXML
     private DatePicker dpData;
 
     @FXML
-     TableView<Appointment> tvUnconfirmedApps;
+    private TableView<Appointment> tvUnconfirmedApps;
 
     @FXML
-     TableColumn<Appointment, String> colDate, colHM, colPatient;
+    private TableColumn<Appointment, String> colDate, colHM, colPatient;
 
     ObservableList<String> lHR = FXCollections.observableArrayList("08", "09" , "10" , "11" , "12" , "13" , "14" , "15" , "16" , "17" , "18" , "19" , "20" , "21" );
     ObservableList<String> lMN = FXCollections.observableArrayList("00", "10" , "20" , "30" , "40" , "50" );
@@ -78,7 +76,7 @@ public class MedPage2 extends MedPages implements Initializable {
         selected = true;
     }
 
-    public void confirmApp() {
+    public void confirmApp(MouseEvent event) {
         try {
             if (!selected || selectedApp == null)
                 throw new NoRowSelected();
@@ -128,6 +126,8 @@ public class MedPage2 extends MedPages implements Initializable {
             Pacient p = (Pacient) UsersManagement.searchUser(selectedApp.getEmailPac(), 3);
             PacManagement.updateApp(oldApp, selectedApp, p);
             setMessageLabel("Programarea a fost anulată");
+            selected = false;
+            selectedApp = null;
             this.fillTvUnconfirmedApps();
         }  catch (NoRowSelected | UserNotFound e) {
             super.setErrorText(e);

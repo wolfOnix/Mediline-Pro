@@ -10,27 +10,25 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import onix.mediline.accounts.exceptions.NoRowSelected;
-import onix.mediline.accounts.exceptions.UserNotFound;
-import onix.mediline.accounts.management.PacManagement;
 import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Admin;
 import onix.mediline.accounts.roles.Medic;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;
-import onix.mediline.appointments.management.Appointment;
 
 public class AdmPage2 extends AdmPages {
 
-     User selectedUser;
-     boolean selected = false;
+    User selectedUser;
+    boolean selected = false;
 
     @FXML
-     Label lbAccType, lbInfo;
-    @FXML
-    TableView<User> tvDelRequests;
+    Label lbAccType, lbInfo;
 
     @FXML
-     TableColumn<User, String> colEmail, colNumeFam;
+    private TableView<User> tvDelRequests;
+
+    @FXML
+    TableColumn<User, String> colEmail, colNumeFam;
 
     @Override
     public void setup() {
@@ -38,15 +36,15 @@ public class AdmPage2 extends AdmPages {
     }
 
     public void fillTvDelRequests() {
-            colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-            colNumeFam.setCellValueFactory(new PropertyValueFactory<>("nume"));
-            ObservableList<User> data = FXCollections.observableArrayList(UsersManagement.getAllMed());
-            data.addAll(UsersManagement.getAllPac());
-            ObservableList<User> delRequests = FXCollections.observableArrayList();
-            for (User i : data)
-                if (i.getRequestDelete())
-                    delRequests.add(i);
-            tvDelRequests.setItems(delRequests);
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colNumeFam.setCellValueFactory(new PropertyValueFactory<>("nume"));
+        ObservableList<User> data = FXCollections.observableArrayList(UsersManagement.getAllMed());
+        data.addAll(UsersManagement.getAllPac());
+        ObservableList<User> delRequests = FXCollections.observableArrayList();
+        for (User i : data)
+            if (i.getRequestDelete())
+                delRequests.add(i);
+        tvDelRequests.setItems(delRequests);
     }
 
     @FXML
@@ -64,6 +62,8 @@ public class AdmPage2 extends AdmPages {
             setMessageLabel("Utilizatorul a fost șters");
             lbInfo.setText("");
             lbAccType.setText("");
+            selected = false;
+            selectedUser = null;
             this.fillTvDelRequests();
         }  catch (NoRowSelected e) {
             super.setErrorText(e);
@@ -81,6 +81,8 @@ public class AdmPage2 extends AdmPages {
             lbAccType.setText("");
             lbInfo.setText("");
             setMessageLabel("Cererea de ștergere a fost respinsă");
+            selected = false;
+            selectedUser = null;
             this.fillTvDelRequests();
         }  catch (NoRowSelected e) {
             super.setErrorText(e);
