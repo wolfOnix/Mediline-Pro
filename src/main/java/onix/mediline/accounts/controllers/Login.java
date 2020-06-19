@@ -28,16 +28,16 @@ public class Login {
     private Button btLogin, btNewAccount, btNewAdmin, btActivateAccount;
 
     @FXML
-    private Label lbErrMessage;
+     Label lbErrMessage;
 
     @FXML
-    private TextField flEmail;
+    TextField flEmail;
 
     @FXML
-    private PasswordField flPassword;
+    PasswordField flPassword;
 
     @FXML
-    void handleBtLogin (ActionEvent event) throws IOException {
+    void handleBtLogin () throws IOException {
         try {
             User user = UsersManagement.searchUser(flEmail.getText(), 0);
             String homeName;

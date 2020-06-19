@@ -21,17 +21,16 @@ import onix.mediline.appointments.management.Appointment;
 
 public class AdmPage2 extends AdmPages {
 
-    private User selectedUser;
-    private boolean selected = false;
+     User selectedUser;
+     boolean selected = false;
 
     @FXML
-    private Label lbAccType, lbInfo;
-
+     Label lbAccType, lbInfo;
     @FXML
     private TableView<User> tvDelRequests;
 
     @FXML
-    private TableColumn<User, String> colEmail, colNumeFam;
+     TableColumn<User, String> colEmail, colNumeFam;
 
     @Override
     public void setup() {
@@ -57,7 +56,7 @@ public class AdmPage2 extends AdmPages {
         setLbAccType(selectedUser);
     }
 
-    public void confirmDelAccount(ActionEvent event) {
+    public void confirmDelAccount() {
         try {
             if (!selected || selectedUser == null)
                 throw new NoRowSelected();

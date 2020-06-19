@@ -1,5 +1,6 @@
 package onix.mediline.accounts.management;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -13,6 +14,11 @@ public class FileManagement {
     }
     public static Path getPathToFile(String... path) {
         return APPLICATION_HOME_PATH.resolve(Paths.get(".", path));
+    }
+
+    public static void initApplicationHomeDirIfNeeded() {
+        if (!Files.exists(getApplicationHomePath()))
+            getApplicationHomePath().toFile().mkdirs();
     }
 
 }
