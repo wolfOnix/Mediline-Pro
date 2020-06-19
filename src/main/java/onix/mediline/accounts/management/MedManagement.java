@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.roles.Medic;
 import org.apache.commons.io.FileUtils;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,11 +15,11 @@ import java.util.Objects;
 
 public class MedManagement extends UsersManagement {
 
-    private static final Path USERS_PATH = FileManagement.getPathToFile("storage", "users_med.json");
+   static Path USERS_PATH = FileManagement.getPathToFile("storage", "users_med.json");
 
     public static void loadUsersFromFile() throws IOException {
         if (!Files.exists(USERS_PATH))
-            FileUtils.copyURLToFile(Objects.requireNonNull(AdmManagement.class.getClassLoader().getResource("json/users.json")), USERS_PATH.toFile());
+            FileUtils.copyURLToFile(Objects.requireNonNull(MedManagement.class.getClassLoader().getResource("json/users.json")), USERS_PATH.toFile());
         ObjectMapper objectMapper = new ObjectMapper();
         users_medic = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Medic>>() {});
     }

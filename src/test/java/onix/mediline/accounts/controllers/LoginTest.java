@@ -22,7 +22,8 @@ import static org.junit.Assert.assertEquals;
 public class LoginTest extends ApplicationTest {
 
 
-    private Login LT;public String message(String x) {
+    private Login LT;
+    public String message(String x) {
         byte[] ptext = x.getBytes();
         String value = new String(ptext, StandardCharsets.UTF_8);
         return value;

@@ -4,30 +4,41 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import onix.mediline.accounts.management.FileManagement;
-import onix.mediline.accounts.management.MedManagement;
-import onix.mediline.accounts.management.UsersManagement;
+import onix.mediline.accounts.management.*;
 import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
+
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.assertEquals;
 
 public class ActivateAccountMedTest extends ApplicationTest{
 
+    public String message(String x) {
+        byte[] ptext = x.getBytes();
+        String value = new String(ptext, StandardCharsets.UTF_8);
+        return value;
+    }
     private ActivateAccountMed AAMT ;
     @BeforeClass
     public static void setupClass() throws Exception {
         FileManagement.APPLICATION_FOLDER = ".mediline-test";
+        FileManagement.initApplicationHomeDirIfNeeded();
         MedManagement.loadUsersFromFile();
+        AdmManagement.loadUsersFromFile();
+        PacManagement.loadUsersFromFile();
     }
 
     @Before
     public void setUp() throws Exception {
-        FileUtils.cleanDirectory(FileManagement.getApplicationHomePath().toFile());
+        FileManagement.getPathToFile("storage", "users_med.json").toFile().delete();
+        //FileUtils.cleanDirectory(FileManagement.getApplicationHomePath().toFile());
         MedManagement.loadUsersFromFile();
         AAMT = new ActivateAccountMed();
         AAMT.flEmailServ = new TextField();AAMT.flEmailServ.setText("Testemail@yahoo.com");
@@ -43,15 +54,18 @@ public class ActivateAccountMedTest extends ApplicationTest{
         AAMT.lbInfoOverErr = new Label();
         AAMT.lbMessage = new Label();
         AAMT.lbGreeting = new Label();
+        MedManagement.addMedic(AAMT.flNume.getText(),AAMT.flPrenume.getText(),AAMT.flEmail.getText());
     }
 
     @Test
     public void testhandleBtFinishActivateAccount() throws IOException {
+
         AAMT.handleBtFinishActivateAccount();
         assertEquals(1, UsersManagement.getUsers_medic().size());
-        assertEquals("Completați toate câmpurile și asigurați-vă că au un număr corespunzător de caractere",AAMT.lbErrMessage.getText());
-        assertEquals("Adresa de e-mail introdusă nu are un format valid",AAMT.lbErrMessage.getText());
-        assertEquals("Parola trebuie să conțină cel puțin o majusculă și cel puțin o cifră, având minim șapte caractere",AAMT.lbErrMessage.getText());
-        assertEquals("Nu există niciun cont cu adresa de e-mail introdusă",AAMT.lbErrMessage.getText());
+        assertEquals(message("Parola trebuie să conțină cel puțin o majusculă și cel puțin o cifră, având minim șapte caractere"),AAMT.lbErrMessage.getText());
+        //assertEquals(message("Completați toate câmpurile și asigurați-vă că au un număr corespunzător de caractere"),AAMT.lbErrMessage.getText());
+        //assertEquals(message("Adresa de e-mail introdusă nu are un format valid"),AAMT.lbErrMessage.getText());
+        //assertEquals(message("Nu există niciun cont cu adresa de e-mail introdusă"),AAMT.lbErrMessage.getText());
     }
+
 }

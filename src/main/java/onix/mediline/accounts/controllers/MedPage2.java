@@ -28,20 +28,20 @@ import java.util.ResourceBundle;
 
 public class MedPage2 extends MedPages implements Initializable {
 
-    private Appointment selectedApp;
-    private boolean selected = false;
+     Appointment selectedApp;
+     boolean selected = false;
 
     @FXML
-    private ComboBox<String> cbOra, cbMinut = new ComboBox<String>();
+     ComboBox<String> cbOra, cbMinut = new ComboBox<String>();
 
     @FXML
     private DatePicker dpData;
 
     @FXML
-    private TableView<Appointment> tvUnconfirmedApps;
+     TableView<Appointment> tvUnconfirmedApps;
 
     @FXML
-    private TableColumn<Appointment, String> colDate, colHM, colPatient;
+     TableColumn<Appointment, String> colDate, colHM, colPatient;
 
     ObservableList<String> lHR = FXCollections.observableArrayList("08", "09" , "10" , "11" , "12" , "13" , "14" , "15" , "16" , "17" , "18" , "19" , "20" , "21" );
     ObservableList<String> lMN = FXCollections.observableArrayList("00", "10" , "20" , "30" , "40" , "50" );
@@ -78,7 +78,7 @@ public class MedPage2 extends MedPages implements Initializable {
         selected = true;
     }
 
-    public void confirmApp(MouseEvent event) {
+    public void confirmApp() {
         try {
             if (!selected || selectedApp == null)
                 throw new NoRowSelected();

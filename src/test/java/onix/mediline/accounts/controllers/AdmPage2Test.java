@@ -1,7 +1,11 @@
 package onix.mediline.accounts.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import onix.mediline.accounts.management.AdmManagement;
 import onix.mediline.accounts.management.FileManagement;
 import onix.mediline.accounts.management.MedManagement;
@@ -41,7 +45,7 @@ public class AdmPage2Test extends ApplicationTest {
 
     @Before
     public void setUp() throws Exception {
-        FileUtils.cleanDirectory(FileManagement.getApplicationHomePath().toFile());
+        FileManagement.getPathToFile("storage", "users_admin.json").toFile().delete();
         AdmManagement.loadUsersFromFile();
         MedManagement.loadUsersFromFile();
         PacManagement.loadUsersFromFile();
@@ -55,6 +59,11 @@ public class AdmPage2Test extends ApplicationTest {
         AP2T.lbInfo = new Label();
         AP2T.colEmail = new TableColumn< User, String>() ;
         AP2T.colNumeFam = new TableColumn<User,String>();
+        AP2T.colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        AP2T.colNumeFam.setCellValueFactory(new PropertyValueFactory<>("nume"));
+        AP2T.tvDelRequests = new TableView<User>();
+        ObservableList<User> data = FXCollections.observableArrayList(new Admin("TestNume","TestPrenume","test@yahoo.com","Testparola1"));
+        AP2T.tvDelRequests.setItems(data);
 
 
     }

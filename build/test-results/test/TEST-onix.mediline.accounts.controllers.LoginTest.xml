@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="onix.mediline.accounts.controllers.LoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-19T14:55:14" hostname="DESKTOP-CQTF2TD" time="0.523">
-  <properties/>
-  <testcase name="testhandleBtLogin" classname="onix.mediline.accounts.controllers.LoginTest" time="0.523"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
