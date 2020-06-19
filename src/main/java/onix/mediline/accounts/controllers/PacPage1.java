@@ -24,10 +24,15 @@ public class PacPage1 extends PacPages {
     @FXML
     private TableColumn<Appointment, String> TableColumnData, TableColumnOra, TableColumnStare;
 
-    public void setup () {
+    public void setup() {
         this.fillTvMyApps();
         this.setLbPrenume();
         this.setLbNrDocs();
+    }
+
+    public void setup(User x) {
+        Pac = (Pacient) x;
+        this.setup();
     }
 
     public void fillTvMyApps() {
@@ -41,10 +46,6 @@ public class PacPage1 extends PacPages {
             if (i.getComplexDate().getTime() - now.getTime() >= 3 * 60 * 60 * 1000)
                 actualApps.add(i);
         myAppointment.setItems(actualApps);
-    }
-
-    public void setPacient(User x) {
-        Pac = (Pacient) x;
     }
 
     public void setLbPrenume() {

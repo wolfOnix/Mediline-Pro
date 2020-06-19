@@ -25,7 +25,7 @@ abstract public class NewAccount extends Home {
     private Label lbErrMessage, lbInfoOverErr;
 
 
-    protected void setErrorText (Exception e) {
+    /*protected void setErrorText (Exception e) {
         try {
             byte ptext[] = e.getMessage().getBytes();
             String value = new String(ptext, "UTF-8");
@@ -34,7 +34,7 @@ abstract public class NewAccount extends Home {
         } catch (IOException io) {
             io.printStackTrace();
         }
-    }
+    }*/
 
     /*protected void checkFields () {
         try {

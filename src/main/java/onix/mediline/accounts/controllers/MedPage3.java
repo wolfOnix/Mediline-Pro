@@ -78,7 +78,7 @@ public class MedPage3 extends MedPages implements Initializable {
 
     public void sendDoc () {
         try {
-            if (!selected)
+            if (!selected  || selectedPac == null)
                 throw new NoRowSelected();
             String date = String.valueOf(dpData.getValue());
             checkFieldLength(date);

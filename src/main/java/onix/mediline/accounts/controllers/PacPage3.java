@@ -88,12 +88,12 @@ public class PacPage3 extends PacPages {
 
     public void saveDoc () {
         try {
-            if (!selected)
+            if (!selected  || selectedDoc == null)
                 throw new NoRowSelected();
             Stage stage = (Stage) btSaveDoc.getScene().getWindow();
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Salvare document");
-            fileChooser.setInitialFileName("mysave");
+            fileChooser.setInitialFileName(selectedDoc.getTitlu());
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("text file", "*.txt"));
             File file = fileChooser.showSaveDialog(stage);
                 if(file != null)

@@ -9,6 +9,7 @@ import onix.mediline.accounts.roles.Admin;
 import onix.mediline.accounts.roles.Medic;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;
+import onix.mediline.appointments.management.Appointment;
 import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -25,6 +26,32 @@ public abstract class UsersManagement {
     protected static List<Admin> users_admin;
     protected static List<Pacient> users_pacient;
     protected static List<Medic> users_medic;
+
+    public static void removeUser(User user) {
+        if (user instanceof Admin) {
+            users_admin.remove(user);
+            AdmManagement.addUserIntoFile();
+        } else if (user instanceof Medic) {
+            users_medic.remove(user);
+            MedManagement.addUserIntoFile();
+        } else if (user instanceof Pacient) {
+            users_pacient.remove(user);
+            PacManagement.addUserIntoFile();
+        }
+    }
+
+    public static void updateUser(User user, User updatedUser) {
+        if (user instanceof Admin) {
+            users_admin.set(users_admin.indexOf(user), (Admin) updatedUser);
+            AdmManagement.addUserIntoFile();
+        } else if (user instanceof Medic) {
+            users_medic.set(users_medic.indexOf(user), (Medic) updatedUser);
+            MedManagement.addUserIntoFile();
+        } else if (user instanceof Pacient) {
+            users_pacient.set(users_pacient.indexOf(user), (Pacient) updatedUser);
+            PacManagement.addUserIntoFile();
+        }
+    }
 
     public static User searchUser (String flEmail, int roleConstraint) throws UserNotFound {
         if (roleConstraint != 2 && roleConstraint != 3)
@@ -62,6 +89,18 @@ public abstract class UsersManagement {
                     return false;
             }
         return  true;
+    }
+
+    public static List<Admin> getAllAdm () {
+        return users_admin;
+    }
+
+    public static List<Medic> getAllMed () {
+        return users_medic;
+    }
+
+    public static List<Pacient> getAllPac () {
+        return users_pacient;
     }
 
 }

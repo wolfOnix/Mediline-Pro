@@ -11,8 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class NewAccountMedInitialised {
-
+public class NewAccountMedInitialised extends AdmPages {
 
     @FXML
     private TextField flActivationKey;
@@ -32,8 +31,12 @@ public class NewAccountMedInitialised {
         }
     }
 
-
     public void Medkey(String key) {
         flActivationKey.setText(key);
+    }
+
+    @Override
+    public void setup() {
+
     }
 }

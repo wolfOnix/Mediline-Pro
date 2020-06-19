@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
 import onix.mediline.accounts.roles.Admin;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
@@ -21,9 +20,7 @@ public abstract class Home {
     private Label lbErrMessage, lbGreeting, lbMessage;
 
     @FXML
-    private Button btLogout;
-
-    protected static Admin Adm;
+    protected Button btLogout;
 
     protected void setErrorText (Exception e) {
         byte[] ptext = e.getMessage().getBytes();

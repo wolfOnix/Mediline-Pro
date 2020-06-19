@@ -80,7 +80,7 @@ public class MedPage2 extends MedPages implements Initializable {
 
     public void confirmApp(MouseEvent event) {
         try {
-            if (!selected)
+            if (!selected || selectedApp == null)
                 throw new NoRowSelected();
             Appointment oldApp = selectedApp;
             selectedApp.setStareProgr(Appointment.getAppointmentStates()[1]);
@@ -95,7 +95,7 @@ public class MedPage2 extends MedPages implements Initializable {
 
     public void modifyApp(MouseEvent event) {
         try {
-            if (!selected)
+            if (!selected || selectedApp == null)
                 throw new NoRowSelected();
             String dataN = String.valueOf(dpData.getValue());
             String oraN = String.valueOf(cbOra.getValue());
@@ -121,7 +121,7 @@ public class MedPage2 extends MedPages implements Initializable {
 
     public void cancelApp(MouseEvent event) {
         try {
-            if (!selected)
+            if (!selected  || selectedApp == null)
                 throw new NoRowSelected();
             Appointment oldApp = selectedApp;
             selectedApp.setStareProgr(Appointment.getAppointmentStates()[3]);

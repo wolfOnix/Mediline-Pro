@@ -53,26 +53,19 @@ public class Login {
             System.out.println(user.getParola());
             if(!user.getParola().equals(Encryption.encryptString(user.getEmail(),flPassword.getText())))
                 throw new IncorrectPassword();
-
             Stage HomeStage = (Stage) btLogin.getScene().getWindow();
             HomeStage.setResizable(false);
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(homeName));
             Parent Home = loader.load();
             if (user instanceof Pacient) {
                 PacPage1 HomePac = loader.getController();
-                HomePac.setPacient(user);
-                HomePac.setup();
-            }
-            else
-            if (user instanceof Medic) {
+                HomePac.setup(user);
+            } else if (user instanceof Medic) {
                 MedPage1 HomeMed = loader.getController();
-                HomeMed.setMedic(user);
-                HomeMed.setup();
-            }
-            else {
+                HomeMed.setup(user);
+            } else {
                 AdmPage1 HomeAdm = loader.getController();
-                HomeAdm.setAdmin(user);
-                HomeAdm.setLbGreetingName();
+                HomeAdm.setup(user);
             }
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);

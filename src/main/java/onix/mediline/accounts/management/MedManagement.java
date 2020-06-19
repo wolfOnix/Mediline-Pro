@@ -57,7 +57,7 @@ public class MedManagement extends UsersManagement {
         addUserIntoFile();
     }
 
-    private static void addUserIntoFile() {
+    public static void addUserIntoFile() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users_medic);

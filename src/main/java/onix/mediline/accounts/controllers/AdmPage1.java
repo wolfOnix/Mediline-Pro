@@ -1,14 +1,11 @@
 package onix.mediline.accounts.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Pane;
-import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import java.io.IOException;
 import javafx.scene.input.MouseEvent;
@@ -17,26 +14,28 @@ import javafx.scene.control.Label;
 import onix.mediline.accounts.roles.User;
 
 
-public class AdmPage1 extends Home {
+public class AdmPage1 extends AdmPages {
 
     @FXML
     private Button btNewAccountMed;
 
     @FXML
-    public ImageView imgNewAccountMed, imgConfDelete;
+    private Circle crDeleteRequestNotification;
 
     @FXML
-    public Pane panNewAccountMed, panConfDelete;
+    private Label lbPrenume;
 
-    @FXML
-    private Label lbGreetingName;
-
-    void setAdmin (User x) {
-        Adm = (Admin) x;
+    public void setup() {
+        this.setLbPrenume();
     }
 
-    void setLbGreetingName() {
-        lbGreetingName.setText(Adm.getNume());
+    public void setup(User x) {
+        Adm = (Admin) x;
+        this.setup();
+    }
+
+    public void setLbPrenume() {
+        lbPrenume.setText(Adm.getPrenume());
     }
 
     @FXML

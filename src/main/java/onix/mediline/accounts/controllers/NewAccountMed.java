@@ -19,13 +19,16 @@ import onix.mediline.accounts.roles.Medic;
 import java.io.IOException;
 
 
-public class NewAccountMed extends NewAccount {
+public class NewAccountMed extends AdmPages {
 
     @FXML
-    private Button btCancel, btCreateAccount;
+    private Button btCreateAccount;
 
     @FXML
     private Label lbActivationKey;
+
+    @FXML
+    protected TextField flNume, flPrenume, flEmail;;
 
     @FXML
     void handleButtonCreateAccount (ActionEvent event) throws IOException {
@@ -42,29 +45,14 @@ public class NewAccountMed extends NewAccount {
             MedInit.Medkey(lbActivationKey.getText());
             Scene MedicInitialisedScene = new Scene(MedicInitialised);
             MedicInitialisedStage.setScene(MedicInitialisedScene);
-            System.out.println("Cont creat cu succes!");
-        } catch (EmailAlreadyExistsException e) {
-            super.setErrorText(e);
-        } catch (CompleteAllFields e) {
-            super.setErrorText(e);
-        } catch (EmailNotValid e) {
+        } catch (EmailAlreadyExistsException | EmailNotValid | CompleteAllFields e) {
             super.setErrorText(e);
         }
     }
 
-    @FXML
-    void handleButtonCancel (ActionEvent event) throws IOException {
-        try  {
-            Stage CancelStage = (Stage) btCancel.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homeAdm.fxml"));
-            Parent Cancel = loader.load();
-            AdmPage1 HoAdm = loader.getController();
-            HoAdm.setLbGreetingName();
-            Scene CancelScene = new Scene(Cancel);
-            CancelStage.setScene(CancelScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Override
+    public void setup() {
+
     }
 
 }

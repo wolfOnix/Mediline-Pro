@@ -38,29 +38,16 @@ public class NewAccountAdm extends NewAccount {
                 throw new CompleteAllFields();
             Encryption.checkEmailStructure(flEmail.getText());
             Encryption.checkPasswordStrength(flPassword.getText());
-
             AdmManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
-            System.out.println("Cont creat cu succes (Admin)!");
             Stage AdminFinishedStage = (Stage) btCreateAccount.getScene().getWindow();
             Parent AdminFinished = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));
             Scene AdminFinishedScene = new Scene(AdminFinished);
             AdminFinishedStage.setScene(AdminFinishedScene);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();}
-        catch (EmailAlreadyExistsException e) {
+        } catch (EmailAlreadyExistsException | NotStrongEnoughPassword | CompleteAllFields | EmailNotValid e) {
             super.setErrorText(e);
-        } catch (NotStrongEnoughPassword e) {
-            super.setErrorText(e);
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (CompleteAllFields e) {
-            super.setErrorText(e);
-        } catch (EmailNotValid e) {
-            super.setErrorText(e);
-        } /*catch (CheckAdminKeyException e) {
-            super.setErrorText(e);
-        }*/
+        }
     }
 
     @FXML
@@ -76,4 +63,3 @@ public class NewAccountAdm extends NewAccount {
     }
 
 }
-

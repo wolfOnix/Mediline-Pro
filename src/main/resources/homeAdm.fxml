@@ -9,69 +9,35 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.AdmPage1">
-    <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <fill>
-            <LinearGradient>
-                <stops>
-                    <Stop>
-                        <color>
-                            <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
-                        </color>
-                    </Stop>
-                    <Stop offset="1.0">
-                        <color>
-                            <Color red="1.0" green="0.6431372761726379" />
-                        </color>
-                    </Stop>
-                </stops>
-            </LinearGradient>
-        </fill>
-    </Rectangle>
-    <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE">
-        <font>
-            <Font name="Source Sans Pro Black" size="30.0" />
-        </font>
-    </Label>
+
+    <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
+    <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
     <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
 
-    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
-    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="368.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@images/logout_30_wh.png" />
-    </ImageView>
-    <Button fx:id="btLogout" layoutX="246.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="150.0" styleClass="overlayButton" />
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="278.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="256.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/logout_30_wh.png" /></ImageView>
+    <Button fx:id="btLogout" layoutX="251.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="135.0" styleClass="overlayButton" />
 
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="90.0" styleClass="greeting" text="Bună ziua," AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-    <Label fx:id="lbGreetingName" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Label fx:id="lbPrenume" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 
-    <Pane layoutY="208.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <ImageView fx:id="imgNewAccountMed" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="15.0" onMouseClicked="#handleBtNewMedic" pickOnBounds="true" preserveRatio="true" styleClass="optionImage"><Image url="@images/new_account.png" /></ImageView>
-        <Label layoutX="13.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="CREARE CONT MEDICAL" />
+    <Pane layoutY="253.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="15.0" onMouseClicked="#handleBtNewMedic" pickOnBounds="true" preserveRatio="true" styleClass="optionImage"><Image url="@images/new_account.png" /></ImageView>
+        <Label layoutX="13.0" layoutY="70.0" prefHeight="27.0" prefWidth="400.0" styleClass="optionButton" text="CREARE CONT MEDICAL" />
     </Pane>
-    <Button fx:id="btNewAccountMed" layoutX="0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#handleBtNewMedic" prefHeight="120.0" prefWidth="400.0">
-      <styleClass>
-         <String fx:value="overlayButton" />
-         <String fx:value="mauveHover" />
-      </styleClass></Button>
+    <Button fx:id="btAdmPg1" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#ActionAdmPgNewMed" prefHeight="120.0" prefWidth="400.0"><styleClass><String fx:value="overlayButton" /><String fx:value="mauveHover" /></styleClass></Button>
 
-    <Pane fx:id="pnNewAppointment2" layoutX="37.0" layoutY="400.0" prefHeight="50.0" styleClass="menuContainer">
-        <Button fx:id="btNewAppointmentImg2" layoutX="20.0" layoutY="10.0" mnemonicParsing="false">
-            <styleClass>
-                <String fx:value="menuImageButton" />
-                <String fx:value="delacc" />
-            </styleClass>
-        </Button>
-        <Button fx:id="btNewAppointmentTxt2" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-font-family: Source Sans Pro Light;" styleClass="menuButton" text="SOLICITĂRI ȘTERGERE CONTURI" />
-      <Circle fx:id="crDeleteRequestNotification" fill="#ee1515" layoutX="294.0" layoutY="15.0" radius="3.0" stroke="#ee1515" strokeType="INSIDE" />
+    <Pane layoutX="45.0" layoutY="470.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/confirm_delete_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="SOLICITĂRI ȘTERGERE CONTURI" />
+        <Circle fx:id="crDeleteRequestNotification" fill="#ee1515" layoutX="284.0" layoutY="13.0" radius="3.0" stroke="#ee1515" strokeType="INSIDE" />
     </Pane>
+    <Button layoutX="45.0" layoutY="470.0" mnemonicParsing="false" onMouseClicked="#ActionAdmPg2" prefHeight="50.0" prefWidth="307.2" styleClass="overlayButton" />
 
-    <Pane fx:id="pnNewAppointment" layoutX="67.0" layoutY="450.0" prefHeight="50.0" styleClass="menuContainer">
-        <Button fx:id="btNewAppointmentImg" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, admn" />
-        <Button fx:id="btNewAppointmentTxt" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-font-family: Source Sans Pro Light;" styleClass="menuButton" text="ADMINISTRARE CONTURI" />
+    <Pane layoutX="52.0" layoutY="520.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/lock_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="VIZUALIZARE CHEI DE ACTIVARE" />
     </Pane>
-
-    <Pane fx:id="pnNewAppointment1" layoutX="50.0" layoutY="500.0" prefHeight="50.0" styleClass="menuContainer">
-        <Button fx:id="btNewAppointmentImg1" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" styleClass="menuImageButton, chei" />
-        <Button fx:id="btNewAppointmentTxt1" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-font-family: Source Sans Pro;" styleClass="menuButton, adm" text="VIZUALIZARE CHEI DE ACTIVARE" />
-    </Pane>
+    <Button layoutX="52.0" layoutY="520.0" mnemonicParsing="false" onMouseClicked="#ActionAdmPg3" prefHeight="50.0" prefWidth="295.2" styleClass="overlayButton" />
 
 </AnchorPane>

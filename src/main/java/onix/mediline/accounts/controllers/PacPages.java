@@ -10,6 +10,7 @@ import onix.mediline.accounts.exceptions.MedIDNotFound;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.roles.Pacient;
 import javafx.scene.input.MouseEvent;
+import onix.mediline.accounts.roles.User;
 import java.io.IOException;
 import java.util.Objects;
 

@@ -7,10 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.roles.Medic;
-import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;
 import onix.mediline.appointments.management.Appointment;
 
@@ -25,21 +23,23 @@ public class MedPage1 extends MedPages {
     @FXML
     private TableColumn<Appointment, String> colDate, colHM, colPatient;
 
-    public void setup () {
+    @Override
+    public void setup() {
         super.setup();
         this.fillTvTodayApps();
         this.setLbPrenume();
     }
 
-    public void setMedic (User x) {
+    public void setup(User x) {
         Med = (Medic) x;
+        this.setup();
     }
 
     public void setLbPrenume() {
         lbPrenume.setText(Med.getPrenume());
     }
 
-    public void fillTvTodayApps () { // filtrare confirmate si ziua curenta
+    public void fillTvTodayApps() { // filtrare confirmate si ziua curenta
         try {
             colDate.setCellValueFactory(new PropertyValueFactory<>("dataProgr"));
             colHM.setCellValueFactory(new PropertyValueFactory<>("oraProgr"));
