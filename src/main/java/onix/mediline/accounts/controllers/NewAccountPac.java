@@ -12,10 +12,8 @@ import javafx.scene.control.ComboBox;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -70,9 +68,8 @@ public class NewAccountPac extends NewAccount implements Initializable {
             if ((now.getTime() / 1000) - (Appointment.toDateFormat(dataN, "00:00").getTime() / 1000) < 14 * 365 * 24 * 60 * 60)
                 throw new TooYoungPatient();
             PacManagement.addPacient(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flCNP.getText(), flAdresa.getText(),  flOras.getText(),  flTelefon.getText(), dataN, cbSexul.getValue());
-            System.out.println("Cont creat cu succes!");
             Stage PacFinishedStage = (Stage) btCreateAccount.getScene().getWindow();
-            Parent PacFinished = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));
+            Parent PacFinished = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("newAccountDone.fxml")));
             Scene PacFinishedScene = new Scene(PacFinished);
             PacFinishedStage.setScene(PacFinishedScene);
         } catch (CompleteAllFields | EmailAlreadyExistsException | NotStrongEnoughPassword | EmailNotValid | TooYoungPatient | ParseException e) {

@@ -46,18 +46,6 @@ public class MedPage4 extends MedPages {
         } catch (UserNotFound ignored) { }
     }
 
-    /*tvMyPac.getSelectionModel().setCellSelectionEnabled(true);
-    ObservableList selectedCells = tvMyPac.getSelectionModel().getSelectedCells();
-
-    selectedCells.addListener(new ListChangeListener() {
-        @Override
-        public void onChanged(Change c) {
-            TablePosition tablePosition = (TablePosition) selectedCells.get(0);
-            Object val = tablePosition.getTableColumn().getCellData(tablePosition.getRow());
-            System.out.println("Selected Value" + val);
-        }
-    });*/
-
     @FXML
     void tvClicked (MouseEvent event) {
         Pacient p = tvMyPac.getSelectionModel().getSelectedItem();

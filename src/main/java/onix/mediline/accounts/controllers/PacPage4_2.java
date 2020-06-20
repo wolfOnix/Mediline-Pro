@@ -16,17 +16,11 @@ public class PacPage4_2 extends PacPages {
     @FXML
     private TextField flMedid;
 
-    @FXML
-    private Label lbMessage;
-
-    public void setup () {
-
-    }
+    public void setup () { }
 
     @FXML
     void ActionAddMedicForPac(ActionEvent event)  {
         try {
-            System.out.println("Pag4_2");
             Medic med = MedManagement.searchMedID(flMedid.getText());
             PacManagement.addPacientMedID(med.getMedid(), Pac);
             MedManagement.attachPacEmail(Pac.getEmail(), med);

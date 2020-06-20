@@ -12,7 +12,6 @@ import onix.mediline.accounts.exceptions.*;
 import onix.mediline.accounts.management.AdmManagement;
 import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.UsersManagement;
-
 import java.io.*;
 import java.util.Objects;
 
@@ -25,28 +24,20 @@ public class NewAccountAdm extends NewAccount {
     private PasswordField flPassword, flAdminKey;
 
     @FXML
-    void handleButtonCreateAccount (ActionEvent event) throws IOException {
+    public void handleButtonCreateAccount (ActionEvent event) throws IOException {
         try {
-            /*BufferedReader br = new BufferedReader(new FileReader(new File("resources/text/AdminKey.txt"))); <- ???
-            String data = br.readLine();
-            String AdminKey = Encryption.encryptString("adminKey",flAdminKey.getText());
-            AdminKey = AdminKey.replace("\n","");
-            byte ptext[] = AdminKey.getBytes();
-            String valueAdminKey = new String(ptext, "UTF-8");
-            if(!data.equals(valueAdminKey))
-                throw new CheckAdminKeyException(flAdminKey.getText());*/
             if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2)
                 throw new CompleteAllFields();
             UsersManagement.searchUserAlready(flEmail.getText());
             Encryption.checkEmailStructure(flEmail.getText());
             Encryption.checkPasswordStrength(flPassword.getText());
-            //AdmManagement.checkAdminKey(Encryption.encryptString("adminKey",flAdminKey.getText()));
+            AdmManagement.checkAdminKey(flAdminKey.getText());
             AdmManagement.addAdmin(flNume.getText(), flPrenume.getText(), flEmail.getText(), flPassword.getText(), flAdminKey.getText());
             Stage AdminFinishedStage = (Stage) btCreateAccount.getScene().getWindow();
             Parent AdminFinished = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("newAccountDone.fxml")));
             Scene AdminFinishedScene = new Scene(AdminFinished);
             AdminFinishedStage.setScene(AdminFinishedScene);
-        } catch (EmailAlreadyExistsException | NotStrongEnoughPassword | CompleteAllFields | EmailNotValid /*| CheckAdminKeyException*/ e) {
+        } catch (EmailAlreadyExistsException | NotStrongEnoughPassword | CompleteAllFields | EmailNotValid | CheckAdminKeyException e) {
             super.setErrorText(e);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -54,7 +45,7 @@ public class NewAccountAdm extends NewAccount {
     }
 
     @FXML
-    void handleButtonCancel (ActionEvent event) {
+    public void handleButtonCancel (ActionEvent event) {
         try {
             Stage CancelStage = (Stage) btCancel.getScene().getWindow();
             Parent Cancel = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("index.fxml")));

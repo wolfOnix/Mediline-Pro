@@ -14,16 +14,20 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 
-public class AdmManagement extends UsersManagement{
+public class AdmManagement extends UsersManagement {
 
     private static final Path USERS_PATH = FileManagement.getPathToFile("storage", "users_admin.json");
-    private static final String adminKey = Encryption.encryptString("adminKey", ""); //"4???B7? ??L'L??7\u0016?e??P?:? H??f??\u00145p??\u0005?4??Z\u000F???;?Q#??Z??X???\\";
+    private static final Path USERS_PATH2 = FileManagement.getPathToFile("storage", "adminKey.json");
 
     public static void loadUsersFromFile() throws IOException {
         if (!Files.exists(USERS_PATH))
             FileUtils.copyURLToFile(Objects.requireNonNull(AdmManagement.class.getClassLoader().getResource("json/users.json")), USERS_PATH.toFile());
+        if (!Files.exists(USERS_PATH2))
+            FileUtils.copyURLToFile(Objects.requireNonNull(AdmManagement.class.getClassLoader().getResource("json/adminKey.json")), USERS_PATH2.toFile());
         ObjectMapper objectMapper = new ObjectMapper();
         users_admin = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Admin>>() {});
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        adminKey = objectMapper2.readValue(USERS_PATH2.toFile(), new TypeReference<List<AdmKey>>() {});
     }
 
     public static void addAdmin (String flNume, String flPrenume, String flEmail, String flPassword, String flAdminKey) throws EmailAlreadyExistsException {
@@ -42,14 +46,11 @@ public class AdmManagement extends UsersManagement{
     }
 
     public static void checkAdminKey(String typedKey) throws CheckAdminKeyException {
-        System.out.println("TYP: " + typedKey + " - TYP");
-        System.out.println("ADM: " + adminKey + " - ADM");
-        typedKey = typedKey.replace("\n","");
-        byte[] ptext = typedKey.getBytes(), adminKeyText = adminKey.getBytes();
-        String remasteredTypedKey = new String(ptext, StandardCharsets.UTF_8);
-        String remasteredAdminKey = new String(adminKeyText, StandardCharsets.UTF_8);
-        System.out.println("RTP: " + remasteredTypedKey + " - REMTYP");
-        System.out.println("RAD: " + remasteredAdminKey + " - REMADM");
+        String encryptedTypedKey = Encryption.encryptString(adminKey.get(0).getKey(), typedKey);
+        byte[] inputBytes = encryptedTypedKey.getBytes();
+        String remasteredTypedKey = new String(inputBytes, StandardCharsets.UTF_8);
+        byte[] keyBytes = adminKey.get(0).getPassword().getBytes();
+        String remasteredAdminKey = new String(keyBytes, StandardCharsets.UTF_8);
         if (!remasteredTypedKey.equals(remasteredAdminKey))
             throw new CheckAdminKeyException();
     }

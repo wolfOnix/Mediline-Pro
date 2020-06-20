@@ -1,23 +1,11 @@
 package onix.mediline.accounts.management;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import onix.mediline.accounts.exceptions.CouldNotWriteUsersException;
 import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
 import onix.mediline.accounts.exceptions.UserNotFound;
 import onix.mediline.accounts.roles.Admin;
 import onix.mediline.accounts.roles.Medic;
 import onix.mediline.accounts.roles.Pacient;
 import onix.mediline.accounts.roles.User;
-import onix.mediline.appointments.management.Appointment;
-import org.apache.commons.io.FileUtils;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,8 +13,8 @@ public abstract class UsersManagement {
 
     protected static List<Admin> users_admin;
     protected static List<Pacient> users_pacient;
-
     protected static List<Medic> users_medic;
+    protected static List<AdmKey> adminKey;
 
     public static List<Medic> getUsers_medic() {
         return users_medic;
@@ -94,10 +82,6 @@ public abstract class UsersManagement {
                     return false;
             }
         return  true;
-    }
-
-    public static List<Admin> getAllAdm () {
-        return users_admin;
     }
 
     public static List<Medic> getAllMed () {
