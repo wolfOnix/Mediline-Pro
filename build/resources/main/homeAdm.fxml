@@ -27,12 +27,12 @@
     </Pane>
     <Button fx:id="btAdmPg1" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#ActionAdmPgNewMed" prefHeight="120.0" prefWidth="400.0"><styleClass><String fx:value="overlayButton" /><String fx:value="mauveHover" /></styleClass></Button>
 
-    <Pane layoutX="45.0" layoutY="470.0" prefHeight="50.0" styleClass="menuContainer">
+    <Pane layoutX="52.0" layoutY="470.0" prefHeight="50.0" styleClass="menuContainer">
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/confirm_delete_30.png" /></ImageView>
         <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="SOLICITĂRI ȘTERGERE CONTURI" />
         <Circle fx:id="crDeleteRequestNotification" fill="#ee1515" layoutX="284.0" layoutY="13.0" radius="3.0" stroke="#ee1515" strokeType="INSIDE" />
     </Pane>
-    <Button layoutX="45.0" layoutY="470.0" mnemonicParsing="false" onMouseClicked="#ActionAdmPg2" prefHeight="50.0" prefWidth="307.2" styleClass="overlayButton" />
+    <Button layoutX="47.0" layoutY="469.0" mnemonicParsing="false" onMouseClicked="#ActionAdmPg2" prefHeight="50.0" prefWidth="307.2" styleClass="overlayButton" />
 
     <Pane layoutX="52.0" layoutY="520.0" prefHeight="50.0" styleClass="menuContainer">
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/lock_30.png" /></ImageView>

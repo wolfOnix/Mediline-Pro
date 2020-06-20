@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Appointment {
+public class Appointment implements Comparable<Appointment> {
 
-    private static final String[] appointmentStates = {"Neconfirmat", "Confirmat", "Reprogramat", "Anulat"};
+    private static final String[] appointmentStates = {"Neconfirmat", "Aprobat", "Reprogramat", "Respins"};
     private String stareProgr, dataProgr, oraProgr, numePrenumePac, emailPac;
     private Date complexDate;
 
@@ -66,7 +66,7 @@ public class Appointment {
         {
             Pacient pac = ((Pacient) UsersManagement.searchUser(i, 3));
             for (Appointment a : pac.getListaApp())
-                if (date.equals(a.getComplexDate()))
+                if (date.equals(a.getComplexDate()) && (a.getStareProgr().equals(appointmentStates[1]) || a.getStareProgr().equals(appointmentStates[2])))
                     throw new AppointmentAlreadyOccupied();
         }
     }
@@ -109,4 +109,9 @@ public class Appointment {
     }
 
     public static String[] getAppointmentStates() { return appointmentStates; }
+
+    @Override
+    public int compareTo(Appointment o) {
+        return this.getComplexDate().compareTo(o.getComplexDate());
+    }
 }

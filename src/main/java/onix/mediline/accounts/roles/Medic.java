@@ -6,6 +6,9 @@ import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.appointments.management.Appointment;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 
 public class Medic extends User  {
 
@@ -43,12 +46,16 @@ public class Medic extends User  {
     }
 
     public ArrayList<Appointment> retrieveApps() throws UserNotFound {
+        Date now = new Date();
         ArrayList <Appointment> aux = new ArrayList<>();
         for (String i : listaPacEmail)
         {
             Pacient p = (Pacient) UsersManagement.searchUser(i, 3);
-            aux.addAll(p.getListaApp());
+            for (Appointment a : p.getListaApp())
+                if (now.getTime() - a.getComplexDate().getTime() <= 5 * 60 * 60 * 1000)
+                    aux.add(a);
         }
+        Collections.sort(aux);
         return aux;
     }
 

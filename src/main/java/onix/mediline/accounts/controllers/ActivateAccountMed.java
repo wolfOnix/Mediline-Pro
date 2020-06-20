@@ -42,7 +42,7 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
     PasswordField flPassword;
 
     @FXML
-     TextField flAdresa, flOras, flTelefon, flEmailServ/*, flPrenume, flNume*/;
+    TextField flAdresa, flOras, flTelefon, flEmailServ;
 
     @FXML
     private Button btCancel;

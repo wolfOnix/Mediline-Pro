@@ -80,13 +80,14 @@ public class MedPage2 extends MedPages implements Initializable {
         try {
             if (!selected || selectedApp == null)
                 throw new NoRowSelected();
+            Appointment.checkAppointmentNotOccupied(Med, selectedApp.getComplexDate());
             Appointment oldApp = selectedApp;
             selectedApp.setStareProgr(Appointment.getAppointmentStates()[1]);
             Pacient p = (Pacient) UsersManagement.searchUser(selectedApp.getEmailPac(), 3);
             PacManagement.updateApp(oldApp, selectedApp, p);
             setMessageLabel("Programarea a fost confirmată");
             this.fillTvUnconfirmedApps();
-        }  catch (NoRowSelected | UserNotFound e) {
+        }  catch (NoRowSelected | UserNotFound | AppointmentAlreadyOccupied e) {
             super.setErrorText(e);
         }
     }

@@ -12,36 +12,12 @@ public class PacPage4_1 extends PacPages {
     public void setup() { }
 
     public void setup(Medic med) {
-        setAdresa(med.getAdresa() + ", " + med.getOras() + " (" + med.getJudet() + ")");
-        setEmailServ(med.getEmailServ());
-        setMedID(med.getMedid());
-        setNume(med.getNume());
-        setPrenume(med.getPrenume());
-        setTelefon(med.getTelefon());
-    }
-
-    public void setNume(String Nume) {
-        flNume.setText(Nume);
-    }
-
-    public void setAdresa(String Cabinet) {
-        flAdresa.setText(Cabinet);
-    }
-
-    public void setEmailServ(String EmailServ) {
-        flEmailServ.setText(EmailServ);
-    }
-
-    public void setPrenume(String Prenume) {
-        flPrenume.setText(Prenume);
-    }
-
-    public void setTelefon(String Telefon) {
-        flTelefon.setText(Telefon);
-    }
-
-    public void setMedID(String MedID) {
-        flMedID.setText(MedID);
+        flNume.setText(med.getNume());
+        flPrenume.setText(med.getPrenume());
+        flTelefon.setText(med.getTelefon());
+        flAdresa.setText(med.getAdresa() + ", " + med.getOras() + " (" + med.getJudet() + ")");
+        flEmailServ.setText(med.getEmailServ());
+        flMedID.setText(med.getMedid());
     }
 
 }

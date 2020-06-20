@@ -18,17 +18,17 @@
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Programările mele" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 
     <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1443.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
-    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.0"><Image url="@images/logout_30_wh.png"/></ImageView>
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.0"><Image url="@images/logout_30_wh.png" /></ImageView>
     <Button fx:id="btLogout" layoutX="1425.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="160.0" styleClass="overlayButton" />
 
     <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
-    <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png"/></ImageView>
-    <Button layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+    <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png" /></ImageView>
+    <Button onMouseClicked="#ActionPacPg5" layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
 
     <Pane layoutX="134.0" layoutY="234.0" prefHeight="410.0" prefWidth="600.0">
-       <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png"/></ImageView>
+       <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png" /></ImageView>
        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="318.0" styleClass="neutralLabel" text="Programări aprobate" textAlignment="CENTER" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="343.759765625" />
-       <Label layoutX="4.0" layoutY="129.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Aici găsiți toate cererile dvs. de programare. Cele care au starea „Confirmat” sau „Reprogramat” vor avea loc. Cele neconfirmate sunt în curs de a fi gestionate de medicului de familie." wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
+       <Label layoutX="4.0" layoutY="129.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Aici găsiți toate cererile dvs. de programare curente. Cele care au starea „Aprobat” sau „Reprogramat” vor avea loc. Cele neconfirmate sunt în curs de a fi gestionate de medicului de familie." wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
        <Label fx:id="lbNrConfApps" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="233.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="387.0" layoutY="318.0" styleClass="neutralLabel" text="Reprogramări" textAlignment="CENTER" />
        <Label fx:id="lbNrModifApps" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="241.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />

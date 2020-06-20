@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import onix.mediline.accounts.management.AdmManagement;
+import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.management.PacManagement;
 

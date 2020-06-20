@@ -15,6 +15,7 @@ import onix.mediline.accounts.management.Encryption;
 import onix.mediline.accounts.roles.Admin;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 abstract public class NewAccount extends Home {
 
@@ -24,25 +25,11 @@ abstract public class NewAccount extends Home {
     @FXML
     Label lbInfoOverErr;
 
-
-    /*protected void setErrorText (Exception e) {
-        try {
-            byte ptext[] = e.getMessage().getBytes();
-            String value = new String(ptext, "UTF-8");
-            lbErrMessage.setText(value);
-            lbInfoOverErr.setText("");
-        } catch (IOException io) {
-            io.printStackTrace();
-        }
-    }*/
-
-    /*protected void checkFields () {
-        try {
-            if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2)
-                throw new CompleteAllFields();
-        } catch (CompleteAllFields e) {
-            setErrorText(e);
-        }
-    }*/
+    protected void setErrorText (Exception e) {
+        byte[] ptext = e.getMessage().getBytes();
+        String value = new String(ptext, StandardCharsets.UTF_8);
+        lbErrMessage.setText(value);
+        lbInfoOverErr.setText("");
+    }
 
 }

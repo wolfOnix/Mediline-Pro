@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class NewAccountDone {
 
@@ -18,7 +19,7 @@ public class NewAccountDone {
     @FXML
     void handleButtonAction(ActionEvent event) throws IOException {
         Stage IndexStage = (Stage) btIndex.getScene().getWindow();
-        Parent Index = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
+        Parent Index = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("index.fxml")));
         Scene IndexScene = new Scene(Index);
         IndexStage.setScene(IndexScene);
     }

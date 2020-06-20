@@ -26,20 +26,20 @@
 
     <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
     <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png" /></ImageView>
-    <Button layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+    <Button layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg5" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
 
-    <Pane layoutX="171.0" layoutY="234.0" prefHeight="410.0" prefWidth="600.0">
-        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png" /></ImageView>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="318.0" styleClass="neutralLabel" text="Programări în total" textAlignment="CENTER" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="225.580078125" />
-        <Label layoutX="4.0" layoutY="129.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Acestea sunt programările confirmate începând cu cele din ziua de astăzi" wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="233.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
+    <Pane layoutX="116.0" layoutY="221.0" prefHeight="410.0" prefWidth="467.0">
+        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="190.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png" /></ImageView>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="333.0" styleClass="neutralLabel" text="Programări în total" textAlignment="CENTER" AnchorPane.leftAnchor="144.0" AnchorPane.rightAnchor="157.780078125" />
+        <Label layoutX="18.0" layoutY="149.0" prefHeight="90.0" prefWidth="434.0" styleClass="neutralLabelSmall" text="Acestea sunt programările confirmate curente, începând cu cele din ziua de astăzi. Consultațiile vor rămâne în tabel încă cinci ore de la momentul programării acestora." wrapText="true" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="15.199999999999989" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="215.0" layoutY="248.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
     </Pane>
 
-    <TableView fx:id="tvTodayApps" layoutX="832.0" layoutY="209.0" prefHeight="450.0" prefWidth="600.0">
+    <TableView fx:id="tvTodayApps" layoutX="719.0" layoutY="201.0" prefHeight="450.0" prefWidth="720.0">
         <columns>
             <TableColumn fx:id="colDate" prefWidth="150.0" text="Data" />
-            <TableColumn fx:id="colHM" prefWidth="100.0" text="Ora" />
-            <TableColumn fx:id="colPatient" prefWidth="350.0" text="Pacientul" />
+            <TableColumn fx:id="colHM" prefWidth="150.0" text="Ora" />
+            <TableColumn fx:id="colPatient" prefWidth="420.0" text="Pacientul" />
         </columns>
     </TableView>
 
@@ -47,7 +47,7 @@
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/today_appointments_30.png" /></ImageView>
         <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="AGENDĂ" />
     </Pane>
-    <Button fx:id="btMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg1" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton" />
+    <Button fx:id="btMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg1" prefHeight="50.4" prefWidth="137.6" styleClass="overlayButton" />
 
     <Pane layoutX="446.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/add_appointment_30.png" /></ImageView>

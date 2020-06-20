@@ -43,7 +43,7 @@ public class PacPage1 extends PacPages {
         ObservableList<Appointment> actualApps = FXCollections.observableArrayList();
         Date now = new Date();
         for (Appointment i : data)
-            if (i.getComplexDate().getTime() - now.getTime() >= 3 * 60 * 60 * 1000)
+            if (now.getTime() - i.getComplexDate().getTime() <= 3 * 60 * 60 * 1000)
                 actualApps.add(i);
         myAppointment.setItems(actualApps);
     }
@@ -56,10 +56,10 @@ public class PacPage1 extends PacPages {
         int sConf = 0, sModif = 0;
         Date now = new Date();
         for (Appointment i : Pac.getListaApp()) {
-            if (i.getStareProgr().equals(Appointment.getAppointmentStates()[1]) && (i.getComplexDate().getTime() - now.getTime() >= 3 * 60 * 60 * 1000))
+            if (i.getStareProgr().equals(Appointment.getAppointmentStates()[1]) && (now.getTime() - i.getComplexDate().getTime() <= 3 * 60 * 60 * 1000))
                 sConf++;
             else
-                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[2]) && (i.getComplexDate().getTime() - now.getTime() >= 3 * 60 * 60 * 1000))
+                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[2]) && (now.getTime() - i.getComplexDate().getTime() <= 3 * 60 * 60 * 1000))
                     sModif++;
         }
         lbNrConfApps.setText("" + (sConf + sModif));

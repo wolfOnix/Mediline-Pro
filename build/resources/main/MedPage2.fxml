@@ -24,7 +24,7 @@
 
     <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
     <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png" /></ImageView>
-    <Button layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+    <Button layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg5" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
 
     <Pane layoutX="63.0" layoutY="234.0" prefHeight="410.0" prefWidth="350.0">
         <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="128.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/confirm_90.png" /></ImageView>
@@ -52,9 +52,9 @@
     <ComboBox fx:id="cbOra" layoutX="473.0" layoutY="490.0" />
     <ComboBox fx:id="cbMinut" layoutX="605.0" layoutY="490.0" />
 
-    <Button layoutX="488.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#confirmApp" prefHeight="27.0" prefWidth="230.0" styleClass="mainButton" stylesheets="@style.css" text="CONFIRMARE DIRECTĂ" />
-    <Button onMouseClicked="#modifyApp" layoutX="488.0" layoutY="556.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="230.0" styleClass="mainButton" stylesheets="@style.css" text="MODIFICARE ȘI CONFIRMARE" />
-    <Button onMouseClicked="#cancelApp" layoutX="488.0" layoutY="624.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="230.0" stylesheets="@style.css" text="ANULARE DEFINITIVĂ"><styleClass><String fx:value="mainButton" /><String fx:value="redButton" /></styleClass></Button>
+    <Button layoutX="488.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#confirmApp" prefHeight="27.0" prefWidth="230.0" styleClass="mainButton" stylesheets="@style.css" text="APROBARE" />
+    <Button layoutX="488.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#modifyApp" prefHeight="27.0" prefWidth="230.0" styleClass="mainButton" stylesheets="@style.css" text="MODIFICARE ȘI APROBARE" />
+    <Button layoutX="488.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#cancelApp" prefHeight="27.0" prefWidth="230.0" stylesheets="@style.css" text="RESPINGERE"><styleClass><String fx:value="mainButton" /><String fx:value="redButton" /></styleClass></Button>
 
     <Label fx:id="lbErrMessage" layoutX="405.0" layoutY="664.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" />
     <Label fx:id="lbMessage" layoutX="405.0" layoutY="664.0" prefHeight="75.0" prefWidth="400.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
@@ -66,7 +66,7 @@
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/today_appointments_30.png" /></ImageView>
         <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="AGENDĂ" />
     </Pane>
-    <Button fx:id="btMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg1" prefHeight="50.4" prefWidth="129.6" styleClass="overlayButton" />
+    <Button fx:id="btMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg1" prefHeight="50.4" prefWidth="137.6" styleClass="overlayButton" />
 
     <Pane layoutX="446.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/add_appointment_30.png" /></ImageView>

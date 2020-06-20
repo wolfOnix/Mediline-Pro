@@ -106,4 +106,19 @@ public abstract class PacPages extends Home {
         }
     }
 
+    @FXML
+    public void ActionPacPg5(MouseEvent event) {
+        try {
+            Stage HomeStage = (Stage)  btPacPg1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("PacPage5.fxml"));
+            Parent Home = loader.load();
+            PacPage5 controller = loader.getController();
+            controller.setup();
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

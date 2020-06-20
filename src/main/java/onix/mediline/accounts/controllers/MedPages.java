@@ -29,7 +29,7 @@ public abstract class MedPages extends Home {
     }
 
     @FXML
-    public void ActionMedPg1 (MouseEvent event) throws IOException {
+    public void ActionMedPg1(MouseEvent event) {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homeMed.fxml"));
@@ -44,7 +44,7 @@ public abstract class MedPages extends Home {
     }
 
     @FXML
-    public void ActionMedPg2 (MouseEvent event) throws IOException {
+    public void ActionMedPg2(MouseEvent event) {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage2.fxml"));
@@ -59,7 +59,7 @@ public abstract class MedPages extends Home {
     }
 
     @FXML
-    public void ActionMedPg3 (MouseEvent event) throws IOException {
+    public void ActionMedPg3(MouseEvent event) {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage3.fxml"));
@@ -74,12 +74,27 @@ public abstract class MedPages extends Home {
     }
 
     @FXML
-    public void ActionMedPg4 (MouseEvent event) throws IOException {
+    public void ActionMedPg4(MouseEvent event) {
         try {
             Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage4.fxml"));
             Parent Home = loader.load();
             MedPage4 controller = loader.getController();
+            controller.setup();
+            Scene HomeScene = new Scene(Home);
+            HomeStage.setScene(HomeScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void ActionMedPg5(MouseEvent event) {
+        try {
+            Stage HomeStage = (Stage)  btMedPg1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("MedPage5.fxml"));
+            Parent Home = loader.load();
+            MedPage5 controller = loader.getController();
             controller.setup();
             Scene HomeScene = new Scene(Home);
             HomeStage.setScene(HomeScene);

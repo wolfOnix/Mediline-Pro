@@ -289,6 +289,15 @@
     -fx-text-fill: #ffa400;
 }
 
+.veryRedButton {
+    -fx-background-color: #ee1515;
+    -fx-border-color: #ee1515;
+}
+
+.veryRedButton:hover {
+    -fx-text-fill: #ee1515;
+}
+
 .scroll-pane {
     -fx-background-color: white;
     -fx-fill: white;
