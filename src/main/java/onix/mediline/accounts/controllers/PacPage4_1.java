@@ -1,35 +1,13 @@
 package onix.mediline.accounts.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import onix.mediline.accounts.roles.Medic;
 
 public class PacPage4_1 extends PacPages {
 
     @FXML
-    private Button btLogout;
-
-    @FXML
-    private Button btAccountSettings;
-
-    @FXML
-    private Label flNume;
-
-    @FXML
-    private Label flAdresa;
-
-    @FXML
-    private Label flEmailServ;
-
-    @FXML
-    private Label flPrenume;
-
-    @FXML
-    private Label flTelefon;
-
-    @FXML
-    private Label flMedID;
+    private Label flNume, flAdresa, flEmailServ, flPrenume, flTelefon, flMedID;
 
     public void setup() { }
 

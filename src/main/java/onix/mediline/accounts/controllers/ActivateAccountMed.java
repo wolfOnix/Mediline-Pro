@@ -25,12 +25,13 @@ import onix.mediline.accounts.roles.Medic;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ActivateAccountMed extends NewAccount implements Initializable {
 
     @FXML
-    ComboBox<String> cbJudet = new ComboBox<String>();
+    ComboBox<String> cbJudet = new ComboBox<>();
 
     ObservableList<String> listaMF = FXCollections.observableArrayList("AB", "AG", "AR", "B", "BC", "BH", "BN", "BR", "BT", "BV", "BZ", "CJ", "CL", "CS", "CT", "CV", "DB", "DJ", "GJ", "GL", "GR", "HD", "HR", "IF", "IL", "IS", "MH", "MM", "MS", "NT", "OT", "PH", "SB", "SJ", "SM", "SV", "TL", "TM", "TR", "VL", "VN", "VS");
 
@@ -44,7 +45,7 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
      TextField flAdresa, flOras, flTelefon, flEmailServ/*, flPrenume, flNume*/;
 
     @FXML
-    private Button btCancel, btActivateAccount;
+    private Button btCancel;
 
     private Medic med;
 
@@ -54,7 +55,7 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
     }
 
     @FXML
-    void handleBtFinishActivateAccount () throws IOException {
+    void handleBtFinishActivateAccount() throws IOException {
         try {
             if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flAdresa.getText().length() < 2 || cbJudet.getValue().length() != 2 || flOras.getText().length() < 2 || flTelefon.getText().length() < 10 || flTelefon.getText().length() > 17)
                 throw new CompleteAllFields();
@@ -62,10 +63,9 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
             Encryption.checkEmailStructure(flEmailServ.getText());
             MedManagement.updateMedic(flNume.getText(), flPrenume.getText(), med.getEmail(), flPassword.getText(), flAdresa.getText(), flOras.getText(), cbJudet.getValue(), flTelefon.getText(), flEmailServ.getText(), true);
             Stage thisStage = (Stage) btCancel.getScene().getWindow();
-            Parent nextResource = FXMLLoader.load(getClass().getClassLoader().getResource("newAccountDone.fxml"));
+            Parent nextResource = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("newAccountDone.fxml")));
             Scene nextScene = new Scene(nextResource);
             thisStage.setScene(nextScene);
-            System.out.println("Cont activat");
         } catch (CompleteAllFields | UserNotFound | NotStrongEnoughPassword | EmailNotValid e) {
             super.setErrorText(e);
         }
@@ -75,7 +75,7 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
     void handleButtonCancel (ActionEvent event) {
         try {
             Stage CancelStage = (Stage) btCancel.getScene().getWindow();
-            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("activateAccountMedKey.fxml"));
+            Parent Cancel = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("activateAccountMedKey.fxml")));
             Scene CancelScene = new Scene(Cancel);
             CancelStage.setScene(CancelScene);
         } catch (IOException e) {
@@ -88,7 +88,6 @@ public class ActivateAccountMed extends NewAccount implements Initializable {
         try {
             cbJudet.setItems(listaMF);
             med = (Medic) UsersManagement.searchUser(lbEmail.getText(), 2);
-            System.out.println("Medic: " + med);
             flNume.setText(med.getNume());
             flPrenume.setText(med.getPrenume());
             lbMedid.setText(med.getMedid());

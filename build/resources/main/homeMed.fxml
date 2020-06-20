@@ -26,7 +26,7 @@
 
     <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
     <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png" /></ImageView>
-    <Button fx:id="btAccountSettings" layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+    <Button layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
 
     <Pane layoutX="171.0" layoutY="234.0" prefHeight="410.0" prefWidth="600.0">
         <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png" /></ImageView>
@@ -53,18 +53,18 @@
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/add_appointment_30.png" /></ImageView>
         <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRI ÎN AȘTEPTARE" />
     </Pane>
-    <Button fx:id="btMedPg2" layoutX="446.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg2" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton" />
+    <Button layoutX="446.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg2" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton" />
 
     <Pane layoutX="789.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png" /></ImageView>
         <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="TRIMITERE DOCUMENTE MEDICALE" />
     </Pane>
-    <Button fx:id="btMedPg3" layoutX="789.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg3" prefHeight="50.4" prefWidth="316" styleClass="overlayButton" />
+    <Button layoutX="789.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg3" prefHeight="50.4" prefWidth="316" styleClass="overlayButton" />
 
     <Pane layoutX="1175.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/patients_30.png" /></ImageView>
         <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PACIENȚII MEI" />
     </Pane>
-    <Button fx:id="btMedPg4" layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg4" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton" />
+    <Button layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg4" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton" />
 
 </AnchorPane>

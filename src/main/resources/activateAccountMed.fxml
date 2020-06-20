@@ -7,63 +7,45 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.ActivateAccountMed">
-    <children>
-        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="415.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0">
-            <fill>
-                <LinearGradient endX="1.0" endY="1.0">
-                    <stops>
-                        <Stop>
-                            <color>
-                                <Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" />
-                            </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                            <color>
-                                <Color red="1.0" green="0.6431372761726379" />
-                            </color>
-                        </Stop>
-                    </stops>
-                </LinearGradient>
-            </fill></Rectangle>
-        <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE">
-            <font>
-                <Font name="Source Sans Pro Black" size="30.0" />
-            </font></Label>
-        <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-        <Label layoutY="66.0" styleClass="title" text="ACTIVARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <ScrollPane layoutY="150.0" prefHeight="404.0" prefWidth="400.0" styleClass="panel" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="850.0" prefWidth="395.0" styleClass="panel">
-                    <children>
-                        <Label layoutX="45.0" layoutY="14.0" styleClass="inputTitle" text="Nume" />
-                        <TextField fx:id="flNume" layoutX="45.0" layoutY="42.0" styleClass="text-field" text="(Nume)" />
-                        <Label layoutX="45.0" layoutY="92.0" styleClass="inputTitle" text="Prenume" />
-                        <TextField fx:id="flPrenume" layoutX="45.0" layoutY="120.0" styleClass="text-field" text="(Prenume)" />
-                        <Label layoutX="45.0" layoutY="170.0" styleClass="inputTitle" text="E-mail" />
-                        <Label fx:id="lbEmail" layoutX="45.0" layoutY="198.0" styleClass="text-field" text="(E-mail)" />
-                        <Label layoutX="45.0" layoutY="248.0" styleClass="inputTitle" text="Parolă" />
-                        <PasswordField fx:id="flPassword" layoutX="45.0" layoutY="276.0" AnchorPane.rightAnchor="50.19999999999999" />
-                        <Label layoutX="45.0" layoutY="326.0" styleClass="inputTitle" text="MedID" />
-                        <Label fx:id="lbMedid" layoutX="45.0" layoutY="354.0" styleClass="text-field" text="(MedID)" />
-                        <Label layoutX="119.0" layoutY="414.0" styleClass="title" text="Informații cabinet" />
-                        <Label layoutX="45.0" layoutY="454.0" styleClass="inputTitle" text="Stradă și număr" />
-                        <TextField fx:id="flAdresa" layoutX="45.0" layoutY="482.0" />
-                        <Label layoutX="45.0" layoutY="532.0" styleClass="inputTitle" text="Județ" />
-                        <ComboBox fx:id="cbJudet" layoutX="45.0" layoutY="560.0" prefHeight="40.0" prefWidth="75.0" />
-                        <Label layoutX="45.0" layoutY="610.0" styleClass="inputTitle" text="Oraș" />
-                        <TextField fx:id="flOras" layoutX="45.0" layoutY="638.0" />
-                        <Label layoutX="45.0" layoutY="688.0" styleClass="inputTitle" text="Telefon" />
-                        <TextField fx:id="flTelefon" layoutX="45.0" layoutY="716.0" />
-                        <Label layoutX="45.0" layoutY="766.0" styleClass="inputTitle" text="E-mail serviciu" />
-                        <TextField fx:id="flEmailServ" layoutX="45.0" layoutY="794.0" />
-                    </children>
-                </AnchorPane>
-            </content>
-        </ScrollPane>
-        <Rectangle arcHeight="0.0" arcWidth="0.0" fill="white" height="42.0" layoutX="0.0" layoutY="548.0" width="400.0" />
-        <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" prefWidth="150.0" text="ÎNAPOI" />
-        <Button fx:id="btActivateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleBtFinishActivateAccount" prefWidth="150.0" styleClass="mainButton" text="ACTIVARE CONT" />
-        <Label fx:id="lbErrMessage" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="4.0" />
-        <Label fx:id="lbInfoOverErr" layoutX="0.0" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a finaliza activarea contului medical, introduceți corect datele în câmpurile de mai jos" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-    </children>
+
+    <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
+
+    <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
+    <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+
+    <Label layoutY="66.0" styleClass="title" text="ACTIVARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+    <ScrollPane layoutY="150.0" prefHeight="404.0" prefWidth="400.0" styleClass="panel" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="850.0" prefWidth="395.0" styleClass="panel">
+            <Label layoutX="45.0" layoutY="14.0" styleClass="inputTitle" text="Nume" />
+            <TextField fx:id="flNume" layoutX="45.0" layoutY="42.0" styleClass="text-field" text="(Nume)" />
+            <Label layoutX="45.0" layoutY="92.0" styleClass="inputTitle" text="Prenume" />
+            <TextField fx:id="flPrenume" layoutX="45.0" layoutY="120.0" styleClass="text-field" text="(Prenume)" />
+            <Label layoutX="45.0" layoutY="170.0" styleClass="inputTitle" text="E-mail" />
+            <Label fx:id="lbEmail" layoutX="45.0" layoutY="198.0" styleClass="text-field" text="(E-mail)" />
+            <Label layoutX="45.0" layoutY="248.0" styleClass="inputTitle" text="Parolă" />
+            <PasswordField fx:id="flPassword" layoutX="45.0" layoutY="276.0" AnchorPane.rightAnchor="50.19999999999999" />
+            <Label layoutX="45.0" layoutY="326.0" styleClass="inputTitle" text="MedID" />
+            <Label fx:id="lbMedid" layoutX="45.0" layoutY="354.0" styleClass="text-field" text="(MedID)" />
+            <Label layoutX="119.0" layoutY="414.0" styleClass="title" text="Informații cabinet" />
+            <Label layoutX="45.0" layoutY="454.0" styleClass="inputTitle" text="Stradă și număr" />
+            <TextField fx:id="flAdresa" layoutX="45.0" layoutY="482.0" />
+            <Label layoutX="45.0" layoutY="532.0" styleClass="inputTitle" text="Județ" />
+            <ComboBox fx:id="cbJudet" layoutX="45.0" layoutY="560.0" prefHeight="40.0" prefWidth="75.0" />
+            <Label layoutX="45.0" layoutY="610.0" styleClass="inputTitle" text="Oraș" />
+            <TextField fx:id="flOras" layoutX="45.0" layoutY="638.0" />
+            <Label layoutX="45.0" layoutY="688.0" styleClass="inputTitle" text="Telefon" />
+            <TextField fx:id="flTelefon" layoutX="45.0" layoutY="716.0" />
+            <Label layoutX="45.0" layoutY="766.0" styleClass="inputTitle" text="E-mail serviciu" />
+            <TextField fx:id="flEmailServ" layoutX="45.0" layoutY="794.0" />
+        </AnchorPane>
+    </ScrollPane>
+
+    <Rectangle fill="white" height="42.0" layoutY="548.0" width="400.0" />
+    <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" prefWidth="150.0" text="ÎNAPOI" />
+    <Button layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleBtFinishActivateAccount" prefWidth="150.0" styleClass="mainButton" text="ACTIVARE CONT" />
+
+    <Label fx:id="lbErrMessage" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="4.0" />
+    <Label fx:id="lbMessage" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a finaliza activarea contului medical, introduceți corect datele în câmpurile de mai jos" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
 </AnchorPane>

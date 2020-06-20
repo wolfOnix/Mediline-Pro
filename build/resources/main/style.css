@@ -209,50 +209,6 @@
     -fx-background-color: rgba(255, 164, 0, 0.22);
 }
 
-/*.menuImageButton {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-background-size: 30;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: 100%;
-    -fx-pref-height: 30;
-    -fx-pref-width: 30;
-    -fx-cursor: hand;
-}
-
-.menuImageButton:hover {
-    -fx-background-color: transparent;
-    /*-fx-text-fill: #8963ba;* /
-}*/
-
-/*.appo {
-    -fx-background-image: url('images/appointments_30.png');
-}
-
-.napo {
-    -fx-background-image: url('images/newappointment_30.png');
-}
-
-.file {
-    -fx-background-image: url('images/documents_30.png');
-}
-
-.doct {
-    -fx-background-image: url('images/mydoc_30.png');
-}
-
-.delacc {
-    -fx-background-image: url('images/confirm_delete_30.png');
-}
-
-.admn {
-    -fx-background-image: url('images/lock_30.png');
-}
-
-.chei {
-    -fx-background-image: url('images/key_30.png');
-}*/
-
 .neutralLabel {
     -fx-alignment: center;
     -fx-font-family: "Avenir Next LT Pro Bold";
@@ -289,7 +245,6 @@
 
 .optionButton:hover {
     -fx-background-color: transparent;
-    /*-fx-text-fill: #8963ba;*/
 }
 
 .optionContainer {

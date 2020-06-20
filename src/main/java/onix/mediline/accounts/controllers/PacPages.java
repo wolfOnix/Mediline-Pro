@@ -17,14 +17,14 @@ import java.util.Objects;
 public abstract class PacPages extends Home {
 
     @FXML
-    private Button btPacPg1, btPacPg2, btPacPg3, btPacPg4;
+    private Button btPacPg1;
 
     protected static Pacient Pac;
 
     public abstract void setup();
 
     @FXML
-    void ActionPacPg1(MouseEvent event) throws IOException {
+    void ActionPacPg1(MouseEvent event) {
         try {
             Stage HomeStage = (Stage)  btPacPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homePac.fxml"));
@@ -52,7 +52,7 @@ public abstract class PacPages extends Home {
                 NewApp = loader.load();
             }
             Scene NewAppScene = new Scene(NewApp);
-            Stage NewAppStage = (Stage) btPacPg2.getScene().getWindow();
+            Stage NewAppStage = (Stage) btPacPg1.getScene().getWindow();
             NewAppStage.setScene(NewAppScene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -60,15 +60,15 @@ public abstract class PacPages extends Home {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("PacPage4_2.fxml"));
             Parent NewApp = loader.load();
             Scene NewAppScene = new Scene(NewApp);
-            Stage NewAppStage = (Stage) btPacPg2.getScene().getWindow();
+            Stage NewAppStage = (Stage) btPacPg1.getScene().getWindow();
             NewAppStage.setScene(NewAppScene);
         }
     }
 
     @FXML
-    public void ActionPacPg3(MouseEvent event) throws IOException {
+    public void ActionPacPg3(MouseEvent event) {
         try {
-            Stage MyFileStage = (Stage) btPacPg3.getScene().getWindow();
+            Stage MyFileStage = (Stage) btPacPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("PacPage3.fxml")));
             Parent Next = loader.load();
             PacPage3 controller = loader.getController();
@@ -83,7 +83,7 @@ public abstract class PacPages extends Home {
     @FXML
     public void ActionPacPg4(MouseEvent event) throws IOException {
         try {
-            Stage PacPage4Stage = (Stage) btPacPg4.getScene().getWindow();
+            Stage PacPage4Stage = (Stage) btPacPg1.getScene().getWindow();
             FXMLLoader loader;
             Parent PacPage4 ;
             if (Pac.getMedIDMedic() == null) {
@@ -98,7 +98,7 @@ public abstract class PacPages extends Home {
             Scene PacPage4Scene = new Scene(PacPage4);
             PacPage4Stage.setScene(PacPage4Scene);
         } catch (MedIDNotFound e) {
-            Stage PacPage4Stage = (Stage) btPacPg4.getScene().getWindow();
+            Stage PacPage4Stage = (Stage) btPacPg1.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("PacPage4_2.fxml"));
             Parent PacPage4 = loader.load();
             Scene PacPage4Scene = new Scene(PacPage4);

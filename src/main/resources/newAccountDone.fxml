@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountDone">
+<AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountDone">
 
         <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color blue="0.729411780834198" green="0.38823530077934265" red="0.5372549295425415" /></color></Stop><Stop offset="1.0"><color><Color green="0.6431372761726379" red="1.0" /></color></Stop></stops></LinearGradient></fill></Rectangle>
 

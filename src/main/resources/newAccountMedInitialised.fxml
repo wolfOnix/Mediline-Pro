@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountMedInitialised">
+<AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountMedInitialised">
 
         <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color blue="0.729411780834198" green="0.38823530077934265" red="0.5372549295425415" /></color></Stop><Stop offset="1.0"><color><Color green="0.6431372761726379" red="1.0" /></color></Stop></stops></LinearGradient></fill></Rectangle>
         <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
@@ -28,6 +28,7 @@
         <Label layoutX="50.0" layoutY="323.0" styleClass="inputTitle" text="Cheia de activare a contului" />
         <TextField fx:id="flActivationKey" layoutX="50.0" layoutY="351.0" styleClass="text-field" />
         <Label layoutX="47.0" layoutY="393.0" prefHeight="75.0" prefWidth="307.0" styleClass="neutralLabelSmall" text="Nu uitați să transmiteți medicului de familie cheia de activare!" wrapText="true" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="46.0" />
+
         <Button layoutX="219.0" layoutY="558.0" mnemonicParsing="false" onAction="#ActionAdmPg1" prefWidth="150.0" text="MENIU PRINCIPAL" />
 
 </AnchorPane>

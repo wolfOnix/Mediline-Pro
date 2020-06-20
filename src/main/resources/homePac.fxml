@@ -8,62 +8,63 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane styleClass="body-large" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.PacPage1">
-        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
 
-        <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
-        <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
-        <Label fx:id="lbGreeting" layoutX="30.0" layoutY="75.0" styleClass="greeting" text="Bună ziua," AnchorPane.leftAnchor="30.0" />
-        <Label fx:id="lbPrenume" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="102.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="30.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Programările mele" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
 
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1443.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
-        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.0"><image><Image url="@images/logout_30_wh.png" /></image></ImageView>
-        <Button fx:id="btLogout" layoutX="1425.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="160.0" styleClass="overlayButton" />
+    <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
+    <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+    <Label fx:id="lbGreeting" layoutX="30.0" layoutY="75.0" styleClass="greeting" text="Bună ziua," AnchorPane.leftAnchor="30.0" />
+    <Label fx:id="lbPrenume" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="102.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="30.0" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Programările mele" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
-        <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><image><Image url="@images/account_30.png" /></image></ImageView>
-        <Button fx:id="btAccountSettings" layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1443.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.0"><Image url="@images/logout_30_wh.png"/></ImageView>
+    <Button fx:id="btLogout" layoutX="1425.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="160.0" styleClass="overlayButton" />
 
-       <Pane layoutX="134.0" layoutY="234.0" prefHeight="410.0" prefWidth="600.0">
-           <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png"/></ImageView>
-           <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="318.0" styleClass="neutralLabel" text="Programări aprobate" textAlignment="CENTER" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="343.759765625" />
-           <Label layoutX="4.0" layoutY="129.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Aici găsiți toate cererile dvs. de programare. Cele care au starea „Confirmat” sau „Reprogramat” vor avea loc. Cele neconfirmate sunt în curs de a fi gestionate de medicului de familie." wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
-           <Label fx:id="lbNrConfApps" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="233.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
-           <Label alignment="CENTER" contentDisplay="CENTER" layoutX="387.0" layoutY="318.0" styleClass="neutralLabel" text="Reprogramări" textAlignment="CENTER" />
-           <Label fx:id="lbNrModifApps" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="241.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
-           <Label layoutX="270.0" layoutY="287.0" prefHeight="30.0" prefWidth="87.0" styleClass="neutralLabelSmall" text="din care" wrapText="true" />
-       </Pane>
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png"/></ImageView>
+    <Button layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
 
-      <TableView fx:id="myAppointment" layoutX="795.0" layoutY="209.0" prefHeight="450.0" prefWidth="750.0">
-        <columns>
-          <TableColumn fx:id="TableColumnData" prefWidth="250.0" text="Data" />
-          <TableColumn fx:id="TableColumnOra" prefWidth="250.0" text="Ora" />
-          <TableColumn fx:id="TableColumnStare" prefWidth="250.0" text="Stare" />
-        </columns>
-      </TableView>
+    <Pane layoutX="134.0" layoutY="234.0" prefHeight="410.0" prefWidth="600.0">
+       <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="255.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png"/></ImageView>
+       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="318.0" styleClass="neutralLabel" text="Programări aprobate" textAlignment="CENTER" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="343.759765625" />
+       <Label layoutX="4.0" layoutY="129.0" prefHeight="90.0" prefWidth="593.0" styleClass="neutralLabelSmall" text="Aici găsiți toate cererile dvs. de programare. Cele care au starea „Confirmat” sau „Reprogramat” vor avea loc. Cele neconfirmate sunt în curs de a fi gestionate de medicului de familie." wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
+       <Label fx:id="lbNrConfApps" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="233.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
+       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="387.0" layoutY="318.0" styleClass="neutralLabel" text="Reprogramări" textAlignment="CENTER" />
+       <Label fx:id="lbNrModifApps" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="241.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
+       <Label layoutX="270.0" layoutY="287.0" prefHeight="30.0" prefWidth="87.0" styleClass="neutralLabelSmall" text="din care" wrapText="true" />
+    </Pane>
 
-        <Pane layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/appointments_30.png" /></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRILE MELE" />
-        </Pane>
-        <Button fx:id="btPacPg1" layoutX="214.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg1" prefHeight="50.4" prefWidth="229.6" styleClass="overlayButton" />
+    <TableView fx:id="myAppointment" layoutX="795.0" layoutY="209.0" prefHeight="450.0" prefWidth="750.0">
+    <columns>
+      <TableColumn fx:id="TableColumnData" prefWidth="250.0" text="Data" />
+      <TableColumn fx:id="TableColumnOra" prefWidth="250.0" text="Ora" />
+      <TableColumn fx:id="TableColumnStare" prefWidth="250.0" text="Stare" />
+    </columns>
+    </TableView>
 
-        <Pane layoutX="514.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/newappointment_30.png" /></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMARE NOUĂ" />
-        </Pane>
-        <Button fx:id="btPacPg2" layoutX="514.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg2" prefHeight="50.4" prefWidth="220.0" styleClass="overlayButton" />
+    <Pane layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/appointments_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRILE MELE" />
+    </Pane>
+    <Button fx:id="btPacPg1" layoutX="214.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg1" prefHeight="50.4" prefWidth="229.6" styleClass="overlayButton" />
 
-        <Pane layoutX="804.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png" /></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="DOCUMENTELE MEDICALE" />
-        </Pane>
-        <Button fx:id="btPacPg3" layoutX="804.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg3" prefHeight="50.4" prefWidth="256.0" styleClass="overlayButton" />
+    <Pane layoutX="514.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/newappointment_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMARE NOUĂ" />
+    </Pane>
+    <Button layoutX="514.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg2" prefHeight="50.4" prefWidth="220.0" styleClass="overlayButton" />
 
-        <Pane layoutX="1130.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/mydoc_30.png" /></ImageView>
-            <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE" />
-        </Pane>
-        <Button fx:id="btPacPg4" layoutX="1130.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg4" prefHeight="50.4" prefWidth="255.2" styleClass="overlayButton" />
+    <Pane layoutX="804.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="DOCUMENTELE MEDICALE" />
+    </Pane>
+    <Button layoutX="804.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg3" prefHeight="50.4" prefWidth="256.0" styleClass="overlayButton" />
+
+    <Pane layoutX="1130.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/mydoc_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE" />
+    </Pane>
+    <Button layoutX="1130.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg4" prefHeight="50.4" prefWidth="255.2" styleClass="overlayButton" />
 
 </AnchorPane>

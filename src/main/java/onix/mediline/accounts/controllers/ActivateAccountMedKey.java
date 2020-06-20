@@ -18,6 +18,7 @@ import onix.mediline.accounts.management.UsersManagement;
 import onix.mediline.accounts.roles.Medic;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ActivateAccountMedKey extends NewAccount {
 
@@ -28,38 +29,35 @@ public class ActivateAccountMedKey extends NewAccount {
     private PasswordField flActivationKey;
 
     @FXML
-    private Button btForward, btCancel;
+    private Button btCancel;
 
     @FXML
-    private Label lbErrMessage, lbInfoOverErr;
-
-    @FXML
-    void handleButtonCancel(ActionEvent event) throws IOException {
+    void handleButtonCancel(ActionEvent event) {
         try  {
-            Stage CancelStage = (Stage) btCancel.getScene().getWindow();
-            Parent Cancel = FXMLLoader.load(getClass().getClassLoader().getResource("index.fxml"));
+            Stage thisStage = (Stage) btCancel.getScene().getWindow();
+            Parent Cancel = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("index.fxml")));
             Scene CancelScene = new Scene(Cancel);
-            CancelStage.setScene(CancelScene);
+            thisStage.setScene(CancelScene);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    void handleButtonForward (ActionEvent event) throws IOException {
+    void handleButtonForward(ActionEvent event) {
         try  {
             Medic med = (Medic) UsersManagement.searchUser(flEmail.getText(), 2);
             if (med.getContActiv())
                 throw new AccountAlreadyActivated();
             if(!flActivationKey.getText().equals(med.getActivationKey()))
                 throw new CheckMedicKeyExeception();
-            Stage ForwardStage = (Stage) btForward.getScene().getWindow();
+            Stage thisStage = (Stage) btCancel.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("activateAccountMed.fxml"));
             Parent Forward = loader.load();
             ActivateAccountMed ActAccMed = loader.getController();
             ActAccMed.setEmail(flEmail.getText());
             Scene ForwardScene = new Scene(Forward);
-            ForwardStage.setScene(ForwardScene);
+            thisStage.setScene(ForwardScene);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (UserNotFound | AccountAlreadyActivated | CheckMedicKeyExeception e) {

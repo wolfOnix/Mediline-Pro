@@ -26,7 +26,7 @@ public class PacPage2 extends PacPages implements Initializable {
     private Button btSendApp;
 
     @FXML
-    private final ComboBox<String> cbOra  = new ComboBox<String>(), cbMinut = new ComboBox<String>();
+    private ComboBox<String> cbOra  = new ComboBox<>(), cbMinut = new ComboBox<>();
 
     ObservableList<String> lHR = FXCollections.observableArrayList("08", "09" , "10" , "11" , "12" , "13" , "14" , "15" , "16" , "17" , "18" , "19" , "20" , "21" );
     ObservableList<String> lMN = FXCollections.observableArrayList("00", "10" , "20" , "30" , "40" , "50" );

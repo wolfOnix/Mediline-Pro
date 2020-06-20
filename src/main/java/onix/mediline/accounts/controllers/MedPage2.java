@@ -30,7 +30,7 @@ public class MedPage2 extends MedPages implements Initializable {
     private boolean selected = false;
 
     @FXML
-    private final ComboBox<String> cbOra = new ComboBox<String>(), cbMinut = new ComboBox<String>();
+    private ComboBox<String> cbOra = new ComboBox<>(), cbMinut = new ComboBox<>();
 
     @FXML
     private DatePicker dpData;
