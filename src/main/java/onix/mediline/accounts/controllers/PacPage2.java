@@ -30,13 +30,15 @@ public class PacPage2 extends PacPages implements Initializable {
     private Button btSendApp;
 
     @FXML
-    private ComboBox<String> cbOra  = new ComboBox<>(), cbMinut = new ComboBox<>();
+    public ComboBox<String> cbOra  = new ComboBox<>();
+    @FXML
+    public ComboBox<String> cbMinut = new ComboBox<>();
 
     ObservableList<String> lHR = FXCollections.observableArrayList("08", "09" , "10" , "11" , "12" , "13" , "14" , "15" , "16" , "17" , "18" , "19" , "20" , "21" );
     ObservableList<String> lMN = FXCollections.observableArrayList("00", "10" , "20" , "30" , "40" , "50" );
 
     @FXML
-    private DatePicker flData;
+    public DatePicker flData;
 
     public void setup () { }
 
@@ -47,7 +49,7 @@ public class PacPage2 extends PacPages implements Initializable {
     }
 
     @FXML
-    void BtActionSendNewAppointment(ActionEvent event) {
+    void BtActionSendNewAppointment() {
         try {
             String dataN = String.valueOf(flData.getValue());
             String oraN = String.valueOf(cbOra.getValue());

@@ -25,7 +25,7 @@ public class AdmPage2 extends AdmPages {
     Label lbAccType, lbInfo;
 
     @FXML
-    private TableView<User> tvDelRequests;
+    public TableView<User> tvDelRequests;
 
     @FXML
     TableColumn<User, String> colEmail, colNumeFam;

@@ -20,7 +20,10 @@ import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 
+import static onix.mediline.accounts.management.FileManagement.APPLICATION_FOLDER;
+import static onix.mediline.accounts.management.FileManagement.USER_FOLDER;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
@@ -36,7 +39,9 @@ public class AdmPage2Test extends ApplicationTest {
 
     @BeforeClass
     public static void setupClass() throws Exception {
-        FileManagement.APPLICATION_FOLDER = ".mediline-test";
+        FileManagement.APPLICATION_FOLDER = ".mediline+test";
+        FileManagement.USER_FOLDER = System.getProperty("user.home");
+        FileManagement.APPLICATION_HOME_PATH = Paths.get(USER_FOLDER, APPLICATION_FOLDER);
         FileManagement.initApplicationHomeDirIfNeeded();
         AdmManagement.loadUsersFromFile();
         MedManagement.loadUsersFromFile();
@@ -46,6 +51,8 @@ public class AdmPage2Test extends ApplicationTest {
     @Before
     public void setUp() throws Exception {
         FileManagement.getPathToFile("storage", "users_admin.json").toFile().delete();
+        FileManagement.getPathToFile("storage", "users_med.json").toFile().delete();
+        FileManagement.getPathToFile("storage", "users_pac.json").toFile().delete();
         AdmManagement.loadUsersFromFile();
         MedManagement.loadUsersFromFile();
         PacManagement.loadUsersFromFile();

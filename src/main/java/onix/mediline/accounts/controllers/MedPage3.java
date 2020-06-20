@@ -23,29 +23,33 @@ import java.util.ResourceBundle;
 
 public class MedPage3 extends MedPages implements Initializable {
 
-    private Pacient selectedPac;
-    private boolean selected = false;
+    public Pacient selectedPac;
+    public boolean selected = false;
 
     @FXML
     private Button btSendDoc;
 
     @FXML
-    private DatePicker dpData;
+    public DatePicker dpData;
 
     @FXML
-    private TextArea taDocContent;
+    public TextArea taDocContent;
 
     @FXML
-    private TextField flDocTitle;
+    public TextField flDocTitle;
 
     @FXML
     private TableView<Pacient> tvMyPac;
 
     @FXML
-    private TableColumn<Appointment, String> colNume, colPrenume, colCNP;
+    public TableColumn<Appointment, String> colNume;
+    @FXML
+    public TableColumn<Appointment, String> colPrenume;
+    @FXML
+    public TableColumn<Appointment, String> colCNP;
 
     @FXML
-    private ComboBox<String> cbDocType = new ComboBox<String>();
+    public ComboBox<String> cbDocType = new ComboBox<String>();
 
     public void setup () {
         super.setup();

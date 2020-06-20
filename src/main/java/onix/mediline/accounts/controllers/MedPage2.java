@@ -23,8 +23,8 @@ import java.util.ResourceBundle;
 
 public class MedPage2 extends MedPages implements Initializable {
 
-    private Appointment selectedApp;
-    private boolean selected = false;
+    public Appointment selectedApp;
+    public boolean selected = false;
 
     @FXML
     private ComboBox<String> cbOra = new ComboBox<>(), cbMinut = new ComboBox<>();
@@ -33,13 +33,17 @@ public class MedPage2 extends MedPages implements Initializable {
     private DatePicker dpData;
 
     @FXML
-    private Label lbNrUnconfirmedApps;
+     Label lbNrUnconfirmedApps;
 
     @FXML
-    private TableView<Appointment> tvUnconfirmedApps;
+    public TableView<Appointment> tvUnconfirmedApps;
 
     @FXML
-    private TableColumn<Appointment, String> colDate, colHM, colPatient;
+    public TableColumn<Appointment, String> colDate;
+    @FXML
+    public TableColumn<Appointment, String> colHM;
+    @FXML
+    public TableColumn<Appointment, String> colPatient;
 
     ObservableList<String> lHR = FXCollections.observableArrayList("08", "09" , "10" , "11" , "12" , "13" , "14" , "15" , "16" , "17" , "18" , "19" , "20" , "21" );
     ObservableList<String> lMN = FXCollections.observableArrayList("00", "10" , "20" , "30" , "40" , "50" );
@@ -77,7 +81,7 @@ public class MedPage2 extends MedPages implements Initializable {
         selected = true;
     }
 
-    public void confirmApp(MouseEvent event) {
+    public void confirmApp() {
         try {
             if (!selected || selectedApp == null)
                 throw new NoRowSelected();
