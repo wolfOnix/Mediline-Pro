@@ -30,7 +30,7 @@
         <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="128.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/confirm_90.png" /></ImageView>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="342.0" styleClass="neutralLabel" text="Programări neconfirmate" textAlignment="CENTER" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="71.50937499999998" />
         <Label layoutX="4.0" layoutY="129.0" prefHeight="102.0" prefWidth="346.0" styleClass="neutralLabelSmall" text="Pentru a gestiona programările, apăsați pe fiecare cerere de consultație în parte și selectați opțiunea dorită pentru respectiva programare" wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="250.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
+        <Label fx:id="lbNrUnconfirmedApps" alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="250.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
     </Pane>
 
     <TableView fx:id="tvUnconfirmedApps" layoutX="815.0" layoutY="214.0" onMouseClicked="#tvClicked" prefHeight="450.0" prefWidth="720.0">

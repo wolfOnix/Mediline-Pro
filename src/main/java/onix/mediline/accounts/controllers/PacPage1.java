@@ -27,7 +27,6 @@ public class PacPage1 extends PacPages {
     public void setup() {
         this.fillTvMyApps();
         this.setLbPrenume();
-        this.setLbNrDocs();
     }
 
     public void setup(User x) {
@@ -46,20 +45,20 @@ public class PacPage1 extends PacPages {
             if (now.getTime() - i.getComplexDate().getTime() <= 3 * 60 * 60 * 1000)
                 actualApps.add(i);
         myAppointment.setItems(actualApps);
+        setLbNrDocs(actualApps);
     }
 
     public void setLbPrenume() {
         lbPrenume.setText(Pac.getPrenume());
     }
 
-    public void setLbNrDocs() {
+    public void setLbNrDocs(ObservableList<Appointment> apps) {
         int sConf = 0, sModif = 0;
-        Date now = new Date();
-        for (Appointment i : Pac.getListaApp()) {
-            if (i.getStareProgr().equals(Appointment.getAppointmentStates()[1]) && (now.getTime() - i.getComplexDate().getTime() <= 3 * 60 * 60 * 1000))
+        for (Appointment i : apps) {
+            if (i.getStareProgr().equals(Appointment.getAppointmentStates()[1]))
                 sConf++;
             else
-                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[2]) && (now.getTime() - i.getComplexDate().getTime() <= 3 * 60 * 60 * 1000))
+                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[2]))
                     sModif++;
         }
         lbNrConfApps.setText("" + (sConf + sModif));

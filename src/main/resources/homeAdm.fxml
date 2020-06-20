@@ -19,7 +19,7 @@
     <Button fx:id="btLogout" layoutX="251.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="135.0" styleClass="overlayButton" />
 
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="90.0" styleClass="greeting" text="Bună ziua," AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-    <Label fx:id="lbPrenume" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Label fx:id="lbNumePrenume" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="117.0" styleClass="greetingName" text="(Nume)" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 
     <Pane layoutY="253.0" prefHeight="120.0" prefWidth="400.0" styleClass="optionContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="15.0" onMouseClicked="#handleBtNewMedic" pickOnBounds="true" preserveRatio="true" styleClass="optionImage"><Image url="@images/new_account.png" /></ImageView>

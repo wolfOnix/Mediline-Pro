@@ -12,10 +12,13 @@ import onix.mediline.accounts.roles.Medic;
 import onix.mediline.accounts.roles.User;
 import onix.mediline.appointments.management.Appointment;
 
+import java.text.ParseException;
+import java.util.Date;
+
 public class MedPage1 extends MedPages {
 
     @FXML
-    private Label lbPrenume;
+    private Label lbPrenume, lbNrApps;
 
     @FXML
     private TableView<Appointment> tvTodayApps;
@@ -39,7 +42,7 @@ public class MedPage1 extends MedPages {
         lbPrenume.setText(Med.getPrenume());
     }
 
-    public void fillTvTodayApps() { // filtrare confirmate si ziua curenta
+    public void fillTvTodayApps() {
         try {
             colDate.setCellValueFactory(new PropertyValueFactory<>("dataProgr"));
             colHM.setCellValueFactory(new PropertyValueFactory<>("oraProgr"));
@@ -50,7 +53,19 @@ public class MedPage1 extends MedPages {
                 if (i.getStareProgr().equals(Appointment.getAppointmentStates()[1]) || i.getStareProgr().equals(Appointment.getAppointmentStates()[2]))
                     confirmedApps.add(i);
             tvTodayApps.setItems(confirmedApps);
+            setLbNrApps(confirmedApps);
         } catch (UserNotFound ignored) { }
+    }
+
+    public void setLbNrApps(ObservableList<Appointment> apps) {
+        try {
+            int s = 0;
+            Date now = new Date();
+            for (Appointment i : apps)
+                if (i.getDataProgr().equals(Appointment.fromDateFormat(now)[2]) && (now.getTime() - i.getComplexDate().getTime() <= 10 * 60 * 1000))
+                    s++;
+            lbNrApps.setText("" + s);
+        } catch (ParseException ignored) { }
     }
 
 }

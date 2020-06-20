@@ -30,9 +30,9 @@
 
     <Pane layoutX="116.0" layoutY="221.0" prefHeight="410.0" prefWidth="467.0">
         <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="190.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/tick_90.png" /></ImageView>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="333.0" styleClass="neutralLabel" text="Programări în total" textAlignment="CENTER" AnchorPane.leftAnchor="144.0" AnchorPane.rightAnchor="157.780078125" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="123.0" layoutY="333.0" styleClass="neutralLabel" text="Programări rămase astăzi" textAlignment="CENTER" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="125.88749999999999" />
         <Label layoutX="18.0" layoutY="149.0" prefHeight="90.0" prefWidth="434.0" styleClass="neutralLabelSmall" text="Acestea sunt programările confirmate curente, începând cu cele din ziua de astăzi. Consultațiile vor rămâne în tabel încă cinci ore de la momentul programării acestora." wrapText="true" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="15.199999999999989" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="215.0" layoutY="248.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
+        <Label fx:id="lbNrApps" alignment="CENTER" contentDisplay="CENTER" layoutX="215.0" layoutY="248.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
     </Pane>
 
     <TableView fx:id="tvTodayApps" layoutX="719.0" layoutY="201.0" prefHeight="450.0" prefWidth="720.0">

@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
@@ -34,6 +31,9 @@ public class MedPage2 extends MedPages implements Initializable {
 
     @FXML
     private DatePicker dpData;
+
+    @FXML
+    private Label lbNrUnconfirmedApps;
 
     @FXML
     private TableView<Appointment> tvUnconfirmedApps;
@@ -67,6 +67,7 @@ public class MedPage2 extends MedPages implements Initializable {
                 if (i.getStareProgr().equals(Appointment.getAppointmentStates()[0]) && i.getComplexDate().getTime() > now.getTime())
                     unconfirmedApps.add(i);
             tvUnconfirmedApps.setItems(unconfirmedApps);
+            lbNrUnconfirmedApps.setText("" + unconfirmedApps.size());
         } catch (UserNotFound ignored) { }
     }
 

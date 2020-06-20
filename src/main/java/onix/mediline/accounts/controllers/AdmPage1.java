@@ -26,7 +26,7 @@ public class AdmPage1 extends AdmPages {
     private Circle crDeleteRequestNotification;
 
     @FXML
-    private Label lbPrenume;
+    private Label lbNumePrenume;
 
     public void setup() {
         this.setLbPrenume();
@@ -43,7 +43,7 @@ public class AdmPage1 extends AdmPages {
     }
 
     public void setLbPrenume() {
-        lbPrenume.setText(Adm.getPrenume());
+        lbNumePrenume.setText(Adm.getNume() + " " + Adm.getPrenume());
     }
 
     @FXML
