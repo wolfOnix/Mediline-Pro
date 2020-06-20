@@ -14,7 +14,11 @@ import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import onix.mediline.accounts.exceptions.CompleteAllFields;
+import onix.mediline.accounts.exceptions.MedIDNotFound;
+import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.MedManagement;
 import onix.mediline.accounts.management.PacManagement;
+import onix.mediline.appointments.exceptions.AppointmentAlreadyOccupied;
 import onix.mediline.appointments.exceptions.AppointmentAlreadyRequested;
 import onix.mediline.appointments.exceptions.DateTooClose;
 import onix.mediline.appointments.exceptions.TooManyAppointmentRequests;
@@ -55,13 +59,14 @@ public class PacPage2 extends PacPages implements Initializable {
             Date fullDate = Appointment.toDateFormat(dataN, HM);
             Appointment.checkDateApproach(fullDate);
             Appointment.checkTooManyAppRequests(Pac.getListaApp());
+            Appointment.checkAppointmentNotOccupied(MedManagement.searchMedID(Pac.getMedIDMedic()), fullDate);
             Pac.checkDoubleAppointment(Appointment.fromDateFormat(Appointment.toDateFormat(dataN, HM))[2], HM);
             Appointment App = new Appointment(Pac.getNume(), Pac.getPrenume(), fullDate, Pac.getEmail());
             PacManagement.addPacientApp(App, Pac);
             setMessageLabel("Cererea de programare a fost trimisă. Medicul de familie urmează să gestioneze programarea");
-        } catch (CompleteAllFields | ParseException | DateTooClose | AppointmentAlreadyRequested | TooManyAppointmentRequests e) {
+        } catch (CompleteAllFields | DateTooClose | AppointmentAlreadyRequested | AppointmentAlreadyOccupied | UserNotFound | TooManyAppointmentRequests | MedIDNotFound e) {
             super.setErrorText(e);
-        }
+        } catch (ParseException ignored) { }
     }
 
 }
