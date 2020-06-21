@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.ActivateAccountMedKey">
+
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" styleClass="title" text="ACTIVARE CONT MEDICAL" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" styleClass="mLogo" text="M" textAlignment="CENTER" textFill="#1b9665" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" styleClass="medilineLogo" text="MEDILINE" textAlignment="CENTER" textFill="#0015ff" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+        <TextField fx:id="flEmail" layoutX="52.0" layoutY="328.0" promptText="E-mail" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="48.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="299.0" styleClass="inputTitle" text="E-mail" />
+        <PasswordField fx:id="flActivationKey" layoutX="52.0" layoutY="413.0" promptText="Cheie de activare" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="48.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="385.0" styleClass="inputTitle" text="Cheie de activare" />
+
+        <Button layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonForward" prefWidth="150.0" styleClass="mainButton" text="ÎNAINTE" />
+        <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCancel" prefWidth="150.0" text="ANULARE" />
+
+        <Label fx:id="lbErrMessage" layoutY="200.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Label fx:id="lbInfoOverErr" layoutY="200.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a activa contul medical folosiți adresa dvs. de e-mail și cheia de activare primită de la administrator" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+</AnchorPane>

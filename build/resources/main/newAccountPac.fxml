@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountPac">
+
+      <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
+
+      <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE">
+         <font>
+            <Font name="Source Sans Pro Black" size="30.0" />
+         </font></Label>
+      <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+      <Label layoutY="66.0" styleClass="title" text="CREARE CONT PACIENT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   <ScrollPane layoutY="150.0" prefHeight="404.0" prefWidth="400.0" styleClass="panel" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="395.0" styleClass="panel">
+         <Label layoutX="45.0" layoutY="14.0" styleClass="inputTitle" text="Nume" />
+         <TextField fx:id="flNume" layoutX="45.0" layoutY="42.0" />
+         <Label layoutX="45.0" layoutY="92.0" styleClass="inputTitle" text="Prenume" />
+         <TextField fx:id="flPrenume" layoutX="45.0" layoutY="120.0" />
+         <Label layoutX="45.0" layoutY="170.0" styleClass="inputTitle" text="E-mail" />
+         <TextField fx:id="flEmail" layoutX="45.0" layoutY="198.0" />
+         <Label layoutX="45.0" layoutY="248.0" styleClass="inputTitle" text="Parolă" />
+         <PasswordField fx:id="flPassword" layoutX="45.0" layoutY="276.0" />
+         <Label layoutX="45.0" layoutY="326.0" styleClass="inputTitle" text="CNP" />
+         <TextField fx:id="flCNP" layoutX="45.0" layoutY="354.0" />
+         <Label layoutX="45.0" layoutY="404.0" styleClass="inputTitle" text="Adresă" />
+         <TextField fx:id="flAdresa" layoutX="45.0" layoutY="432.0" />
+         <Label layoutX="45.0" layoutY="482.0" styleClass="inputTitle" text="Oraș" />
+         <TextField fx:id="flOras" layoutX="45.0" layoutY="510.0" />
+         <Label layoutX="45.0" layoutY="560.0" styleClass="inputTitle" text="Telefon" />
+         <TextField fx:id="flTelefon" layoutX="45.0" layoutY="588.0" />
+         <Label layoutX="45.0" layoutY="638.0" styleClass="inputTitle" text="Data nașterii" />
+         <DatePicker fx:id="flData" layoutX="45.0" layoutY="666.0" />
+         <Label layoutX="220.0" layoutY="638.0" styleClass="inputTitle" text="Sexul" />
+         <ComboBox fx:id="cbSexul" layoutX="220.0" layoutY="666.0" prefHeight="40.0" prefWidth="75.0" />
+      </AnchorPane>
+   </ScrollPane>
+      <Rectangle fill="white" height="42.0" layoutY="548.0" width="400.0" />
+      <Button fx:id="btCancel" layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handlebuttonCancel" prefWidth="150.0" text="ANULARE" />
+      <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonRegistration" prefWidth="150.0" styleClass="mainButton" text="CREARE CONT" />
+      <Label fx:id="lbErrMessage" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="lbInfoOverErr" layoutY="87.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a crea un cont nou de pacient, introduceți corect datele cerute în câmpurile de mai jos" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+</AnchorPane>

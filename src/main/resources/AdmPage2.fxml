@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.AdmPage2">
+
+    <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
+
+    <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
+    <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="278.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="256.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/logout_30_wh.png" /></ImageView>
+    <Button fx:id="btLogout" layoutX="251.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="135.0" styleClass="overlayButton" />
+
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="182.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="ÎNAPOI" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="159.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/back_30_wh.png" /></ImageView>
+    <Button layoutX="148.0" layoutY="11.0" mnemonicParsing="false" onAction="#ActionAdmPg1" prefHeight="27.0" prefWidth="94.0" styleClass="overlayButton" />
+
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutY="66.0" styleClass="title" text="SOLICITĂRI DE ȘTERGERE A CONTULUI" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+    <Label fx:id="lbErrMessage" layoutY="95.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Label fx:id="lbInfo" layoutY="95.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="În cazul în care confirmați ștergerea unui cont, toate datele acestuia vor fi șterse" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Label fx:id="lbMessage" layoutY="95.0" prefHeight="75.0" prefWidth="400.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+    <TableView fx:id="tvDelRequests" layoutX="25.0" layoutY="174.0" onMouseClicked="#tvClicked" prefHeight="334.0" prefWidth="350.0">
+        <columns>
+            <TableColumn fx:id="colEmail" prefWidth="200.0" text="Email" />
+            <TableColumn fx:id="colNumeFam" prefWidth="150.0" text="Nume de familie" />
+        </columns>
+    </TableView>
+
+    <Label fx:id="lbAccType" layoutY="521.0" prefHeight="27.0" prefWidth="400.0" styleClass="neutralLabelSmall" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+    <Button layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#rejectDelAccount" prefWidth="150.0" styleClass="mainButton" text="MENȚINERE CONT" />
+    <Button layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#confirmDelAccount" prefWidth="150.0" styleClass="mainButton" text="ȘTERGERE CONT"><styleClass><String fx:value="mainButton" /><String fx:value="redButton" /></styleClass></Button>
+
+</AnchorPane>

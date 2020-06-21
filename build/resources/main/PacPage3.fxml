@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane styleClass="body-large" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.PacPage3">
+
+    <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
+
+    <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
+    <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Documentele mele medicale" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1443.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.0"><Image url="@images/logout_30_wh.png"/></ImageView>
+    <Button fx:id="btLogout" layoutX="1425.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="160.0" styleClass="overlayButton" />
+
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png"/></ImageView>
+    <Button onMouseClicked="#ActionPacPg5" layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+
+    <Pane layoutX="42.0" layoutY="229.0" prefHeight="410.0" prefWidth="300.0">
+        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="104.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_90.png" /></ImageView>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="368.0" styleClass="neutralLabel" text="Document(e)" textAlignment="CENTER" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="97.046875" />
+        <Label layoutX="4.0" layoutY="129.0" prefHeight="149.0" prefWidth="289.0" styleClass="neutralLabelSmall" text="Aici se află toate documentele pe care medicul dvs. de familie vi le-a trimis. Pentru a salva un document, apăsați pe rândul corespunzător, iar mai apoi tasta „Salvare document”" wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
+        <Label fx:id="lbNrDocs" alignment="CENTER" contentDisplay="CENTER" layoutX="128.0" layoutY="283.0" styleClass="bigNumber" text="0" textAlignment="CENTER" />
+    </Pane>
+
+    <TableView fx:id="tvMyDocs" layoutX="373.0" layoutY="209.0" onMouseClicked="#tvClicked" prefHeight="450.0" prefWidth="1170.0">
+        <columns>
+            <TableColumn fx:id="colTitlu" prefWidth="275.0" text="Titlu" />
+            <TableColumn fx:id="colTip" prefWidth="175.0" text="Tip document" />
+            <TableColumn fx:id="colContinut" prefWidth="600.0" text="Conținutul documentului" />
+            <TableColumn fx:id="colData" prefWidth="120.0" text="Data emiterii" />
+        </columns>
+    </TableView>
+
+    <Button fx:id="btSaveDoc" layoutX="1344.0" layoutY="690.0" mnemonicParsing="false" onMouseClicked="#saveDoc" prefHeight="27.0" prefWidth="192.0" styleClass="mainButton" stylesheets="@style.css" text="SALVARE DOCUMENT" />
+
+    <Label fx:id="lbErrMessage" layoutX="569.0" layoutY="656.0" prefHeight="74.0" prefWidth="760.0" styleClass="errorLabel" wrapText="true" />
+    <Label fx:id="lbMessage" layoutX="374.0" layoutY="680.0" prefHeight="50.0" prefWidth="955.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
+
+    <Pane layoutX="214.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/appointments_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRILE MELE" />
+    </Pane>
+    <Button fx:id="btPacPg1" layoutX="214.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg1" prefHeight="50.4" prefWidth="229.6" styleClass="overlayButton" />
+
+    <Pane layoutX="514.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/newappointment_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMARE NOUĂ" />
+    </Pane>
+    <Button layoutX="514.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg2" prefHeight="50.4" prefWidth="220.0" styleClass="overlayButton" />
+
+    <Pane layoutX="804.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="DOCUMENTELE MEDICALE" />
+    </Pane>
+    <Button layoutX="804.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg3" prefHeight="50.4" prefWidth="256.0" styleClass="overlayButton" />
+
+    <Pane layoutX="1130.2" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/mydoc_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="MEDICUL MEU DE FAMILIE" />
+    </Pane>
+    <Button layoutX="1130.2" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionPacPg4" prefHeight="50.4" prefWidth="255.2" styleClass="overlayButton" />
+
+</AnchorPane>

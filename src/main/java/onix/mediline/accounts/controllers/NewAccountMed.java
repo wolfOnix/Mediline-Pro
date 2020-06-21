@@ -1,0 +1,58 @@
+package onix.mediline.accounts.controllers;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import onix.mediline.accounts.exceptions.CompleteAllFields;
+import onix.mediline.accounts.exceptions.EmailAlreadyExistsException;
+import onix.mediline.accounts.exceptions.EmailNotValid;
+import onix.mediline.accounts.management.Encryption;
+import onix.mediline.accounts.management.MedManagement;
+import onix.mediline.accounts.roles.Medic;
+
+import java.io.IOException;
+
+
+public class NewAccountMed extends AdmPages {
+
+    @FXML
+    private Button btCreateAccount;
+
+    @FXML
+    private Label lbActivationKey;
+
+    @FXML
+    protected TextField flNume, flPrenume, flEmail;;
+
+    @FXML
+    void handleButtonCreateAccount (ActionEvent event) throws IOException {
+        try {
+            if (flNume.getText().length() < 2 || flPrenume.getText().length() < 2 || flEmail.getText().length() < 2)
+                throw new CompleteAllFields();
+            Encryption.checkEmailStructure(flEmail.getText());
+            Medic m = MedManagement.addMedic(flNume.getText(), flPrenume.getText(), flEmail.getText());
+            lbActivationKey.setText(m.getActivationKey());
+            Stage MedicInitialisedStage = (Stage) btCreateAccount.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("newAccountMedInitialised.fxml"));
+            Parent MedicInitialised = loader.load();
+            NewAccountMedInitialised MedInit = loader.getController();
+            MedInit.Medkey(lbActivationKey.getText());
+            Scene MedicInitialisedScene = new Scene(MedicInitialised);
+            MedicInitialisedStage.setScene(MedicInitialisedScene);
+        } catch (EmailAlreadyExistsException | EmailNotValid | CompleteAllFields e) {
+            super.setErrorText(e);
+        }
+    }
+
+    @Override
+    public void setup() {
+
+    }
+
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="onix.mediline.accounts.controllers.AdmPage2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-20T17:59:18" hostname="DESKTOP-CQTF2TD" time="0.258">
+  <properties/>
+  <testcase name="testconfirmDelAccount" classname="onix.mediline.accounts.controllers.AdmPage2Test" time="0.258"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

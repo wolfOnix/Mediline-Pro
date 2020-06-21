@@ -1,0 +1,143 @@
+package onix.mediline.accounts.controllers;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import onix.mediline.accounts.exceptions.CompleteAllFields;
+import onix.mediline.accounts.exceptions.NoRowSelected;
+import onix.mediline.accounts.exceptions.UserNotFound;
+import onix.mediline.accounts.management.PacManagement;
+import onix.mediline.accounts.management.UsersManagement;
+import onix.mediline.accounts.roles.Pacient;
+import onix.mediline.appointments.exceptions.AppointmentAlreadyOccupied;
+import onix.mediline.appointments.exceptions.DatePassed;
+import onix.mediline.appointments.management.Appointment;
+import java.net.URL;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.ResourceBundle;
+
+public class MedPage2 extends MedPages implements Initializable {
+
+    public Appointment selectedApp;
+    public boolean selected = false;
+
+    @FXML
+    private ComboBox<String> cbOra = new ComboBox<>(), cbMinut = new ComboBox<>();
+
+    @FXML
+    private DatePicker dpData;
+
+    @FXML
+     Label lbNrUnconfirmedApps;
+
+    @FXML
+    public TableView<Appointment> tvUnconfirmedApps;
+
+    @FXML
+    public TableColumn<Appointment, String> colDate;
+    @FXML
+    public TableColumn<Appointment, String> colHM;
+    @FXML
+    public TableColumn<Appointment, String> colPatient;
+
+    ObservableList<String> lHR = FXCollections.observableArrayList("08", "09" , "10" , "11" , "12" , "13" , "14" , "15" , "16" , "17" , "18" , "19" , "20" , "21" );
+    ObservableList<String> lMN = FXCollections.observableArrayList("00", "10" , "20" , "30" , "40" , "50" );
+
+    public void setup () {
+        super.setup();
+        this.fillTvUnconfirmedApps();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cbOra.setItems(lHR);
+        cbMinut.setItems(lMN);
+    }
+
+    public void fillTvUnconfirmedApps () {
+        try {
+            colDate.setCellValueFactory(new PropertyValueFactory<>("dataProgr"));
+            colHM.setCellValueFactory(new PropertyValueFactory<>("oraProgr"));
+            colPatient.setCellValueFactory(new PropertyValueFactory<>("numePrenumePac"));
+            ObservableList<Appointment> data = FXCollections.observableArrayList(Med.retrieveApps());
+            ObservableList<Appointment> unconfirmedApps = FXCollections.observableArrayList();
+            Date now = new Date();
+            for (Appointment i : data)
+                if (i.getStareProgr().equals(Appointment.getAppointmentStates()[0]) && i.getComplexDate().getTime() > now.getTime())
+                    unconfirmedApps.add(i);
+            tvUnconfirmedApps.setItems(unconfirmedApps);
+            lbNrUnconfirmedApps.setText("" + unconfirmedApps.size());
+        } catch (UserNotFound ignored) { }
+    }
+
+    @FXML
+    void tvClicked (MouseEvent event) {
+        selectedApp = tvUnconfirmedApps.getSelectionModel().getSelectedItem();
+        selected = true;
+    }
+
+    public void confirmApp() {
+        try {
+            if (!selected || selectedApp == null)
+                throw new NoRowSelected();
+            Appointment.checkAppointmentNotOccupied(Med, selectedApp.getComplexDate());
+            Appointment oldApp = selectedApp;
+            selectedApp.setStareProgr(Appointment.getAppointmentStates()[1]);
+            Pacient p = (Pacient) UsersManagement.searchUser(selectedApp.getEmailPac(), 3);
+            PacManagement.updateApp(oldApp, selectedApp, p);
+            setMessageLabel("Programarea a fost confirmată");
+            this.fillTvUnconfirmedApps();
+        }  catch (NoRowSelected | UserNotFound | AppointmentAlreadyOccupied e) {
+            super.setErrorText(e);
+        }
+    }
+
+    public void modifyApp(MouseEvent event) {
+        try {
+            if (!selected || selectedApp == null)
+                throw new NoRowSelected();
+            String dataN = String.valueOf(dpData.getValue());
+            String oraN = String.valueOf(cbOra.getValue());
+            String minutN = String.valueOf(cbMinut.getValue());
+            checkFieldLength(dataN);
+            checkFieldLength(oraN);
+            checkFieldLength(minutN);
+            String HM = oraN + ":" + minutN;
+            Date fullDate = Appointment.toDateFormat(dataN, HM);
+            Appointment.checkDateNotPast(fullDate);
+            Appointment.checkAppointmentNotOccupied(Med, fullDate);
+            Appointment oldApp = selectedApp;
+            selectedApp.setComplexDate(fullDate);
+            selectedApp.setStareProgr(Appointment.getAppointmentStates()[2]);
+            Pacient p = (Pacient) UsersManagement.searchUser(selectedApp.getEmailPac(), 3);
+            PacManagement.updateApp(oldApp, selectedApp, p);
+            setMessageLabel("Programarea a fost modificată și confirmată");
+            this.fillTvUnconfirmedApps();
+        }  catch (NoRowSelected | UserNotFound | CompleteAllFields | ParseException | DatePassed | AppointmentAlreadyOccupied e) {
+            super.setErrorText(e);
+        }
+    }
+
+    public void cancelApp(MouseEvent event) {
+        try {
+            if (!selected  || selectedApp == null)
+                throw new NoRowSelected();
+            Appointment oldApp = selectedApp;
+            selectedApp.setStareProgr(Appointment.getAppointmentStates()[3]);
+            Pacient p = (Pacient) UsersManagement.searchUser(selectedApp.getEmailPac(), 3);
+            PacManagement.updateApp(oldApp, selectedApp, p);
+            setMessageLabel("Programarea a fost anulată");
+            selected = false;
+            selectedApp = null;
+            this.fillTvUnconfirmedApps();
+        }  catch (NoRowSelected | UserNotFound e) {
+            super.setErrorText(e);
+        }
+    }
+
+}

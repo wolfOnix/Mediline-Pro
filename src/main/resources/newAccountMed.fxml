@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.NewAccountMed">
+
+        <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
+        <Label layoutX="18.0" layoutY="5.0" styleClass="mLogoMin" text="M" textFill="WHITE"><font><Font name="Source Sans Pro Black" size="30.0" /></font></Label>
+        <Rectangle arcWidth="5.0" fill="WHITE" height="6.0" layoutX="18.0" layoutY="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="24.0" />
+
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="66.0" styleClass="title" text="CREARE CONT MEDICAL" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="278.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="256.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/logout_30_wh.png" /></ImageView>
+        <Button fx:id="btLogout" layoutX="251.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="135.0" styleClass="overlayButton" />
+
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="182.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="ÎNAPOI" textAlignment="RIGHT" />
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="159.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/back_30_wh.png" /></ImageView>
+        <Button layoutX="148.0" layoutY="11.0" mnemonicParsing="false" onAction="#ActionAdmPg1" prefHeight="27.0" prefWidth="94.0" styleClass="overlayButton" />
+
+        <Button fx:id="btCreateAccount" layoutX="210.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonCreateAccount" prefWidth="150.0" styleClass="mainButton" text="CREARE CONT" />
+
+        <Label layoutX="50.0" layoutY="203.0" styleClass="inputTitle" text="Numele de familie al medicului" />
+        <TextField fx:id="flNume" layoutX="50.0" layoutY="231.0" />
+        <Label layoutX="50.0" layoutY="281.0" styleClass="inputTitle" text="Prenumele medicului" />
+        <TextField fx:id="flPrenume" layoutX="50.0" layoutY="309.0" />
+        <Label layoutX="50.0" layoutY="359.0" styleClass="inputTitle" text="Adresa de e-mail a medicului" />
+        <TextField fx:id="flEmail" layoutX="50.0" layoutY="387.0" />
+        <Label layoutX="50.0" layoutY="437.0" styleClass="inputTitle" text="Cheia de activare a contului" />
+        <Label fx:id="lbActivationKey" layoutX="50.0" layoutY="465.0" styleClass="text-field" text="Cheia va fi generată la crearea contului" />
+
+        <Label fx:id="lbErrMessage" layoutY="100.0" prefHeight="75.0" prefWidth="400.0" styleClass="errorLabel" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Label fx:id="lbMessage" layoutY="100.0" prefHeight="75.0" prefWidth="400.0" styleClass="neutralLabelSmall" text="Pentru a crea un cont nou medical, introduceți corect datele cerute în câmpurile de mai jos. Copiați și transmiteți cheia de activare medicului de familie!" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+</AnchorPane>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane styleClass="body-large" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onix.mediline.accounts.controllers.MedPage4">
+    <Rectangle arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gradientPad" width="1600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"><fill><LinearGradient><stops><Stop><color><Color red="0.5372549295425415" green="0.38823530077934265" blue="0.729411780834198" /></color></Stop><Stop offset="1.0"><color><Color red="1.0" green="0.6431372761726379" /></color></Stop></stops></LinearGradient></fill></Rectangle>
+
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1292.0" layoutY="75.0" styleClass="categoryTitle" text="Pacienții mei" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1443.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="DECONECTARE" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1550.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="30.0"><Image url="@images/logout_30_wh.png"/></ImageView>
+    <Button fx:id="btLogout" layoutX="1425.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleBtLogout" prefHeight="27.0" prefWidth="160.0" styleClass="overlayButton" />
+
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1336.0" layoutY="14.0" style="-fx-text-fill: white;" styleClass="menuButton" text="CONT" textAlignment="RIGHT" />
+    <ImageView fitHeight="20.0" fitWidth="87.0" layoutX="1384.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="196.0"><Image url="@images/account_30.png"/></ImageView>
+    <Button onMouseClicked="#ActionMedPg5" layoutX="1322.0" layoutY="12.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" styleClass="overlayButton" />
+
+    <Pane layoutX="64.0" layoutY="209.0" prefHeight="290.0" prefWidth="382.0">
+        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="147.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/patients_90.png"/></ImageView>
+        <Label layoutX="4.0" layoutY="129.0" prefHeight="142.0" prefWidth="375.0" styleClass="neutralLabelSmall" text="Aceștia sunt pacienții care vă au ca medic de familie. Pentru ca și alți pacienți să vă adauge ca medic de familie în aplicație, trebuie să le oferiți MedID-ul dvs. Pentru a vedea datele unui pacient, apăsați rândul său din tabel." wrapText="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="3.0" />
+    </Pane>
+
+    <TableView fx:id="tvMyPac" layoutX="1060.0" layoutY="207.0" onMouseClicked="#tvClicked" prefHeight="450.0" prefWidth="500.0">
+        <columns>
+            <TableColumn fx:id="colNume" prefWidth="200.0" text="Nume" />
+            <TableColumn fx:id="colPrenume" prefWidth="300.0" text="Prenume" />
+        </columns>
+    </TableView>
+
+    <Label layoutX="200.0" layoutY="522.0" styleClass="inputTitle" text="MedID-ul meu" />
+    <Label fx:id="lbMedID" alignment="CENTER" layoutX="208.0" layoutY="550.0" style="-fx-pref-width: 100; -fx-background-color: #ffa400; -fx-border-color: #ffa400; -fx-text-fill: black;" styleClass="staticLabel" text="(MedID)"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="521.0" layoutY="257.0" prefHeight="38.0" prefWidth="471.0" styleClass="neutralLabel" text="Date despre pacient" textAlignment="CENTER" AnchorPane.leftAnchor="521.0" AnchorPane.rightAnchor="608.0" />
+
+    <Label layoutX="493.0" layoutY="328.0" styleClass="inputTitle" text="Telefon" />
+    <Label fx:id="lbTelefon" layoutX="493.0" layoutY="356.0" style="-fx-pref-width: 200;"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label layoutX="493.0" layoutY="415.0" styleClass="inputTitle" text="Oraș" />
+    <Label fx:id="lbOras" layoutX="493.0" layoutY="443.0" style="-fx-pref-width: 200;" styleClass="staticLabel"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label layoutX="493.0" layoutY="500.0" styleClass="inputTitle" text="Data nașterii" />
+    <Label fx:id="lbData" layoutX="493.0" layoutY="528.0" style="-fx-pref-width: 130;" styleClass="staticLabel"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label layoutX="723.0" layoutY="328.0" styleClass="inputTitle" text="Adresă de e-mail" />
+    <Label fx:id="lbEmail" layoutX="723.0" layoutY="356.0" style="-fx-pref-width: 300;" styleClass="staticLabel"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label layoutX="723.0" layoutY="415.0" styleClass="inputTitle" text="Adresă" />
+    <Label fx:id="lbAdresa" layoutX="723.0" layoutY="443.0" styleClass="staticLabel"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label layoutX="654.0" layoutY="500.0" styleClass="inputTitle" text="Sexul" />
+    <Label fx:id="lbSexul" layoutX="653.0" layoutY="528.0" prefWidth="20.0" style="-fx-pref-width: 40;"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label layoutX="723.0" layoutY="500.0" styleClass="inputTitle" text="CNP" />
+    <Label fx:id="lbCNP" layoutX="723.0" layoutY="528.0"><styleClass><String fx:value="text-field" /><String fx:value="staticLabel" /></styleClass></Label>
+
+    <Label fx:id="lbErrMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" styleClass="errorLabel" wrapText="true" />
+    <Label fx:id="lbMessage" layoutX="1015.0" layoutY="606.0" prefHeight="104.0" prefWidth="419.0" style="-fx-text-fill: #1bff4c;" styleClass="errorLabel" wrapText="true" />
+
+    <Label fx:id="lbCurrentDate" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1462.0" layoutY="85.0" styleClass="neutralLabelSmall" text="DD.MM.YYYY" textAlignment="RIGHT" />
+
+    <Pane layoutX="247" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/today_appointments_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="AGENDĂ" />
+    </Pane>
+    <Button fx:id="btMedPg1" layoutX="247" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg1" prefHeight="50.4" prefWidth="137.6" styleClass="overlayButton" />
+
+    <Pane layoutX="446.6" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/add_appointment_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PROGRAMĂRI ÎN AȘTEPTARE" />
+    </Pane>
+    <Button layoutX="446.6" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg2" prefHeight="50.4" prefWidth="272.8" styleClass="overlayButton" />
+
+    <Pane layoutX="789.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/documents_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="TRIMITERE DOCUMENTE MEDICALE" />
+    </Pane>
+    <Button layoutX="789.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg3" prefHeight="50.4" prefWidth="316" styleClass="overlayButton" />
+
+    <Pane layoutX="1175.4" layoutY="735.0" prefHeight="50.0" styleClass="menuContainer">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true"><Image url="@images/patients_30.png" /></ImageView>
+        <Label layoutX="60.0" layoutY="15.0" styleClass="menuButton" text="PACIENȚII MEI" />
+    </Pane>
+    <Button layoutX="1175.4" layoutY="735.0" mnemonicParsing="false" onMouseClicked="#ActionMedPg4" prefHeight="50.4" prefWidth="177.6" styleClass="overlayButton" />
+
+</AnchorPane>
